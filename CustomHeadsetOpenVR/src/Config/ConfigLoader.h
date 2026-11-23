@@ -114,3 +114,30 @@ inline bool IsCustomShaderEnabled(){
 	}
 	return false;
 }
+
+// The local dimming block for the connected headset, or null when the connected headset has no such block.
+// The block is only on Config::PimaxHeadsetConfig, so the cast below is safe for exactly the headsets
+// IsPimaxHeadset names, and nothing for any other headset.
+inline Config::PimaxHeadsetConfig* LocalDimmingConfigForConnectedHeadset(){
+	if(!Config::IsPimaxHeadset(driverConfigLoader.info.connectedHeadset)){
+		return nullptr;
+	}
+	Config::BaseHeadsetConfig* headset = driverConfig.ConfigFromHeadsetType(driverConfigLoader.info.connectedHeadset);
+	if(headset == nullptr){
+		return nullptr;
+	}
+	return static_cast<Config::PimaxHeadsetConfig*>(headset);
+}
+
+// check if local dimming is enabled for the connected headset. This reads the connected headset's own
+// section rather than naming a device, because the setting has to be read from the headset that is actually
+// running. The Crystal family is the only one that has an addressable backlight, so in practice this is the
+// Crystal Light's block: the other Pimax sections carry the field because it is on the shared config class,
+// and a run on one of them reads a setting that the hardware has nothing to apply it to.
+inline bool IsLocalDimmingEnabled(){
+	Config::PimaxHeadsetConfig* headset = LocalDimmingConfigForConnectedHeadset();
+	if(headset == nullptr){
+		return false;
+	}
+	return headset->localDimming.enable;
+}

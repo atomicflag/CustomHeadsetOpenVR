@@ -229,7 +229,7 @@ void CustomHeadsetDeviceProvider::RunFrame(){
 				driverConfigLoader.WriteInfo();
 			}
 		}
-		if(vrevent.eventType == vr::VREvent_ProcessConnected && customShaderEnabled){
+		if(vrevent.eventType == vr::VREvent_ProcessConnected && compositorPluginInjected){
 			// check new processes and inject if they are the compositor
 			InjectCompositorPlugin(vrevent.data.process.pid);
 		}
@@ -242,10 +242,12 @@ void CustomHeadsetDeviceProvider::RunFrame(){
 			shim->RunFrame();
 		}
 	}
-	if(!customShaderEnabled && IsCustomShaderEnabled()){
-		// try to inject when it is first enabled
+	if(!compositorPluginInjected && LocalDimming::ShouldInjectCompositorPlugin(IsCustomShaderEnabled(), IsLocalDimmingEnabled())){
+		// try to inject when either feature is first seen on. Local dimming needs the injected process even
+		// when the shader feature is off, because the capture hook that reads the compositor image runs in
+		// that process and not in vrserver.
 		InjectCompositorPlugin();
-		customShaderEnabled = true;
+		compositorPluginInjected = true;
 	}
 	eyeTrackingOutput.RunFrame();
 	

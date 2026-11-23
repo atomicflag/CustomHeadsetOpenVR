@@ -58,6 +58,8 @@ private:
 	};
 	// events that are waiting for a context to be found
 	std::map<uint32_t, std::vector<QueuedEvent>> queuedEvents = {};
-	bool customShaderEnabled = false;
+	// set once the DLL has been injected into vrcompositor. Both the shader feature and the local dimming
+	// capture need the injected process, so this names the injection rather than one of the two features.
+	bool compositorPluginInjected = false;
 	double lastHeadsetProvideTime = 0;
 };

@@ -75,6 +75,18 @@
     <ClInclude Include="src\Helpers\PimaxCamera.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Helpers\LocalDimming.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Helpers\LocalDimmingRunner.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Helpers\LocalDimmingCapture.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Helpers\PimaxLocalDimming.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
     <ClInclude Include="src\Config\Config.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -207,6 +219,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Helpers\ShaderDecode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Helpers\LocalDimming.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Helpers\LocalDimmingRunner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Helpers\LocalDimmingCapture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Helpers\PimaxLocalDimming.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Headsets\NotConnectedPlaceholder.cpp">

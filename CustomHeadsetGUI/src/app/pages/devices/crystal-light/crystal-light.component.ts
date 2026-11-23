@@ -3,11 +3,12 @@ import { CrystalLightConfig, HeadsetType } from '../../../services/JsonFileDefin
 import { HeadsetSettingsComponent, HeadsetSettingsConfig } from '../headset-settings/headset-settings.component';
 import { PimaxLauncherComponent } from '../pimax-launcher/pimax-launcher.component';
 import { PimaxSlamSettingsComponent } from '../pimax-slam-settings/pimax-slam-settings.component';
+import { LocalDimmingSettingsComponent } from '../local-dimming-settings/local-dimming-settings.component';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-crystal-light',
-  imports: [HeadsetSettingsComponent, PimaxLauncherComponent, PimaxSlamSettingsComponent, MatIconModule],
+  imports: [HeadsetSettingsComponent, PimaxLauncherComponent, PimaxSlamSettingsComponent, LocalDimmingSettingsComponent, MatIconModule],
   templateUrl: './crystal-light.component.html',
   styleUrl: './crystal-light.component.scss'
 })

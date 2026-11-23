@@ -41,6 +41,30 @@ export type StationaryDimmingConfig = {
   dimSeconds: number,
   brightenSeconds: number
 }
+export type LocalDimmingConfig = {
+  enable: boolean,
+  gridWidth: number,
+  gridHeight: number,
+  zoneOrder: string,
+  gamma: number,
+  blackLevel: number,
+  maxZoneValue: number,
+  sendIntervalMs: number,
+  dimmingLevel: number,
+  useTestPattern: boolean,
+  testPatternGrey: number,
+  testPatternRamp: boolean,
+  testPatternMode: string,
+  hidInterface: number,
+  hidNode: string,
+  entitlementRecord: number,
+  sendEntitlement: boolean,
+  probeNodes: boolean,
+  useDataHeader: boolean,
+  dataKind: number,
+  useBigReport: boolean,
+  dataFlags: number
+}
 export type HiddenAreaMeshConfig = {
   enable: boolean;
   testMode: boolean;
@@ -176,7 +200,8 @@ export type CrystalSuperMicroOLEDConfig = BaseHeadsetConfig & {
 };
 
 export type CrystalLightConfig = BaseHeadsetConfig & {
-  // CrystalLight-specific fields can be added here if needed
+  // Per zone backlight, only implemented for the Crystal Light
+  localDimming: LocalDimmingConfig;
 };
 
 export type CrystalOGConfig = BaseHeadsetConfig & {

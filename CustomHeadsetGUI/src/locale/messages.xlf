@@ -5,11 +5,20 @@
       <trans-unit id="1726363342938046830" datatype="html">
         <source>About</source>
       </trans-unit>
+      <trans-unit id="5289886362173436722" datatype="html">
+        <source>Driver Settings</source>
+      </trans-unit>
       <trans-unit id="7944521161821675937" datatype="html">
         <source>Distortion Profile</source>
       </trans-unit>
       <trans-unit id="7994506939670314559" datatype="html">
         <source>App Settings</source>
+      </trans-unit>
+      <trans-unit id="9046269317735820443" datatype="html">
+        <source>Custom Headset</source>
+      </trans-unit>
+      <trans-unit id="2172463870875172967" datatype="html">
+        <source>Pimax Native Headset</source>
       </trans-unit>
       <trans-unit id="2159130950882492111" datatype="html">
         <source>Cancel</source>
@@ -29,8 +38,80 @@
       <trans-unit id="8491984279391991305" datatype="html">
         <source>(Up to date)</source>
       </trans-unit>
+      <trans-unit id="5731189063272671574" datatype="html">
+        <source>Installed Driver Version</source>
+      </trans-unit>
+      <trans-unit id="470261502393586030" datatype="html">
+        <source>Uninstall Driver</source>
+      </trans-unit>
+      <trans-unit id="5696123826602687537" datatype="html">
+        <source>Install <x id="INTERPOLATION" equiv-text="{{updateInfo.currentVersion}}"/></source>
+      </trans-unit>
+      <trans-unit id="3051991385923492490" datatype="html">
+        <source>Not installed</source>
+      </trans-unit>
+      <trans-unit id="6082171864197428613" datatype="html">
+        <source>Install</source>
+      </trans-unit>
+      <trans-unit id="1507100678943453495" datatype="html">
+        <source>Last Run Driver Version</source>
+      </trans-unit>
+      <trans-unit id="4047643863189720714" datatype="html">
+        <source>Launch SteamVR</source>
+      </trans-unit>
+      <trans-unit id="238553294014386856" datatype="html">
+        <source>Re-Install Driver</source>
+      </trans-unit>
+      <trans-unit id="5452742868722563179" datatype="html">
+        <source>Restart Compositor</source>
+      </trans-unit>
+      <trans-unit id="2820798961629882057" datatype="html">
+        <source>Restarting the compositor can fix some issues and allows changing various settings like refresh rate without restarting SteamVR or the game.</source>
+      </trans-unit>
+      <trans-unit id="4131031938144074766" datatype="html">
+        <source>Enable Driver</source>
+      </trans-unit>
+      <trans-unit id="7565716024468232322" datatype="html">
+        <source>Links</source>
+      </trans-unit>
+      <trans-unit id="3344714277062496986" datatype="html">
+        <source>Updates, Source Code, and Documentation</source>
+      </trans-unit>
       <trans-unit id="6915767768628367173" datatype="html">
         <source>Github Page</source>
+      </trans-unit>
+      <trans-unit id="48399273127175183" datatype="html">
+        <source>github.com/sboys3/CustomHeadsetOpenVR</source>
+      </trans-unit>
+      <trans-unit id="108697143877199110" datatype="html">
+        <source> Donation Links </source>
+      </trans-unit>
+      <trans-unit id="9049291618807267906" datatype="html">
+        <source>Patreon</source>
+      </trans-unit>
+      <trans-unit id="2382586004651960438" datatype="html">
+        <source>Ko-fi</source>
+      </trans-unit>
+      <trans-unit id="2124172998294424662" datatype="html">
+        <source> Affiliate Links </source>
+      </trans-unit>
+      <trans-unit id="3076617424804562566" datatype="html">
+        <source>Pimax</source>
+      </trans-unit>
+      <trans-unit id="2878875963830731582" datatype="html">
+        <source>$25 Off</source>
+      </trans-unit>
+      <trans-unit id="4422662750836022649" datatype="html">
+        <source>Install success</source>
+      </trans-unit>
+      <trans-unit id="651025109543030819" datatype="html">
+        <source>please launch SteamVR to finish the installation</source>
+      </trans-unit>
+      <trans-unit id="2765285220153750975" datatype="html">
+        <source>Uninstall success</source>
+      </trans-unit>
+      <trans-unit id="6933733092575281171" datatype="html">
+        <source>Successfully uninstalled the driver</source>
       </trans-unit>
       <trans-unit id="3656080382305974312" datatype="html">
         <source>Color Scheme</source>
@@ -44,6 +125,54 @@
       <trans-unit id="413116577994876478" datatype="html">
         <source>Light</source>
       </trans-unit>
+      <trans-unit id="2076690846872156228" datatype="html">
+        <source>EVO</source>
+      </trans-unit>
+      <trans-unit id="6866446009305101185" datatype="html">
+        <source>Default Settings Tab</source>
+      </trans-unit>
+      <trans-unit id="2614717696232380606" datatype="html">
+        <source>Auto (based on headset)</source>
+      </trans-unit>
+      <trans-unit id="6439365426343089851" datatype="html">
+        <source>General</source>
+      </trans-unit>
+      <trans-unit id="2088381581994595582" datatype="html">
+        <source>MeganeX8K</source>
+      </trans-unit>
+      <trans-unit id="7582797498140593002" datatype="html">
+        <source>Dream Air</source>
+      </trans-unit>
+      <trans-unit id="3497297873851122076" datatype="html">
+        <source>Dream Air SE</source>
+      </trans-unit>
+      <trans-unit id="2528634145743035780" datatype="html">
+        <source>Crystal Super Micro-OLED</source>
+      </trans-unit>
+      <trans-unit id="8239175306569984130" datatype="html">
+        <source>Crystal Super 50PPD</source>
+      </trans-unit>
+      <trans-unit id="6076868542797801304" datatype="html">
+        <source>Crystal Super Ultrawide</source>
+      </trans-unit>
+      <trans-unit id="1444976500417579937" datatype="html">
+        <source>Crystal Light</source>
+      </trans-unit>
+      <trans-unit id="8570801569116783676" datatype="html">
+        <source>Crystal OG</source>
+      </trans-unit>
+      <trans-unit id="4267294688133259873" datatype="html">
+        <source>Pimax 8K Series</source>
+      </trans-unit>
+      <trans-unit id="3603873143323024943" datatype="html">
+        <source>Pimax 5K Series</source>
+      </trans-unit>
+      <trans-unit id="4406343754735407007" datatype="html">
+        <source>Pimax Artisan</source>
+      </trans-unit>
+      <trans-unit id="3119794609322363234" datatype="html">
+        <source>Advanced Mode</source>
+      </trans-unit>
       <trans-unit id="5537197768139679727" datatype="html">
         <source>Update Mode</source>
       </trans-unit>
@@ -53,11 +182,388 @@
       <trans-unit id="5590001862286989245" datatype="html">
         <source>Rewrite</source>
       </trans-unit>
-      <trans-unit id="3119794609322363234" datatype="html">
-        <source>Advanced Mode</source>
+      <trans-unit id="3183576075501626210" datatype="html">
+        <source>Installation Method</source>
       </trans-unit>
-      <trans-unit id="3303629114160653296" datatype="html">
-        <source>Enable MeganeX 8K Driver</source>
+      <trans-unit id="616064537937996961" datatype="html">
+        <source>Auto</source>
+      </trans-unit>
+      <trans-unit id="3301086086650990787" datatype="html">
+        <source>Register</source>
+      </trans-unit>
+      <trans-unit id="4323470180912194028" datatype="html">
+        <source>Copy</source>
+      </trans-unit>
+      <trans-unit id="1440423095101259239" datatype="html">
+        <source>Show Incompatible Profiles</source>
+      </trans-unit>
+      <trans-unit id="4339149983346610289" datatype="html">
+        <source>The distortion profiles are not perfect for the Crystal Light.</source>
+      </trans-unit>
+      <trans-unit id="7349891644969529188" datatype="html">
+        <source>Enable Crystal Light Driver</source>
+      </trans-unit>
+      <trans-unit id="1442423766206199966" datatype="html">
+        <source>When enabled, the Custom Headset driver will run the Pimax Crystal Light.</source>
+      </trans-unit>
+      <trans-unit id="8242705724014165192" datatype="html">
+        <source>The resolution to run the DisplayPort connection at.</source>
+      </trans-unit>
+      <trans-unit id="2886905340153306704" datatype="html">
+        <source>The inter pupillary distance of the virtual cameras in SteamVR applications. This IPD should be matched with what you set for the headset&apos;s physical IPD to get the correct world scale.</source>
+      </trans-unit>
+      <trans-unit id="3784759316646499385" datatype="html">
+        <source>The distortion profiles are not perfect for the Crystal OG.</source>
+      </trans-unit>
+      <trans-unit id="842573220217673343" datatype="html">
+        <source>Enable Crystal OG Driver</source>
+      </trans-unit>
+      <trans-unit id="3173198199484308629" datatype="html">
+        <source>When enabled, the Custom Headset driver will run the Pimax Crystal OG.</source>
+      </trans-unit>
+      <trans-unit id="8550501794809469945" datatype="html">
+        <source>The distortion profiles are not perfect for the Crystal Super 50PPD.</source>
+      </trans-unit>
+      <trans-unit id="5278694125626772233" datatype="html">
+        <source>Enable Crystal Super 50PPD Driver</source>
+      </trans-unit>
+      <trans-unit id="3745576460676610887" datatype="html">
+        <source>When enabled, the Custom Headset driver will run the Pimax Crystal Super 50PPD.</source>
+      </trans-unit>
+      <trans-unit id="5813078469100824440" datatype="html">
+        <source>The distortion profiles are not perfect for the Crystal Super 57PPD.</source>
+      </trans-unit>
+      <trans-unit id="2241379331477941291" datatype="html">
+        <source>The distortion profiles are completely wrong for the Crystal Super 57PPD.</source>
+      </trans-unit>
+      <trans-unit id="4639929824036002809" datatype="html">
+        <source>Enable Crystal Super 57PPD Driver</source>
+      </trans-unit>
+      <trans-unit id="6726128090194891966" datatype="html">
+        <source>When enabled, the Custom Headset driver will run the Pimax Crystal Super 57PPD.</source>
+      </trans-unit>
+      <trans-unit id="4716836654433158871" datatype="html">
+        <source>Enable Crystal Super Micro-OLED Driver</source>
+      </trans-unit>
+      <trans-unit id="8275926961618859272" datatype="html">
+        <source>When enabled, the Custom Headset driver will run the Pimax Crystal Super Micro-OLED.</source>
+      </trans-unit>
+      <trans-unit id="7947730347996710606" datatype="html">
+        <source>The distortion profiles are not perfect for the Crystal Super Ultrawide.</source>
+      </trans-unit>
+      <trans-unit id="3481337201638513896" datatype="html">
+        <source>The distortion profiles are somewhat wrong for the Crystal Super Ultrawide.</source>
+      </trans-unit>
+      <trans-unit id="2360323217778444811" datatype="html">
+        <source>Enable Crystal Super Ultrawide Driver</source>
+      </trans-unit>
+      <trans-unit id="2137118792958394325" datatype="html">
+        <source>When enabled, the Custom Headset driver will run the Pimax Crystal Super Ultrawide.</source>
+      </trans-unit>
+      <trans-unit id="946680823892645707" datatype="html">
+        <source>Enable Dream Air SE Driver</source>
+      </trans-unit>
+      <trans-unit id="7773941244044015825" datatype="html">
+        <source>When enabled, the Custom Headset driver will run the Pimax Dream Air SE.</source>
+      </trans-unit>
+      <trans-unit id="1067866594366598865" datatype="html">
+        <source>Enable Dream Air Driver</source>
+      </trans-unit>
+      <trans-unit id="606988768018169130" datatype="html">
+        <source>When enabled, the Custom Headset driver will run the Pimax Dream Air.</source>
+      </trans-unit>
+      <trans-unit id="2831644384120596450" datatype="html">
+        <source>Custom Shader</source>
+      </trans-unit>
+      <trans-unit id="2251105634900060826" datatype="html">
+        <source>Replaces the distortion shader in SteamVR&apos;s compositor with a custom one that allows for more customization. This can work with any headset that directly uses SteamVR&apos;s compositor. Click for more information.</source>
+      </trans-unit>
+      <trans-unit id="4717955562496113560" datatype="html">
+        <source>Enable Custom Shader</source>
+      </trans-unit>
+      <trans-unit id="7634542220919712546" datatype="html">
+        <source>Enables the custom shader. This will replace shaders in SteamVR.</source>
+      </trans-unit>
+      <trans-unit id="6545003957463909662" datatype="html">
+        <source>Check driver update and launch SteamVR</source>
+      </trans-unit>
+      <trans-unit id="5233274972558690878" datatype="html">
+        <source>This custom shader has the possibility to completely break SteamVR while enabled after a future SteamVR update. Disable it if you have issues or compatibility problems.</source>
+      </trans-unit>
+      <trans-unit id="6717304138460300521" datatype="html">
+        <source>Enable for Other Native HMDs</source>
+      </trans-unit>
+      <trans-unit id="5052404124223641771" datatype="html">
+        <source>Enables the custom shader for all other native HMDs that don&apos;t have specific toggles at the bottom. This includes all native SteamVR headsets like the Index, Vive, BSB, etc. Non-native SteamVR headsets like the Quest, Pimax, etc will not work.</source>
+      </trans-unit>
+      <trans-unit id="6907320896515802256" datatype="html">
+        <source>The custom shader is not enabled for the current headset.</source>
+      </trans-unit>
+      <trans-unit id="8829497237648100098" datatype="html">
+        <source>Filter</source>
+      </trans-unit>
+      <trans-unit id="8740052564073898510" datatype="html">
+        <source>The sampling filter to use for the custom shader. These filters are one of the best ways to increase image quality in this driver. The default is the standard linear filter, but other options may increase sharpness or reduce aliasing. However these filters increase GPU memory bandwidth usage. Click for more information.</source>
+      </trans-unit>
+      <trans-unit id="9128435957530270398" datatype="html">
+        <source>Start SteamVR with the new driver to see new settings.</source>
+      </trans-unit>
+      <trans-unit id="2490288831053996036" datatype="html">
+        <source>FXAA2 Sharpen Strength</source>
+      </trans-unit>
+      <trans-unit id="6726288189272950602" datatype="html">
+        <source>Strength of the FXAA2 sharpening effect. Higher values produce more sharpening.</source>
+      </trans-unit>
+      <trans-unit id="4231987725628572123" datatype="html">
+        <source>FXAA2 Sharpen Clamp</source>
+      </trans-unit>
+      <trans-unit id="6419211388774975848" datatype="html">
+        <source>Limits maximum amount of sharpening a pixel receives. Lower values reduce artifacts at the cost of some sharpness.</source>
+      </trans-unit>
+      <trans-unit id="8099751105392814915" datatype="html">
+        <source>FXAA2 CAS Strength</source>
+      </trans-unit>
+      <trans-unit id="32490824642298852" datatype="html">
+        <source>Strength of the FXAA 2CAS sharpening effect. Higher values produce more sharpening.</source>
+      </trans-unit>
+      <trans-unit id="5470658539933989942" datatype="html">
+        <source>FXAA2 CAS Contrast</source>
+      </trans-unit>
+      <trans-unit id="6743164523482590482" datatype="html">
+        <source>Contrast of the FXAA2 CAS sharpening effect. Higher values increase the sharpness of the image.</source>
+      </trans-unit>
+      <trans-unit id="5057861628768897438" datatype="html">
+        <source>Luma Sharpen Strength</source>
+      </trans-unit>
+      <trans-unit id="1702332711364907551" datatype="html">
+        <source>Strength of the sharpening effect. Higher values produce more sharpening.</source>
+      </trans-unit>
+      <trans-unit id="5943953416252309713" datatype="html">
+        <source>Luma Sharpen Clamp</source>
+      </trans-unit>
+      <trans-unit id="943448628013046188" datatype="html">
+        <source>Luma Sharpen Pattern</source>
+      </trans-unit>
+      <trans-unit id="4944344393444797399" datatype="html">
+        <source>The sample pattern to use for the sharpening effect. Different patterns produce slightly different results.</source>
+      </trans-unit>
+      <trans-unit id="4741383493660686438" datatype="html">
+        <source>Luma Sharpen Radius</source>
+      </trans-unit>
+      <trans-unit id="3490519526111686072" datatype="html">
+        <source>Radius of the sampling pattern. Higher values produce a wider effect. 1.0 is best in most cases, but higher values may help some blurry content.</source>
+      </trans-unit>
+      <trans-unit id="3862931790033488343" datatype="html">
+        <source>CAS Strength</source>
+      </trans-unit>
+      <trans-unit id="8789560629923838358" datatype="html">
+        <source>The strength of the CAS filter. Higher values produce a sharper image.</source>
+      </trans-unit>
+      <trans-unit id="395732623785174359" datatype="html">
+        <source>CAS Contrast</source>
+      </trans-unit>
+      <trans-unit id="1293383617858674656" datatype="html">
+        <source>The contrast of the CAS filter. Higher values increase the sharpness of the image.</source>
+      </trans-unit>
+      <trans-unit id="5494386100742939841" datatype="html">
+        <source>Filter Horizontal Percentage</source>
+      </trans-unit>
+      <trans-unit id="3571439417441171011" datatype="html">
+        <source>Percentage of the image width that the filter is applied to. Values below 100 crop the filtered region to that size in the center of the image. This can increase performance by restricting intensive filters to only part of the image.</source>
+      </trans-unit>
+      <trans-unit id="5406540029502984953" datatype="html">
+        <source>Filter Vertical Percentage</source>
+      </trans-unit>
+      <trans-unit id="3684679486761664240" datatype="html">
+        <source>Percentage of the image height that the filter is applied to. Values below 100 crop the filtered region to that size in the center of the screen. This can increase performance by restricting intensive filters to only part of the image.</source>
+      </trans-unit>
+      <trans-unit id="1418682465067354526" datatype="html">
+        <source>Use Filter for Overlays</source>
+      </trans-unit>
+      <trans-unit id="5212335462525071748" datatype="html">
+        <source>Enables the filters for the SteamVR menu and overlays. Enabling this has a noticeable performance impact. Even when the menu is closed and there are no overlays, there is some decrease in performance. The SteamVR background is also an overlay so the filters will have no effects outside of games when this is off.</source>
+      </trans-unit>
+      <trans-unit id="1410444841710470384" datatype="html">
+        <source>Use Filter for Dashboard</source>
+      </trans-unit>
+      <trans-unit id="4899348330292837235" datatype="html">
+        <source>Enables the filters when the SteamVR dashboard is open. This only activates when the dashboard is actually visible, so there is no performance impact when the dashboard is closed. This does cause a lag spike when opening or closing the dashboard. The driver can not detect if the menu is open at startup, so the menu will have to be re-opened for this to take effect.</source>
+      </trans-unit>
+      <trans-unit id="9099744393311106892" datatype="html">
+        <source>Contrast</source>
+      </trans-unit>
+      <trans-unit id="4398666323666535983" datatype="html">
+        <source>Adjusts the contrast of the image. When higher than 50, the colors in the image will be expanded away from the midpoint. When lower than 50, the colors in the image will be contracted towards the midpoint.</source>
+      </trans-unit>
+      <trans-unit id="2807925758192464215" datatype="html">
+        <source>Contrast Midpoint</source>
+      </trans-unit>
+      <trans-unit id="7562807646184458622" datatype="html">
+        <source>Adjusts the midpoint of the contrast. This controls the center of the contrast adjustment. For example when this is 100 all colors will move towards or away from white. When this is 0 all colors will move towards or away from black, which gives a brightening or darkening effect.</source>
+      </trans-unit>
+      <trans-unit id="6895974779798464285" datatype="html">
+        <source>Linear Contrast</source>
+      </trans-unit>
+      <trans-unit id="5058044319848224995" datatype="html">
+        <source>Applies linear contrast to the image before gamma correction instead of after. Generally contrast looks better with this option off but it can be useful for some effects.</source>
+      </trans-unit>
+      <trans-unit id="837218066212754994" datatype="html">
+        <source>Per Eye Contrast</source>
+      </trans-unit>
+      <trans-unit id="1771517419511821401" datatype="html">
+        <source>Applies contrast to each eye separately which allows you to correct for differences in displays. This will be applied in addition to the above contrast.</source>
+      </trans-unit>
+      <trans-unit id="6308223444121977948" datatype="html">
+        <source>Linear Per Eye Contrast</source>
+      </trans-unit>
+      <trans-unit id="7561913857043610583" datatype="html">
+        <source>Contrast Left Eye</source>
+      </trans-unit>
+      <trans-unit id="7175389924106202454" datatype="html">
+        <source>Contrast Midpoint Left Eye</source>
+      </trans-unit>
+      <trans-unit id="2761180419597232621" datatype="html">
+        <source>Contrast Right Eye</source>
+      </trans-unit>
+      <trans-unit id="2277196544119208763" datatype="html">
+        <source>Contrast Midpoint Right Eye</source>
+      </trans-unit>
+      <trans-unit id="8228400188029177776" datatype="html">
+        <source>Saturation</source>
+      </trans-unit>
+      <trans-unit id="5444309850677948407" datatype="html">
+        <source>Adjusts the saturation of the image. When higher than 50, the colors in the image will be exaggerated. When lowered all the way to 0 the image will be grayscale.</source>
+      </trans-unit>
+      <trans-unit id="1840263869596556199" datatype="html">
+        <source>Gamma</source>
+      </trans-unit>
+      <trans-unit id="3200668587703093580" datatype="html">
+        <source>Adjusts the gamma of the image. This controls how brightness is mapped to the display&apos;s brightness. Higher gamma values make darker areas of the image brighter.</source>
+      </trans-unit>
+      <trans-unit id="7892467764301667860" datatype="html">
+        <source>Subpixel Shift</source>
+      </trans-unit>
+      <trans-unit id="7834138622722093170" datatype="html">
+        <source>Samples subpixels from the correct locations in the image to improve sharpness by lighting up individual subpixels. This can have a remarkable effect on the MeganeX, and Dream Air where it can extract detail from more than 300% of the 1:1 resolution. The Vive is also supported but the improvement is less noticeable.</source>
+      </trans-unit>
+      <trans-unit id="8803107143135131768" datatype="html">
+        <source>Disable Mura Correction</source>
+      </trans-unit>
+      <trans-unit id="5868413981442823243" datatype="html">
+        <source>This forcibly disables the mura correction on any headset that has it like the Vive.</source>
+      </trans-unit>
+      <trans-unit id="1098681868292389579" datatype="html">
+        <source>Disable Black Levels</source>
+      </trans-unit>
+      <trans-unit id="3158413943708140326" datatype="html">
+        <source>Forces the black level clamp to be disabled. This can make headsets like the Vive darker at the expense of more smearing.</source>
+      </trans-unit>
+      <trans-unit id="6253449614235080530" datatype="html">
+        <source>sRGB Color Correction</source>
+      </trans-unit>
+      <trans-unit id="5106755418798621895" datatype="html">
+        <source>Enables sRGB color correction. The MeganeX is a Display-P3 display and normally colors are oversaturated by mapping the srgb outputs of applications to the full color space. When this is enabled, only the srgb portion of the display is used, which can make colors look more accurate.</source>
+      </trans-unit>
+      <trans-unit id="3951188764293952137" datatype="html">
+        <source>sRGB White Point Correction</source>
+      </trans-unit>
+      <trans-unit id="6694417376736419143" datatype="html">
+        <source>Corrects the sRGB white point in addition to the colors. This may result in a warmer image but more accurate colors to the sRGB standard.</source>
+      </trans-unit>
+      <trans-unit id="731345165483658436" datatype="html">
+        <source>Lens Color Correction</source>
+      </trans-unit>
+      <trans-unit id="3650433553188506936" datatype="html">
+        <source>This corrects color uniformity issues created by the lenses. On the MeganeX this fixes the warmer colors in the center of the lenses. On the Dream Air this fixes the red tint around the edges.</source>
+      </trans-unit>
+      <trans-unit id="2105504908065972608" datatype="html">
+        <source>10 Bit Dithering</source>
+      </trans-unit>
+      <trans-unit id="3501090981182430993" datatype="html">
+        <source>Enables 10 bit dithering. This allows a 10 bit input to be shown on an 8 bit display. Pixels are dithered spatially and temporally to allow more colors to be represented. This works for the MeganeX and all other native headsets but will only have an effect for 10 bit VR applications. There may be some slight benefit to having this on when other color corrections are used.</source>
+      </trans-unit>
+      <trans-unit id="3377187322102407397" datatype="html">
+        <source>Color Tint</source>
+      </trans-unit>
+      <trans-unit id="2185525877914813434" datatype="html">
+        <source>Adjusts the color of the image for any headset that can use the custom shader. This can also be used to decrease or increase the brightness of the scene.</source>
+      </trans-unit>
+      <trans-unit id="8550993829997950174" datatype="html">
+        <source>Enable for MeganeX 8K</source>
+      </trans-unit>
+      <trans-unit id="2336565079874618391" datatype="html">
+        <source>Enables the custom shader for the MeganeX 8K.</source>
+      </trans-unit>
+      <trans-unit id="5831053778872717460" datatype="html">
+        <source>Enable for Pimax Headsets</source>
+      </trans-unit>
+      <trans-unit id="1984855300906105820" datatype="html">
+        <source>Enables the custom shader for all Pimax headsets.</source>
+      </trans-unit>
+      <trans-unit id="8390407398188435348" datatype="html">
+        <source>Enable for Other HMDs</source>
+      </trans-unit>
+      <trans-unit id="7080815701953186727" datatype="html">
+        <source>Enables the custom shader for all other HMDs. Non-native SteamVR headsets likely won&apos;t work yet.</source>
+      </trans-unit>
+      <trans-unit id="4499826397276637153" datatype="html">
+        <source>You need to update your driver to use the custom shader.</source>
+      </trans-unit>
+      <trans-unit id="5076719159866344759" datatype="html">
+        <source>General Headset Settings</source>
+      </trans-unit>
+      <trans-unit id="7674403656412985763" datatype="html">
+        <source>These settings work with any SteamVR headset.</source>
+      </trans-unit>
+      <trans-unit id="7213133553923604199" datatype="html">
+        <source>Take Compositor Screenshots</source>
+      </trans-unit>
+      <trans-unit id="6046379908052840609" datatype="html">
+        <source>Makes SteamVR take compositor debug screenshots whenever a normal screenshot is taken. These screenshots are higher resolution and also include the exact output sent to the headset. The folder containing them will open when a screenshot is taken. In some cases standard screenshots do not work with the MeganeX but these are still functional. They are more performance intensive than normal screenshots.</source>
+      </trans-unit>
+      <trans-unit id="5022766051224400249" datatype="html">
+        <source>Force Tracking</source>
+      </trans-unit>
+      <trans-unit id="8561844269846608277" datatype="html">
+        <source>Forces all tracked devices to always report as valid and tracking, even if no tracking data is received. This may reduce grey screens but also has the effect of making all tracked devices snap to the origin if they completely lose tracking.</source>
+      </trans-unit>
+      <trans-unit id="2687007138701064844" datatype="html">
+        <source>Force Tracking (Headset Only)</source>
+      </trans-unit>
+      <trans-unit id="6437101287572442747" datatype="html">
+        <source>Forces only the headset to always report as valid and tracking, even if no tracking data is received. Controllers and trackers are unaffected. This can help prevent grey screens in certain circumstances.</source>
+      </trans-unit>
+      <trans-unit id="492689708075506397" datatype="html">
+        <source>Use Vive Bluetooth</source>
+      </trans-unit>
+      <trans-unit id="6555353275322017096" datatype="html">
+        <source>Enables the use of the original Vive&apos;s link box for any headset to control base stations directly with SteamVR.</source>
+      </trans-unit>
+      <trans-unit id="7737373917001107811" datatype="html">
+        <source>Other Headset Settings</source>
+      </trans-unit>
+      <trans-unit id="1450455640664501746" datatype="html">
+        <source>These settings only apply to SteamVR headset that are not run by this driver.</source>
+      </trans-unit>
+      <trans-unit id="7622786956277781847" datatype="html">
+        <source>Multiply 100% Width</source>
+      </trans-unit>
+      <trans-unit id="1440001227296837038" datatype="html">
+        <source>Multiplies the width of the 100% render resolution reported to SteamVR. This only applies to headsets that are not fully handled by this driver. NOTE: This has the possibility cause incompatibilities in future SteamVR updates.</source>
+      </trans-unit>
+      <trans-unit id="4499845839339615202" datatype="html">
+        <source>Multiply 100% Height</source>
+      </trans-unit>
+      <trans-unit id="264765402333770534" datatype="html">
+        <source>Multiplies the height of the 100% render resolution reported to SteamVR.This only applies to headsets that are not fully handled by this driver. NOTE: This has the possibility cause incompatibilities in future SteamVR updates.</source>
+      </trans-unit>
+      <trans-unit id="365798284983671240" datatype="html">
+        <source>This headset is not currently being run by this driver. None of these settings will have an effect. Enable this driver and restart SteamVR with the headset connected to change this.</source>
+      </trans-unit>
+      <trans-unit id="187187500641108332" datatype="html">
+        <source>
+          <x id="INTERPOLATION" equiv-text="{{config().enableText}}"/>
+        </source>
       </trans-unit>
       <trans-unit id="1753866341555293468" datatype="html">
         <source>Shiftall driver is not disabled</source>
@@ -65,32 +571,356 @@
       <trans-unit id="9187855490716817910" datatype="html">
         <source>Disable</source>
       </trans-unit>
+      <trans-unit id="6150901173509410295" datatype="html">
+        <source>Shiftall driver is also disabled</source>
+      </trans-unit>
+      <trans-unit id="2180291763949669799" datatype="html">
+        <source>Enable</source>
+      </trans-unit>
       <trans-unit id="1963136290621768454" datatype="html">
         <source>Resolution</source>
       </trans-unit>
-      <trans-unit id="1624999947532228823" datatype="html">
-        <source>Distortion Zoom</source>
+      <trans-unit id="7471123579619673182" datatype="html">
+        <source>The distortion profile to use for the headset. See the distortion tab for more options.</source>
+      </trans-unit>
+      <trans-unit id="5183708111290307462" datatype="html">
+        <source>Use Hardware IPD</source>
+      </trans-unit>
+      <trans-unit id="7560263274597423690" datatype="html">
+        <source>Rendered IPD</source>
+      </trans-unit>
+      <trans-unit id="794173200648103951" datatype="html">
+        <source>Max Per Eye Fov Horizontal</source>
+      </trans-unit>
+      <trans-unit id="7567855955496644826" datatype="html">
+        <source>The maximum per eye FOV that will be displayed horizontally in the headset. The actual FOV can be lower if this FOV can&apos;t fit on the screen after distortion. This may sometimes require restarting the game to fully apply.</source>
+      </trans-unit>
+      <trans-unit id="894113024692774525" datatype="html">
+        <source>Max Per Eye Fov Vertical</source>
+      </trans-unit>
+      <trans-unit id="3389673497621788356" datatype="html">
+        <source>The maximum FOV that will be displayed vertically in the headset. The actual FOV can be lower if this FOV can&apos;t fit on the screen after distortion. This may sometimes require restarting the game to fully apply.</source>
+      </trans-unit>
+      <trans-unit id="3336830571393985792" datatype="html">
+        <source>Enable FOV Clamping</source>
+      </trans-unit>
+      <trans-unit id="650832422229562869" datatype="html">
+        <source>When FOV Clamping is enabled, the distortion profile FOV will clamp the image to fit entirely on the display. Disabling this allows lighting up more of the corners or providing more FOV in the desktop view for streaming, but will also cause a blue glow at the edge of the display. That is because the red channel is already touching the centers of each of the edges of the display and can not be expanded any more without cutting off.</source>
+      </trans-unit>
+      <trans-unit id="3416203478018524861" datatype="html">
+        <source>FOV and Resolution Info</source>
+      </trans-unit>
+      <trans-unit id="3290461260302743456" datatype="html">
+        <source>Displays information about the resolution SteamVR will be run at and what the optimal resolution is. Settings like fov will affect this. This will only be updated while the headset is actively running under this driver.</source>
+      </trans-unit>
+      <trans-unit id="combinedHfov" datatype="html">
+        <source>Combined HFOV</source>
+      </trans-unit>
+      <trans-unit id="2109348818976292721" datatype="html">
+        <source>Show Details</source>
+      </trans-unit>
+      <trans-unit id="6957891556134371559" datatype="html">
+        <source>Hide Details</source>
+      </trans-unit>
+      <trans-unit id="currentCombinedHfov" datatype="html">
+        <source>Current Combined HFOV</source>
+      </trans-unit>
+      <trans-unit id="7873424066236224601" datatype="html">
+        <source>Current rendered per eye FOV</source>
+      </trans-unit>
+      <trans-unit id="currentRenderedFovBurnInNote" datatype="html">
+        <source> (deviates by a random value to reduce burn-in)</source>
+      </trans-unit>
+      <trans-unit id="binocularOverlap" datatype="html">
+        <source>Current Binocular Overlap</source>
+      </trans-unit>
+      <trans-unit id="5623760081334087234" datatype="html">
+        <source>Maximum possible per eye FOV</source>
+      </trans-unit>
+      <trans-unit id="4651117059363790056" datatype="html">
+        <source>100% Render resolution for SteamVR</source>
+      </trans-unit>
+      <trans-unit id="6195061204627290703" datatype="html">
+        <source>Render resolution for 1:1 sample per panel pixel</source>
+      </trans-unit>
+      <trans-unit id="30427449539687573" datatype="html">
+        <source>Headset not connected</source>
+      </trans-unit>
+      <trans-unit id="2406129309783787457" datatype="html">
+        <source>The SteamVR driver is not running, so this information is not updated.</source>
+      </trans-unit>
+      <trans-unit id="2517258168771093272" datatype="html">
+        <source>This headset is not currently being run by this driver.</source>
+      </trans-unit>
+      <trans-unit id="7824054889084111041" datatype="html">
+        <source>FOV Zoom</source>
+      </trans-unit>
+      <trans-unit id="5680149591658904592" datatype="html">
+        <source>Adjusts how zoomed the FOV is. Decreasing this will allow the FOV sliders to go higher, but will introduce fish-eye distortion. These zoom settings can be combined for different effects.</source>
+      </trans-unit>
+      <trans-unit id="2217613917502349751" datatype="html">
+        <source>Flat FOV Zoom</source>
+      </trans-unit>
+      <trans-unit id="405060426819658964" datatype="html">
+        <source>Similar to FOV Zoom but keeps straight lines straight at the expense of more distortion when rotating your head. Decreasing this will allow the FOV sliders to go higher, but will introduce distortion. These zoom settings can be combined for different effects.</source>
+      </trans-unit>
+      <trans-unit id="822068397074061211" datatype="html">
+        <source>Parallel Projection</source>
+      </trans-unit>
+      <trans-unit id="6065348048961138520" datatype="html">
+        <source>Enabling parallel projection makes the virtual cameras always point in the same direction. It increases compatibility but slightly harms performance. This only applies when rendered binocular overlap is not 100%.</source>
+      </trans-unit>
+      <trans-unit id="6691168530218751172" datatype="html">
+        <source>Adjusts the color of the headset. This can also be used to decrease or increase the brightness of the scene.</source>
+      </trans-unit>
+      <trans-unit id="6494825378753268291" datatype="html">
+        <source>Stationary Dimming Settings</source>
+      </trans-unit>
+      <trans-unit id="3941655232889847865" datatype="html">
+        <source>This feature automatically dims the display to protect the panel from screen burn-in when the headset is stationary. The display remains bright for the movement time whenever it is moved more than the threshold.</source>
+      </trans-unit>
+      <trans-unit id="3350600018161868456" datatype="html">
+        <source>Enable Stationary Dimming</source>
+      </trans-unit>
+      <trans-unit id="2861813522442601500" datatype="html">
+        <source>Enables or disables the stationary dimming feature.</source>
+      </trans-unit>
+      <trans-unit id="2856900395968306204" datatype="html">
+        <source>Movement Threshold Degrees</source>
+      </trans-unit>
+      <trans-unit id="1293521252153505574" datatype="html">
+        <source>The minimum amount of rotation in degrees that will reset the stationary dimming timer.</source>
+      </trans-unit>
+      <trans-unit id="4869977764064716796" datatype="html">
+        <source>Movement Time</source>
+      </trans-unit>
+      <trans-unit id="1865011951137718165" datatype="html">
+        <source>The amount of time in seconds that the display will remain bright after movement.</source>
+      </trans-unit>
+      <trans-unit id="1969673185132484114" datatype="html">
+        <source>Dim Brightness Percent</source>
+      </trans-unit>
+      <trans-unit id="2261913743249257236" datatype="html">
+        <source>The minimum brightness percentage that the display will dim to when stationary.</source>
+      </trans-unit>
+      <trans-unit id="910820366380932556" datatype="html">
+        <source>Dim Seconds</source>
+      </trans-unit>
+      <trans-unit id="1488156220085285219" datatype="html">
+        <source>The amount of time it takes to go from bright to dim.</source>
+      </trans-unit>
+      <trans-unit id="3110314934124526458" datatype="html">
+        <source>Brighten Seconds</source>
+      </trans-unit>
+      <trans-unit id="715138922561408923" datatype="html">
+        <source>The amount of time it takes to go from dim to bright.</source>
+      </trans-unit>
+      <trans-unit id="1201696567241717027" datatype="html">
+        <source>Hidden Area Mesh Settings</source>
+      </trans-unit>
+      <trans-unit id="2548696539154999507" datatype="html">
+        <source>Any changes to these settings will require a game restart to be visible. The hidden area meshes are used to mask out the corners of the screen. They can increase performance in games that use them. Click for more information.</source>
+      </trans-unit>
+      <trans-unit id="6190895239365336532" datatype="html">
+        <source>Enable Hidden Area Meshes</source>
+      </trans-unit>
+      <trans-unit id="347583554594702753" datatype="html">
+        <source>Enables or disables the hidden area meshes.</source>
+      </trans-unit>
+      <trans-unit id="1916026066967398775" datatype="html">
+        <source>Test Mode</source>
+      </trans-unit>
+      <trans-unit id="2421348343423477743" datatype="html">
+        <source>Inverts the meshes to only show the areas that will be hidden.</source>
+      </trans-unit>
+      <trans-unit id="8838782636230653734" datatype="html">
+        <source>Radius Top Inner</source>
+      </trans-unit>
+      <trans-unit id="1013018539656511103" datatype="html">
+        <source>The radius of the visible area at the top of the hidden area mesh near your nose.</source>
+      </trans-unit>
+      <trans-unit id="1889076648687767831" datatype="html">
+        <source>Radius Bottom Inner</source>
+      </trans-unit>
+      <trans-unit id="85559335853494335" datatype="html">
+        <source>The radius of the visible area at the bottom of the hidden area mesh near your nose.</source>
+      </trans-unit>
+      <trans-unit id="7233521999850639473" datatype="html">
+        <source>Radius Top Outer</source>
+      </trans-unit>
+      <trans-unit id="300522424104416983" datatype="html">
+        <source>The radius of the visible area at the top of the hidden area mesh near your ears.</source>
+      </trans-unit>
+      <trans-unit id="265959825807724821" datatype="html">
+        <source>Radius Bottom Outer</source>
+      </trans-unit>
+      <trans-unit id="4446503733054332206" datatype="html">
+        <source>The radius of the visible area at the bottom of the hidden area mesh near your ears.</source>
+      </trans-unit>
+      <trans-unit id="2154451363318577354" datatype="html">
+        <source>Mesh Detail</source>
+      </trans-unit>
+      <trans-unit id="4891791018896428318" datatype="html">
+        <source>The number of vertices used to create each section of the hidden area mesh. Higher values increase the smoothness of the mesh.</source>
       </trans-unit>
       <trans-unit id="8360107325291301836" datatype="html">
         <source>Advanced Settings</source>
       </trans-unit>
+      <trans-unit id="1651122445619194508" datatype="html">
+        <source>These settings have defaults that should not need to be changed but are provided for experimentation.</source>
+      </trans-unit>
+      <trans-unit id="6894334009784471350" datatype="html">
+        <source>Enable Eye Tracking</source>
+      </trans-unit>
+      <trans-unit id="2292160599470132016" datatype="html">
+        <source>Enables eye tracking support for the headset. Pimax headsets require the pi_server runtime. Use mbucchia/Quad-Views-Foveated for foveated rendering. This may require restarting the game if turned on after a game is started.</source>
+      </trans-unit>
+      <trans-unit id="1624999947532228823" datatype="html">
+        <source>Distortion Zoom</source>
+      </trans-unit>
+      <trans-unit id="8045582904723345362" datatype="html">
+        <source>Adjusts how zoomed in the distortion profile is. This can be used to correct for diopters with higher set diopters needing a positive zoom. However it will induce some amount of warping.</source>
+      </trans-unit>
       <trans-unit id="2133427521398732619" datatype="html">
         <source>Black Level</source>
       </trans-unit>
-      <trans-unit id="7892467764301667860" datatype="html">
-        <source>Subpixel Shift</source>
+      <trans-unit id="4595919550679720902" datatype="html">
+        <source>The minimum brightness level that the display will reach. Increase this if you love the smeary grey of LCD headsets.</source>
+      </trans-unit>
+      <trans-unit id="7005186918826158340" datatype="html">
+        <source>Additional IPD</source>
+      </trans-unit>
+      <trans-unit id="9103482387790094220" datatype="html">
+        <source>This value is added to the IPD value. Just use the main ipd slider and leave this 0. This will probably be removed soon.</source>
+      </trans-unit>
+      <trans-unit id="7322772911204552921" datatype="html">
+        <source>Horizontal IPD Offset</source>
+      </trans-unit>
+      <trans-unit id="9202590891036999940" datatype="html">
+        <source>Offsets both eyes to the right by the specified amount in millimeters. This can be used to accommodate hardware horizontal offsets.</source>
+      </trans-unit>
+      <trans-unit id="9157492168132046017" datatype="html">
+        <source>Shifts the subpixels of the display using the UV distortions to improve color fringing and sharpness. The default is correct for the oled panel.</source>
       </trans-unit>
       <trans-unit id="1537728937939680401" datatype="html">
         <source>Distortion Mesh Resolution</source>
       </trans-unit>
+      <trans-unit id="2846574612210787191" datatype="html">
+        <source>The resolution of the distortion mesh. Higher values prevent small wavy artifacts in the corners of the lenses but makes other settings laggier. The default pretty much eliminates the artifacts.</source>
+      </trans-unit>
       <trans-unit id="1136931556684562864" datatype="html">
         <source>FOV Burn-In Prevention</source>
+      </trans-unit>
+      <trans-unit id="7975741758736447642" datatype="html">
+        <source>Randomly adds up to 3 degrees to the FOV on every run to prevent sharp burn in at the edge of the fov on the display. It is recommended you do not turn this off in case you or the next person wants to increase the fov.</source>
+      </trans-unit>
+      <trans-unit id="1880392133028815604" datatype="html">
+        <source>Proximity Sensor Type</source>
+      </trans-unit>
+      <trans-unit id="4090407681987458354" datatype="html">
+        <source>Controls where the data for proximity is retrieved from. Hardware is only available on some devices and has the same effect as none on devices that don&apos;t have proximity available. Pimax hardware devices may be unreliable, resulting in the screen shutting off or staying on regardless of proximity. None results in the standard SteamVR movement based proximity. In the stationary dimming mode, proximity is reported as false whenever the display has dimmed to its lowest level.</source>
       </trans-unit>
       <trans-unit id="7605069838205533337" datatype="html">
         <source>Render Resolution Width Multiplier</source>
       </trans-unit>
+      <trans-unit id="7819125323126809048" datatype="html">
+        <source>The multiplier for the 100% render resolution width. This allows you to change the aspect ratio of the resolution as well as reach resolutions outside the 20%-500% range of the SteamVR slider. This may require a restart to apply.</source>
+      </trans-unit>
       <trans-unit id="5798596559724188992" datatype="html">
         <source>Render Resolution Height Multiplier</source>
+      </trans-unit>
+      <trans-unit id="3656135147187301413" datatype="html">
+        <source>The multiplier for the 100% render resolution height. This allows you to change the aspect ratio of the resolution as well as reach resolutions outside the 20%-500% range of the SteamVR slider. This may require a restart to apply.</source>
+      </trans-unit>
+      <trans-unit id="7681727633925076580" datatype="html">
+        <source>Super Sampling Filter Percent</source>
+      </trans-unit>
+      <trans-unit id="6265350536077157049" datatype="html">
+        <source>The percentage of the 1:1 resolution that the super sampling downscale area filter is applied. The subpixel shifts with the custom shader can make use of the 500% resolution above 1:1. Without subpixel sampling this value can be lowered to downscale the input so that all pixels contribute to the output. Toggling off advanced supersample filtering in SteamVR will disable this.</source>
+      </trans-unit>
+      <trans-unit id="5518205125788028902" datatype="html">
+        <source>Seconds From VSync to Photons</source>
+      </trans-unit>
+      <trans-unit id="1655480221425894378" datatype="html">
+        <source>The time it takes for the display to update after the GPU has finished rendering. This is used to calculate the time warp correction. Setting it too high or low causes tracking to overshoot or undershoot which makes tracking more jittery.</source>
+      </trans-unit>
+      <trans-unit id="6502161386443972573" datatype="html">
+        <source>Seconds From Photons to Vblank</source>
+      </trans-unit>
+      <trans-unit id="3402973686579225537" datatype="html">
+        <source>The time it takes for the display to show the first and last line. This is to combat the same effect you see on your desktop if you follow a window while you quickly move it side to side.</source>
+      </trans-unit>
+      <trans-unit id="1643329504910854864" datatype="html">
+        <source>Use Auto Eye Rotation</source>
+      </trans-unit>
+      <trans-unit id="2368944008461420911" datatype="html">
+        <source>The angle each eye is rotated outwards. With some training it might allow increasing FOV at the expense of binocular overlap and comfort. For every 1 degree this is increased 2 degrees of fov are added. This will mess with your eyes in and out of VR unless you do some extreme modding to the headset.</source>
+      </trans-unit>
+      <trans-unit id="4319231426791349112" datatype="html">
+        <source>Eye Rotation</source>
+      </trans-unit>
+      <trans-unit id="7105237620645987051" datatype="html">
+        <source>This may cause vision problems outside of the headset.</source>
+      </trans-unit>
+      <trans-unit id="8002186340510323483" datatype="html">
+        <source>Disable Eye</source>
+      </trans-unit>
+      <trans-unit id="8590979780416435469" datatype="html">
+        <source>Disables an eye. This can provide more performance to the remaining eye once the game is restarted. Eyes can not be completely disabled in SteamVR so this covers the entire eye with the hidden area mesh. The hidden area mesh change does require a restart and may black out the desktop view. It can also set the FOV extremely low when disableEyeDecreaseFov is manually set in settings.json, but that can cause issues.</source>
+      </trans-unit>
+      <trans-unit id="2084720747782315739" datatype="html">
+        <source>Decrease FOV for Disabled Eye</source>
+      </trans-unit>
+      <trans-unit id="7763542106240292744" datatype="html">
+        <source>Set the FOV to near zero for the disabled eye. By decreasing the FOV, occlusion culling may be able to decrease the rendering load. This can cause issues with some games.</source>
+      </trans-unit>
+      <trans-unit id="3949931233251722441" datatype="html">
+        <source>Display Rotation</source>
+      </trans-unit>
+      <trans-unit id="3047060592352311263" datatype="html">
+        <source>Rotation of the image on the physical display.</source>
+      </trans-unit>
+      <trans-unit id="452020748999779962" datatype="html">
+        <source>More settings are available on the </source>
+      </trans-unit>
+      <trans-unit id="2102961643795704214" datatype="html">
+        <source> tab.</source>
+      </trans-unit>
+      <trans-unit id="5333045347909572100" datatype="html">
+        <source>0°</source>
+      </trans-unit>
+      <trans-unit id="339984245237635207" datatype="html">
+        <source>90°</source>
+      </trans-unit>
+      <trans-unit id="2950824333991098415" datatype="html">
+        <source>180°</source>
+      </trans-unit>
+      <trans-unit id="1207495129854392660" datatype="html">
+        <source>270°</source>
+      </trans-unit>
+      <trans-unit id="6252070156626006029" datatype="html">
+        <source>None</source>
+      </trans-unit>
+      <trans-unit id="5246819740476460403" datatype="html">
+        <source>Left</source>
+      </trans-unit>
+      <trans-unit id="4808834755787530462" datatype="html">
+        <source>Right</source>
+      </trans-unit>
+      <trans-unit id="6251586038459969294" datatype="html">
+        <source>Both</source>
+      </trans-unit>
+      <trans-unit id="8331204292092693335" datatype="html">
+        <source>Hardware</source>
+      </trans-unit>
+      <trans-unit id="3257819372528222612" datatype="html">
+        <source>Stationary Dimming</source>
+      </trans-unit>
+      <trans-unit id="3357990158664370328" datatype="html">
+        <source>Always On</source>
+      </trans-unit>
+      <trans-unit id="4640176625701096216" datatype="html">
+        <source>Always Off</source>
       </trans-unit>
       <trans-unit id="6607372754568222882" datatype="html">
         <source>Low (<x id="PH" equiv-text="63"/>)</source>
@@ -101,11 +931,254 @@
       <trans-unit id="2780234993728008588" datatype="html">
         <source>High (<x id="PH" equiv-text="255"/>)</source>
       </trans-unit>
+      <trans-unit id="556752179488043627" datatype="html">
+        <source>Local Dimming</source>
+      </trans-unit>
+      <trans-unit id="7179580081712194175" datatype="html">
+        <source>Per zone backlight control. The image is split into a grid of zones, each zone is measured for brightness, and one frame of zone values is sent to the headset over USB. This is experimental: the zone frame format is taken from Pimax software and has not yet been confirmed against real hardware.</source>
+      </trans-unit>
+      <trans-unit id="1119916848578819973" datatype="html">
+        <source>Enable Local Dimming</source>
+      </trans-unit>
+      <trans-unit id="8604835273340331652" datatype="html">
+        <source>Enables or disables sending the zone frames to the headset.</source>
+      </trans-unit>
+      <trans-unit id="3338446624550481079" datatype="html">
+        <source>HID Interface</source>
+      </trans-unit>
+      <trans-unit id="59418868325414057" datatype="html">
+        <source>Which Pimax HID interface the zone frames are written to. Pimax config calls this usb_intf: interface 0 is where commands go and interface 2 is the info stream, so 0 is the default. Pimax software has to stay running to keep the headset powered, so the driver opens its own handle on this interface and shares it with Pimax. If the headset logs a head check error for the zone frames, the interface is wrong, and the probe option below finds the right node. Set the node field below to pin a node down, because two nodes can report the same interface number.</source>
+      </trans-unit>
+      <trans-unit id="5258611256919109626" datatype="html">
+        <source>HID Node</source>
+      </trans-unit>
+      <trans-unit id="366746623341827070" datatype="html">
+        <source>The Pimax HID node to write zone frames to, as the label from the probe log, for example hid#vid_34a4&amp;pid_0016&amp;mi_00. When this is set it wins over the interface number above, because two nodes can report the same interface number and only the node decides where a frame lands. Leave it empty to use the interface number.</source>
+      </trans-unit>
+      <trans-unit id="563541014218813323" datatype="html">
+        <source>Entitlement Record</source>
+      </trans-unit>
+      <trans-unit id="7656232294986516481" datatype="html">
+        <source>The 4 byte record Pimax software writes before the headset honours zone frames, as cmd 0x56 opt 5 in little endian, and the headset logs it as cmd 86 opt 5 datalen 4. The value Pimax uses is 0x100020b, which is 16777995. The headset logged a head check error for every frame that arrived without this record, so it has to go first.</source>
+      </trans-unit>
+      <trans-unit id="1261981752021662059" datatype="html">
+        <source>Send Entitlement Record</source>
+      </trans-unit>
+      <trans-unit id="7729790975052203137" datatype="html">
+        <source>Write the record once before the level. Turn it off to check whether the headset honours zone frames without it, which is the control for the head check error.</source>
+      </trans-unit>
+      <trans-unit id="3028304898550228654" datatype="html">
+        <source>Probe HID Nodes</source>
+      </trans-unit>
+      <trans-unit id="8963740532386689105" datatype="html">
+        <source>Send one complete group (record, level, zones) to every Pimax HID node in turn, then stop. The headset logs a head check error for zone frames that arrive on a node it does not accept, so after one run the headset log and the driver log together show which node to use: the k-th group in the headset log is the k-th node the driver enumerated, and the driver log names each node and reports whether the write to it succeeded. Copy the node that accepted the zones into the HID Node field above. Leave off for normal use.</source>
+      </trans-unit>
+      <trans-unit id="2881962498284460936" datatype="html">
+        <source>Data Transfer Sub-header</source>
+      </trans-unit>
+      <trans-unit id="2032254902617658944" datatype="html">
+        <source>Put the 3 byte sub-header (kind, block index, data length) in front of the zone values. cmd 0x55 is the generic data transfer command and Pimax&apos;s own sender always starts its payload with it, which is why the headset logs the head check error for zone frames that start with a zone value instead. Turn it off to send the zone values alone, which is what the driver did before this was known.</source>
+      </trans-unit>
+      <trans-unit id="3532762543104693787" datatype="html">
+        <source>Data Kind</source>
+      </trans-unit>
+      <trans-unit id="5345804122644463049" datatype="html">
+        <source>The first byte of the sub-header, which the headset dispatches cmd 0x55 by. PiPlayService uses 2 for its activation blocks and 1 for its equity blocks, and the head type the driver logs is 2, so 2 is the value to try first. The head check error is on this byte, so changing it is the test.</source>
+      </trans-unit>
+      <trans-unit id="6254599979256174986" datatype="html">
+        <source>Data Report</source>
+      </trans-unit>
+      <trans-unit id="3269345039356336181" datatype="html">
+        <source>Send the zone data as the 1024 byte report that Pimax software uses for local dimming, instead of the 65 byte command frame. This report has no command or option byte, the flags byte and the 16 bit length replace them, so with Data Kind off the zone values start straight after the report header. Pimax opens its own HID device for this and writes one report per frame, which is the path that dims the panel. A node with a 65 byte output report rejects the big write, so with Probe HID Nodes on this finds the device in one run.</source>
+      </trans-unit>
+      <trans-unit id="2077366769264512351" datatype="html">
+        <source>Data Flags</source>
+      </trans-unit>
+      <trans-unit id="161949571060529889" datatype="html">
+        <source>The byte the data report starts with, before the two block flags. Pimax builds it as 3, with 0x40 added on the first block of a transfer and 0x80 on the last one, so a single block report carries both. Only used when Data Report is on.</source>
+      </trans-unit>
+      <trans-unit id="6864713187610390452" datatype="html">
+        <source>Grid Width</source>
+      </trans-unit>
+      <trans-unit id="2093527327691129416" datatype="html">
+        <source>Number of zones across the image for each eye. The image is divided evenly, so the grid does not have to match the physical backlight zones.</source>
+      </trans-unit>
+      <trans-unit id="5384848316216310791" datatype="html">
+        <source>Grid Height</source>
+      </trans-unit>
+      <trans-unit id="1227216565847583381" datatype="html">
+        <source>Number of zones top to bottom for each eye.</source>
+      </trans-unit>
+      <trans-unit id="6805611805664212649" datatype="html">
+        <source>Zone count too large</source>
+      </trans-unit>
+      <trans-unit id="1287887527820083984" datatype="html">
+        <source>This grid cannot be sent on the 65 byte param frame with the data transfer sub-header off: that frame carries one block and its payload area is 60 bytes. Turn the sub-header on, or use the 1024 byte data report, and the zone data goes out as blocks of at most 255 or 1021 bytes, so any grid size is sent as several frames.</source>
+      </trans-unit>
+      <trans-unit id="8161470809728498038" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{ zonesPerEye() }}"/> zones per eye, needs <x id="INTERPOLATION_1" equiv-text="{{ zonesPerEye() * 2 }}"/> bytes</source>
+      </trans-unit>
+      <trans-unit id="2412842722230264751" datatype="html">
+        <source>Applied as an inverse exponent, pow(value, 1 / gamma), like Pimax software does. Leave at 1 to send the measured brightness unchanged.</source>
+      </trans-unit>
+      <trans-unit id="322762241709895801" datatype="html">
+        <source>The floor a zone can dim to. Measured brightness is compressed into the range above this value, so a zone never sends less than this.</source>
+      </trans-unit>
+      <trans-unit id="4637578255960773959" datatype="html">
+        <source>Max Zone Value</source>
+      </trans-unit>
+      <trans-unit id="6245641302718741516" datatype="html">
+        <source>Upper limit for each zone value, 0 to 255. Only has an effect when it is set below 255.</source>
+      </trans-unit>
+      <trans-unit id="4632147661721951520" datatype="html">
+        <source>Send Interval (ms)</source>
+      </trans-unit>
+      <trans-unit id="7486794338501751949" datatype="html">
+        <source>Minimum time between zone frames. Pimax software sends one frame per compositor frame; this keeps the USB writes from stacking up on a fast panel. Increase it if the driver stops keeping up.</source>
+      </trans-unit>
+      <trans-unit id="1967068879869920518" datatype="html">
+        <source>Dimming Level</source>
+      </trans-unit>
+      <trans-unit id="4510959387538649971" datatype="html">
+        <source>Value for the named setting Pimax calls ld_level, sent as name plus value with the setting command. Pimax software reports 2 for the Crystal Light and clamps the value to 0 to 100, so leave it at the reported value unless you have a reason to change it.</source>
+      </trans-unit>
+      <trans-unit id="5521532705864524157" datatype="html">
+        <source>Use Test Pattern</source>
+      </trans-unit>
+      <trans-unit id="5407990078441485857" datatype="html">
+        <source>Send the test pattern instead of the image the game renders. Use this to check whether the headset honours the zone frame at all.</source>
+      </trans-unit>
+      <trans-unit id="5465728281022117927" datatype="html">
+        <source>Test Pattern Grey</source>
+      </trans-unit>
+      <trans-unit id="6814273761229436487" datatype="html">
+        <source>Grey level for every zone when the test pattern is used.</source>
+      </trans-unit>
+      <trans-unit id="3644521581020405737" datatype="html">
+        <source>Test Pattern Mode</source>
+      </trans-unit>
+      <trans-unit id="8711193451571532986" datatype="html">
+        <source>Follow the Test Pattern Ramp toggle</source>
+      </trans-unit>
+      <trans-unit id="8725439446090677085" datatype="html">
+        <source>Ramp</source>
+      </trans-unit>
+      <trans-unit id="159142539772119080" datatype="html">
+        <source>Checkerboard</source>
+      </trans-unit>
+      <trans-unit id="3291215505645656692" datatype="html">
+        <source>Left/Right Half</source>
+      </trans-unit>
+      <trans-unit id="5434580705759355182" datatype="html">
+        <source>Quadrants</source>
+      </trans-unit>
+      <trans-unit id="287464584677038979" datatype="html">
+        <source>Uniform Grey</source>
+      </trans-unit>
+      <trans-unit id="3341042857391287726" datatype="html">
+        <source>Test Pattern Ramp</source>
+      </trans-unit>
+      <trans-unit id="2186899577497870751" datatype="html">
+        <source>Ramp each zone from black to white by its index instead of using a flat field. A flat field cannot show local dimming at all, because every zone gets the same value, so use the ramp: it proves that the headset answers and that the zone order and the grid size are right.</source>
+      </trans-unit>
+      <trans-unit id="3303629114160653296" datatype="html">
+        <source>Enable MeganeX 8K Driver</source>
+      </trans-unit>
+      <trans-unit id="2210953895431071691" datatype="html">
+        <source>When enabled, the Custom Headset driver will run the MeganeX superlight 8K.</source>
+      </trans-unit>
+      <trans-unit id="5683939155976813564" datatype="html">
+        <source>The inter pupillary distance of the virtual cameras in SteamVR applications. You set the headset&apos;s physical IPD in the Shiftall Configurator. This IPD should be matched with what you set in the Shiftall Configurator to get the correct world scale.</source>
+      </trans-unit>
+      <trans-unit id="2857294794581706765" datatype="html">
+        <source>Enable Pimax 5K Driver</source>
+      </trans-unit>
+      <trans-unit id="5330712973984504832" datatype="html">
+        <source>When enabled, the Custom Headset driver will run the Pimax 5K.</source>
+      </trans-unit>
+      <trans-unit id="5136852259988842823" datatype="html">
+        <source>Enable Pimax 8K Driver</source>
+      </trans-unit>
+      <trans-unit id="7038660579569066847" datatype="html">
+        <source>When enabled, the Custom Headset driver will run the Pimax 8K.</source>
+      </trans-unit>
+      <trans-unit id="4544020458434224254" datatype="html">
+        <source>Enable Pimax Artisan Driver</source>
+      </trans-unit>
+      <trans-unit id="4439647563936057402" datatype="html">
+        <source>When enabled, the Custom Headset driver will run the Pimax Artisan.</source>
+      </trans-unit>
+      <trans-unit id="1624519313557914555" datatype="html">
+        <source>Pimax EVO OpenPort is the most reliable way to use this driver and is required for SLAM headsets. Start Pimax OpenPort and then launch SteamVR.</source>
+      </trans-unit>
+      <trans-unit id="1646640475484759817" datatype="html">
+        <source>Legacy Lighthouse Launch is for running Lighthouse Pimax headsets on Pimax Play without OpenPort. When using OpenPort, just launch SteamVR.</source>
+      </trans-unit>
+      <trans-unit id="7122632382112825911" datatype="html">
+        <source>It has been <x id="INTERPOLATION" equiv-text="{{ daysSinceDreamAirBlocked }}"/> days since the Lighthouse headsets could start without Pimax Play if Pimax allowed it for everyone.</source>
+      </trans-unit>
+      <trans-unit id="1330320476952271815" datatype="html">
+        <source>Automatically launch the Pimax headset when the GUI is opened. This will only launch if a Pimax headset is enabled. The last used launch method will be used.</source>
+      </trans-unit>
+      <trans-unit id="7459620849547189151" datatype="html">
+        <source>Launch on GUI Startup</source>
+      </trans-unit>
+      <trans-unit id="8332754168344735611" datatype="html">
+        <source>Pimax SLAM</source>
+      </trans-unit>
+      <trans-unit id="1362498673283527024" datatype="html">
+        <source>Settings for Pimax SLAM tracking integration.</source>
+      </trans-unit>
+      <trans-unit id="2807321419979826544" datatype="html">
+        <source>Recenter Pimax Playspace</source>
+      </trans-unit>
+      <trans-unit id="9039177223992915585" datatype="html">
+        <source>Recenter the Pimax SLAM playspace every time SteamVR is started. This works around the bug that Pimax Play completely forgets the origin of the playspace when restarting. If your headset is in a similar place every time you start up SteamVR, this will work well.</source>
+      </trans-unit>
+      <trans-unit id="2545688419661675181" datatype="html">
+        <source>Enable Pimax Passthrough</source>
+      </trans-unit>
+      <trans-unit id="81570873458241099" datatype="html">
+        <source>Enable using the cameras on SLAM headsets for passthrough in SteamVR. Beware that there may be some bugs that cause it to hang SteamVR, and you need a new version of Pimax Evo for this to work.</source>
+      </trans-unit>
+      <trans-unit id="5250785079949007860" datatype="html">
+        <source>Enable Pimax Hand Tracking</source>
+      </trans-unit>
+      <trans-unit id="1501809069881872480" datatype="html">
+        <source>Enable using the cameras on SLAM headsets for hand tracking in SteamVR. Hand tracking also has to be enabled in Pimax Play.</source>
+      </trans-unit>
       <trans-unit id="1071721880474488785" datatype="html">
         <source>Import</source>
       </trans-unit>
       <trans-unit id="5737034982985701605" datatype="html">
         <source>Reveal In File Explorer</source>
+      </trans-unit>
+      <trans-unit id="1057377126114488911" datatype="html">
+        <source>Custom Distortion Profiles</source>
+      </trans-unit>
+      <trans-unit id="6145377464534677042" datatype="html">
+        <source>profiles</source>
+      </trans-unit>
+      <trans-unit id="8953033926734869941" datatype="html">
+        <source>Name</source>
+      </trans-unit>
+      <trans-unit id="8650499415827640724" datatype="html">
+        <source>Type</source>
+      </trans-unit>
+      <trans-unit id="945165561939660867" datatype="html">
+        <source>Distortion Algorithm</source>
+      </trans-unit>
+      <trans-unit id="1984095847256711870" datatype="html">
+        <source>Distortion Control Points</source>
+      </trans-unit>
+      <trans-unit id="5444145030429249111" datatype="html">
+        <source>Chromatic Aberration Correction</source>
+      </trans-unit>
+      <trans-unit id="7071470734400948493" datatype="html">
+        <source>Author</source>
+      </trans-unit>
+      <trans-unit id="4902817035128594900" datatype="html">
+        <source>Description</source>
       </trans-unit>
       <trans-unit id="7462301153729425254" datatype="html">
         <source>Export</source>
@@ -113,14 +1186,65 @@
       <trans-unit id="7022070615528435141" datatype="html">
         <source>Delete</source>
       </trans-unit>
+      <trans-unit id="8646491615394973493" datatype="html">
+        <source> No imported distortion profiles found. </source>
+      </trans-unit>
+      <trans-unit id="558638418339229928" datatype="html">
+        <source>Built-in Distortion Profiles</source>
+      </trans-unit>
+      <trans-unit id="758358695235230670" datatype="html">
+        <source>Target Device</source>
+      </trans-unit>
+      <trans-unit id="7949487308140215792" datatype="html">
+        <source>Import Error</source>
+      </trans-unit>
       <trans-unit id="5510904560009009880" datatype="html">
         <source>Delete Profile</source>
       </trans-unit>
       <trans-unit id="13546353273306589" datatype="html">
         <source>Deleting [<x id="PH" equiv-text="profile.name"/>]. This action cannot be reverted. Are you sure?</source>
       </trans-unit>
-      <trans-unit id="7949487308140215792" datatype="html">
-        <source>Import Error</source>
+      <trans-unit id="428362952849592897" datatype="html">
+        <source>A headset is currently running with a non-native driver. Many settings will not work.</source>
+      </trans-unit>
+      <trans-unit id="7082857922137453657" datatype="html">
+        <source>The WebView2 version is too old. Please download the Evergreen Bootstrapper and run it as administrator. </source>
+      </trans-unit>
+      <trans-unit id="5519334799073790494" datatype="html">
+        <source>Current version: </source>
+      </trans-unit>
+      <trans-unit id="211892709611099413" datatype="html">
+        <source>You still need to install the driver into SteamVR on the About page.</source>
+      </trans-unit>
+      <trans-unit id="8598265389217772988" datatype="html">
+        <source>This driver is locked out by the main Custom Headset driver. Enable to disable the main driver and enable this vendor driver.</source>
+      </trans-unit>
+      <trans-unit id="7968144323126360768" datatype="html">
+        <source>Custom Headset&apos;s driver is disabled</source>
+      </trans-unit>
+      <trans-unit id="5409696716939740879" datatype="html">
+        <source>Unblock All</source>
+      </trans-unit>
+      <trans-unit id="9113006425690094381" datatype="html">
+        <source>MeganeX 8K</source>
+      </trans-unit>
+      <trans-unit id="3246166520315668747" datatype="html">
+        <source>Super Micro-OLED</source>
+      </trans-unit>
+      <trans-unit id="6032284291883038600" datatype="html">
+        <source>Crystal Series</source>
+      </trans-unit>
+      <trans-unit id="7650216452296204397" datatype="html">
+        <source>Super 50PPD</source>
+      </trans-unit>
+      <trans-unit id="8005471014405132800" datatype="html">
+        <source>Super 57PPD</source>
+      </trans-unit>
+      <trans-unit id="5441506954845671339" datatype="html">
+        <source>Super Ultrawide</source>
+      </trans-unit>
+      <trans-unit id="1454387073783700294" datatype="html">
+        <source>P2 Series</source>
       </trans-unit>
       <trans-unit id="4441102284303911974" datatype="html">
         <source>file too large</source>
@@ -133,6 +1257,33 @@
       </trans-unit>
       <trans-unit id="3389786765701617878" datatype="html">
         <source>import file error <x id="PH" equiv-text="ex"/></source>
+      </trans-unit>
+      <trans-unit id="4678747519396968836" datatype="html">
+        <source>Driver folder not found</source>
+      </trans-unit>
+      <trans-unit id="637856309710144578" datatype="html">
+        <source>The driver folder is not in the default location. Unpack the entire zip and retry, or manually locate the new CustomHeadsetOpenVR folder to be installed.</source>
+      </trans-unit>
+      <trans-unit id="6353920713750092185" datatype="html">
+        <source>Locate</source>
+      </trans-unit>
+      <trans-unit id="7669295652920485128" datatype="html">
+        <source>Install Failed, Make sure SteamVR is closed</source>
+      </trans-unit>
+      <trans-unit id="1422053103497449239" datatype="html">
+        <source>Install Failed</source>
+      </trans-unit>
+      <trans-unit id="4335513861407598564" datatype="html">
+        <source>Failed to register driver using vrpathreg. Make sure SteamVR is installed and closed.</source>
+      </trans-unit>
+      <trans-unit id="4234420385210303557" datatype="html">
+        <source>Driver files not valid</source>
+      </trans-unit>
+      <trans-unit id="5010152287347780808" datatype="html">
+        <source>the folder seems not include driver file, please check again</source>
+      </trans-unit>
+      <trans-unit id="8168207416346173524" datatype="html">
+        <source>Uninstall Failed, Make sure SteamVR is closed</source>
       </trans-unit>
       <trans-unit id="462668030267703302" datatype="html">
         <source>System not ready</source>
@@ -155,14 +1306,17 @@
       <trans-unit id="7203035800259368462" datatype="html">
         <source>Install Driver</source>
       </trans-unit>
+      <trans-unit id="5251436848651467180" datatype="html">
+        <source>Driver enabled</source>
+      </trans-unit>
+      <trans-unit id="2384844509787586912" datatype="html">
+        <source>Driver not enabled</source>
+      </trans-unit>
       <trans-unit id="7555464695198772113" datatype="html">
         <source>Driver setting initialization</source>
       </trans-unit>
       <trans-unit id="4168563010189910891" datatype="html">
         <source>Driver setting file not found, please launch SteamVR</source>
-      </trans-unit>
-      <trans-unit id="4047643863189720714" datatype="html">
-        <source>Launch SteamVR</source>
       </trans-unit>
       <trans-unit id="7625955582398874896" datatype="html">
         <source>Driver settings invalid</source>
@@ -173,982 +1327,35 @@
       <trans-unit id="5254833004479203580" datatype="html">
         <source>Reset Setting</source>
       </trans-unit>
-      <trans-unit id="4678747519396968836" datatype="html">
-        <source>Driver folder not found</source>
-      </trans-unit>
-      <trans-unit id="6353920713750092185" datatype="html">
-        <source>Locate</source>
-      </trans-unit>
-      <trans-unit id="4234420385210303557" datatype="html">
-        <source>Driver files not valid</source>
-      </trans-unit>
-      <trans-unit id="5010152287347780808" datatype="html">
-        <source>the folder seems not include driver file, please check again</source>
-      </trans-unit>
-      <trans-unit id="648306878592239743" datatype="html">
-        <source>Reset to default</source>
-      </trans-unit>
-      <trans-unit id="3051991385923492490" datatype="html">
-        <source>Not installed</source>
-      </trans-unit>
-      <trans-unit id="5696123826602687537" datatype="html">
-        <source>Install <x id="INTERPOLATION" equiv-text="{{updateInfo.currentVersion}}"/></source>
-      </trans-unit>
-      <trans-unit id="4422662750836022649" datatype="html">
-        <source>Install success</source>
-      </trans-unit>
-      <trans-unit id="651025109543030819" datatype="html">
-        <source>please launch SteamVR to finish the installation</source>
-      </trans-unit>
-      <trans-unit id="2109348818976292721" datatype="html">
-        <source>Show Details</source>
-      </trans-unit>
-      <trans-unit id="6957891556134371559" datatype="html">
-        <source>Hide Details</source>
-      </trans-unit>
-      <trans-unit id="2180291763949669799" datatype="html">
-        <source>Enable</source>
-      </trans-unit>
-      <trans-unit id="6150901173509410295" datatype="html">
-        <source>Shiftall driver is also disabled</source>
-      </trans-unit>
-      <trans-unit id="currentRenderedFovBurnInNote" datatype="html">
-        <source> (deviates by a random value to reduce burn-in)</source>
-      </trans-unit>
-      <trans-unit id="4651117059363790056" datatype="html">
-        <source>100% Render resolution for SteamVR</source>
-      </trans-unit>
-      <trans-unit id="6195061204627290703" datatype="html">
-        <source>Render resolution for 1:1 sample per panel pixel</source>
-      </trans-unit>
-      <trans-unit id="combinedHfov" datatype="html">
-        <source>Combined HFOV</source>
-      </trans-unit>
-      <trans-unit id="binocularOverlap" datatype="html">
-        <source>Current Binocular Overlap</source>
-      </trans-unit>
-      <trans-unit id="1201696567241717027" datatype="html">
-        <source>Hidden Area Mesh Settings</source>
-      </trans-unit>
-      <trans-unit id="1889076648687767831" datatype="html">
-        <source>Radius Bottom Inner</source>
-      </trans-unit>
-      <trans-unit id="1916026066967398775" datatype="html">
-        <source>Test Mode</source>
-      </trans-unit>
-      <trans-unit id="2154451363318577354" datatype="html">
-        <source>Mesh Detail</source>
-      </trans-unit>
-      <trans-unit id="265959825807724821" datatype="html">
-        <source>Radius Bottom Outer</source>
-      </trans-unit>
-      <trans-unit id="6190895239365336532" datatype="html">
-        <source>Enable Hidden Area Meshes</source>
-      </trans-unit>
-      <trans-unit id="7233521999850639473" datatype="html">
-        <source>Radius Top Outer</source>
-      </trans-unit>
-      <trans-unit id="8838782636230653734" datatype="html">
-        <source>Radius Top Inner</source>
-      </trans-unit>
-      <trans-unit id="6545003957463909662" datatype="html">
-        <source>Check driver update and launch SteamVR</source>
-      </trans-unit>
-      <trans-unit id="3350600018161868456" datatype="html">
-        <source>Enable Stationary Dimming</source>
-      </trans-unit>
-      <trans-unit id="4869977764064716796" datatype="html">
-        <source>Movement Time</source>
-      </trans-unit>
-      <trans-unit id="6494825378753268291" datatype="html">
-        <source>Stationary Dimming Settings</source>
-      </trans-unit>
-      <trans-unit id="2421348343423477743" datatype="html">
-        <source>Inverts the meshes to only show the areas that will be hidden.</source>
-      </trans-unit>
       <trans-unit id="5294445514709130519" datatype="html">
         <source>Requires restarting SteamVR to apply changes.</source>
-      </trans-unit>
-      <trans-unit id="2548696539154999507" datatype="html">
-        <source>Any changes to these settings will require a game restart to be visible. The hidden area meshes are used to mask out the corners of the screen. They can increase performance in games that use them. Click for more information.</source>
       </trans-unit>
       <trans-unit id="6569858061936517894" datatype="html">
         <source>Requires restarting the game to apply changes.</source>
       </trans-unit>
-      <trans-unit id="1969673185132484114" datatype="html">
-        <source>Dim Brightness Percent</source>
+      <trans-unit id="648306878592239743" datatype="html">
+        <source>Reset to default</source>
       </trans-unit>
-      <trans-unit id="2856900395968306204" datatype="html">
-        <source>Movement Threshold Degrees</source>
+      <trans-unit id="2794005975495778952" datatype="html">
+        <source>Column major (what the panel reads)</source>
       </trans-unit>
-      <trans-unit id="3110314934124526458" datatype="html">
-        <source>Brighten Seconds</source>
+      <trans-unit id="4856288864029547746" datatype="html">
+        <source>Row major (as the grid is computed)</source>
       </trans-unit>
-      <trans-unit id="910820366380932556" datatype="html">
-        <source>Dim Seconds</source>
+      <trans-unit id="5052237544281614751" datatype="html">
+        <source>Zone Order</source>
       </trans-unit>
-      <trans-unit id="5289886362173436722" datatype="html">
-        <source>Driver Settings</source>
+      <trans-unit id="4493330579602275609" datatype="html">
+        <source>Diagonal</source>
       </trans-unit>
-      <trans-unit id="2831644384120596450" datatype="html">
-        <source>Custom Shader</source>
+      <trans-unit id="5816865817673411773" datatype="html">
+        <source>Which pattern the zones get. A ramp across 576 zones is hard to see, because each zone is a few tenths of a percent of the panel and its neighbours are nearly the same value, so use a pattern with hard edges for a visual check: a block of zones at full value next to a block at the dark value. With no pattern named the Test Pattern Ramp toggle below decides. Quadrants gives each quarter of the grid its own level in the order the zones are numbered, so the panel can be read against them: brightest 255 top left, then 170 top right, then 85 bottom left, then the dark value bottom right. One Eye Only makes only the first half of the zone array bright, so which physical eye lights up tells you which half of the array the headset reads as the left eye.</source>
       </trans-unit>
-      <trans-unit id="4717955562496113560" datatype="html">
-        <source>Enable Custom Shader</source>
+      <trans-unit id="6354590878248087903" datatype="html">
+        <source>One Eye Only</source>
       </trans-unit>
-      <trans-unit id="1098681868292389579" datatype="html">
-        <source>Disable Black Levels</source>
-      </trans-unit>
-      <trans-unit id="1840263869596556199" datatype="html">
-        <source>Gamma</source>
-      </trans-unit>
-      <trans-unit id="2277196544119208763" datatype="html">
-        <source>Contrast Midpoint Right Eye</source>
-      </trans-unit>
-      <trans-unit id="2761180419597232621" datatype="html">
-        <source>Contrast Right Eye</source>
-      </trans-unit>
-      <trans-unit id="2807925758192464215" datatype="html">
-        <source>Contrast Midpoint</source>
-      </trans-unit>
-      <trans-unit id="6253449614235080530" datatype="html">
-        <source>sRGB Color Correction</source>
-      </trans-unit>
-      <trans-unit id="6308223444121977948" datatype="html">
-        <source>Linear Per Eye Contrast</source>
-      </trans-unit>
-      <trans-unit id="6895974779798464285" datatype="html">
-        <source>Linear Contrast</source>
-      </trans-unit>
-      <trans-unit id="7175389924106202454" datatype="html">
-        <source>Contrast Midpoint Left Eye</source>
-      </trans-unit>
-      <trans-unit id="7561913857043610583" datatype="html">
-        <source>Contrast Left Eye</source>
-      </trans-unit>
-      <trans-unit id="837218066212754994" datatype="html">
-        <source>Per Eye Contrast</source>
-      </trans-unit>
-      <trans-unit id="8390407398188435348" datatype="html">
-        <source>Enable for Other HMDs</source>
-      </trans-unit>
-      <trans-unit id="8550993829997950174" datatype="html">
-        <source>Enable for MeganeX 8K</source>
-      </trans-unit>
-      <trans-unit id="8803107143135131768" datatype="html">
-        <source>Disable Mura Correction</source>
-      </trans-unit>
-      <trans-unit id="9099744393311106892" datatype="html">
-        <source>Contrast</source>
-      </trans-unit>
-      <trans-unit id="1013018539656511103" datatype="html">
-        <source>The radius of the visible area at the top of the hidden area mesh near your nose.</source>
-      </trans-unit>
-      <trans-unit id="3200668587703093580" datatype="html">
-        <source>Adjusts the gamma of the image. This controls how brightness is mapped to the display&apos;s brightness. Higher gamma values make darker areas of the image brighter.</source>
-      </trans-unit>
-      <trans-unit id="1293521252153505574" datatype="html">
-        <source>The minimum amount of rotation in degrees that will reset the stationary dimming timer.</source>
-      </trans-unit>
-      <trans-unit id="1488156220085285219" datatype="html">
-        <source>The amount of time it takes to go from bright to dim.</source>
-      </trans-unit>
-      <trans-unit id="1651122445619194508" datatype="html">
-        <source>These settings have defaults that should not need to be changed but are provided for experimentation.</source>
-      </trans-unit>
-      <trans-unit id="1771517419511821401" datatype="html">
-        <source>Applies contrast to each eye separately which allows you to correct for differences in displays. This will be applied in addition to the above contrast.</source>
-      </trans-unit>
-      <trans-unit id="1865011951137718165" datatype="html">
-        <source>The amount of time in seconds that the display will remain bright after movement.</source>
-      </trans-unit>
-      <trans-unit id="2210953895431071691" datatype="html">
-        <source>When enabled, the Custom Headset driver will run the MeganeX superlight 8K.</source>
-      </trans-unit>
-      <trans-unit id="2261913743249257236" datatype="html">
-        <source>The minimum brightness percentage that the display will dim to when stationary.</source>
-      </trans-unit>
-      <trans-unit id="2336565079874618391" datatype="html">
-        <source>Enables the custom shader for the MeganeX 8K.</source>
-      </trans-unit>
-      <trans-unit id="5444309850677948407" datatype="html">
-        <source>Adjusts the saturation of the image. When higher than 50, the colors in the image will be exaggerated. When lowered all the way to 0 the image will be grayscale.</source>
-      </trans-unit>
-      <trans-unit id="2846574612210787191" datatype="html">
-        <source>The resolution of the distortion mesh. Higher values prevent small wavy artifacts in the corners of the lenses but makes other settings laggier. The default pretty much eliminates the artifacts.</source>
-      </trans-unit>
-      <trans-unit id="2861813522442601500" datatype="html">
-        <source>Enables or disables the stationary dimming feature.</source>
-      </trans-unit>
-      <trans-unit id="300522424104416983" datatype="html">
-        <source>The radius of the visible area at the top of the hidden area mesh near your ears.</source>
-      </trans-unit>
-      <trans-unit id="3158413943708140326" datatype="html">
-        <source>Forces the black level clamp to be disabled. This can make headsets like the Vive darker at the expense of more smearing.</source>
-      </trans-unit>
-      <trans-unit id="347583554594702753" datatype="html">
-        <source>Enables or disables the hidden area meshes.</source>
-      </trans-unit>
-      <trans-unit id="4398666323666535983" datatype="html">
-        <source>Adjusts the contrast of the image. When higher than 50, the colors in the image will be expanded away from the midpoint. When lower than 50, the colors in the image will be contracted towards the midpoint.</source>
-      </trans-unit>
-      <trans-unit id="4446503733054332206" datatype="html">
-        <source>The radius of the visible area at the bottom of the hidden area mesh near your ears.</source>
-      </trans-unit>
-      <trans-unit id="4595919550679720902" datatype="html">
-        <source>The minimum brightness level that the display will reach. Increase this if you love the smeary grey of LCD headsets.</source>
-      </trans-unit>
-      <trans-unit id="4891791018896428318" datatype="html">
-        <source>The number of vertices used to create each section of the hidden area mesh. Higher values increase the smoothness of the mesh.</source>
-      </trans-unit>
-      <trans-unit id="5106755418798621895" datatype="html">
-        <source>Enables sRGB color correction. The MeganeX is a Display-P3 display and normally colors are oversaturated by mapping the srgb outputs of applications to the full color space. When this is enabled, only the srgb portion of the display is used, which can make colors look more accurate.</source>
-      </trans-unit>
-      <trans-unit id="5518205125788028902" datatype="html">
-        <source>Seconds From VSync to Photons</source>
-      </trans-unit>
-      <trans-unit id="5868413981442823243" datatype="html">
-        <source>This forcibly disables the mura correction on any headset that has it like the Vive.</source>
-      </trans-unit>
-      <trans-unit id="5058044319848224995" datatype="html">
-        <source>Applies linear contrast to the image before gamma correction instead of after. Generally contrast looks better with this option off but it can be useful for some effects.</source>
-      </trans-unit>
-      <trans-unit id="3941655232889847865" datatype="html">
-        <source>This feature automatically dims the display to protect the panel from screen burn-in when the headset is stationary. The display remains bright for the movement time whenever it is moved more than the threshold.</source>
-      </trans-unit>
-      <trans-unit id="3656135147187301413" datatype="html">
-        <source>The multiplier for the 100% render resolution height. This allows you to change the aspect ratio of the resolution as well as reach resolutions outside the 20%-500% range of the SteamVR slider. This may require a restart to apply.</source>
-      </trans-unit>
-      <trans-unit id="3290461260302743456" datatype="html">
-        <source>Displays information about the resolution SteamVR will be run at and what the optimal resolution is. Settings like fov will affect this. This will only be updated while the headset is actively running under this driver.</source>
-      </trans-unit>
-      <trans-unit id="7080815701953186727" datatype="html">
-        <source>Enables the custom shader for all other HMDs. Non-native SteamVR headsets likely won&apos;t work yet.</source>
-      </trans-unit>
-      <trans-unit id="715138922561408923" datatype="html">
-        <source>The amount of time it takes to go from dim to bright.</source>
-      </trans-unit>
-      <trans-unit id="7471123579619673182" datatype="html">
-        <source>The distortion profile to use for the headset. See the distortion tab for more options.</source>
-      </trans-unit>
-      <trans-unit id="7562807646184458622" datatype="html">
-        <source>Adjusts the midpoint of the contrast. This controls the center of the contrast adjustment. For example when this is 100 all colors will move towards or away from white. When this is 0 all colors will move towards or away from black, which gives a brightening or darkening effect.</source>
-      </trans-unit>
-      <trans-unit id="7634542220919712546" datatype="html">
-        <source>Enables the custom shader. This will replace shaders in SteamVR.</source>
-      </trans-unit>
-      <trans-unit id="7819125323126809048" datatype="html">
-        <source>The multiplier for the 100% render resolution width. This allows you to change the aspect ratio of the resolution as well as reach resolutions outside the 20%-500% range of the SteamVR slider. This may require a restart to apply.</source>
-      </trans-unit>
-      <trans-unit id="7975741758736447642" datatype="html">
-        <source>Randomly adds up to 3 degrees to the FOV on every run to prevent sharp burn in at the edge of the fov on the display. It is recommended you do not turn this off in case you or the next person wants to increase the fov.</source>
-      </trans-unit>
-      <trans-unit id="8045582904723345362" datatype="html">
-        <source>Adjusts how zoomed in the distortion profile is. This can be used to correct for diopters with higher set diopters needing a positive zoom. However it will induce some amount of warping.</source>
-      </trans-unit>
-      <trans-unit id="8242705724014165192" datatype="html">
-        <source>The resolution to run the DisplayPort connection at.</source>
-      </trans-unit>
-      <trans-unit id="85559335853494335" datatype="html">
-        <source>The radius of the visible area at the bottom of the hidden area mesh near your nose.</source>
-      </trans-unit>
-      <trans-unit id="9103482387790094220" datatype="html">
-        <source>This value is added to the IPD value. Just use the main ipd slider and leave this 0. This will probably be removed soon.</source>
-      </trans-unit>
-      <trans-unit id="9157492168132046017" datatype="html">
-        <source>Shifts the subpixels of the display using the UV distortions to improve color fringing and sharpness. The default is correct for the oled panel.</source>
-      </trans-unit>
-      <trans-unit id="2384844509787586912" datatype="html">
-        <source>Driver not enabled</source>
-      </trans-unit>
-      <trans-unit id="238553294014386856" datatype="html">
-        <source>Re-Install Driver</source>
-      </trans-unit>
-      <trans-unit id="1507100678943453495" datatype="html">
-        <source>Last Run Driver Version</source>
-      </trans-unit>
-      <trans-unit id="3377187322102407397" datatype="html">
-        <source>Color Tint</source>
-      </trans-unit>
-      <trans-unit id="4131031938144074766" datatype="html">
-        <source>Enable Driver</source>
-      </trans-unit>
-      <trans-unit id="5251436848651467180" datatype="html">
-        <source>Driver enabled</source>
-      </trans-unit>
-      <trans-unit id="5683939155976813564" datatype="html">
-        <source>The inter pupillary distance of the virtual cameras in SteamVR applications. You set the headset&apos;s physical IPD in the Shiftall Configurator. This IPD should be matched with what you set in the Shiftall Configurator to get the correct world scale.</source>
-      </trans-unit>
-      <trans-unit id="3389673497621788356" datatype="html">
-        <source>The maximum FOV that will be displayed vertically in the headset. The actual FOV can be lower if this FOV can&apos;t fit on the screen after distortion. This may sometimes require restarting the game to fully apply.</source>
-      </trans-unit>
-      <trans-unit id="6265350536077157049" datatype="html">
-        <source>The percentage of the 1:1 resolution that the super sampling downscale area filter is applied. The subpixel shifts with the custom shader can make use of the 500% resolution above 1:1. Without subpixel sampling this value can be lowered to downscale the input so that all pixels contribute to the output. Toggling off advanced supersample filtering in SteamVR will disable this.</source>
-      </trans-unit>
-      <trans-unit id="6691168530218751172" datatype="html">
-        <source>Adjusts the color of the headset. This can also be used to decrease or increase the brightness of the scene.</source>
-      </trans-unit>
-      <trans-unit id="7834138622722093170" datatype="html">
-        <source>Samples subpixels from the correct locations in the image to improve sharpness by lighting up individual subpixels. This can have a remarkable effect on the MeganeX, and Dream Air where it can extract detail from more than 300% of the 1:1 resolution. The Vive is also supported but the improvement is less noticeable.</source>
-      </trans-unit>
-      <trans-unit id="7681727633925076580" datatype="html">
-        <source>Super Sampling Filter Percent</source>
-      </trans-unit>
-      <trans-unit id="7567855955496644826" datatype="html">
-        <source>The maximum per eye FOV that will be displayed horizontally in the headset. The actual FOV can be lower if this FOV can&apos;t fit on the screen after distortion. This may sometimes require restarting the game to fully apply.</source>
-      </trans-unit>
-      <trans-unit id="5731189063272671574" datatype="html">
-        <source>Installed Driver Version</source>
-      </trans-unit>
-      <trans-unit id="6439365426343089851" datatype="html">
-        <source>General</source>
-      </trans-unit>
-      <trans-unit id="1655480221425894378" datatype="html">
-        <source>The time it takes for the display to update after the GPU has finished rendering. This is used to calculate the time warp correction. Setting it too high or low causes tracking to overshoot or undershoot which makes tracking more jittery.</source>
-      </trans-unit>
-      <trans-unit id="2084720747782315739" datatype="html">
-        <source>Decrease FOV for Disabled Eye</source>
-      </trans-unit>
-      <trans-unit id="2105504908065972608" datatype="html">
-        <source>10 Bit Dithering</source>
-      </trans-unit>
-      <trans-unit id="2765285220153750975" datatype="html">
-        <source>Uninstall success</source>
-      </trans-unit>
-      <trans-unit id="2406129309783787457" datatype="html">
-        <source>The SteamVR driver is not running, so this information is not updated.</source>
-      </trans-unit>
-      <trans-unit id="30427449539687573" datatype="html">
-        <source>Headset not connected</source>
-      </trans-unit>
-      <trans-unit id="2368944008461420911" datatype="html">
-        <source>The angle each eye is rotated outwards. With some training it might allow increasing FOV at the expense of binocular overlap and comfort. For every 1 degree this is increased 2 degrees of fov are added. This will mess with your eyes in and out of VR unless you do some extreme modding to the headset.</source>
-      </trans-unit>
-      <trans-unit id="4319231426791349112" datatype="html">
-        <source>Eye Rotation</source>
-      </trans-unit>
-      <trans-unit id="4499826397276637153" datatype="html">
-        <source>You need to update your driver to use the custom shader.</source>
-      </trans-unit>
-      <trans-unit id="470261502393586030" datatype="html">
-        <source>Uninstall Driver</source>
-      </trans-unit>
-      <trans-unit id="4808834755787530462" datatype="html">
-        <source>Right</source>
-      </trans-unit>
-      <trans-unit id="5246819740476460403" datatype="html">
-        <source>Left</source>
-      </trans-unit>
-      <trans-unit id="6082171864197428613" datatype="html">
-        <source>Install</source>
-      </trans-unit>
-      <trans-unit id="6251586038459969294" datatype="html">
-        <source>Both</source>
-      </trans-unit>
-      <trans-unit id="6252070156626006029" datatype="html">
-        <source>None</source>
-      </trans-unit>
-      <trans-unit id="637856309710144578" datatype="html">
-        <source>The driver folder is not in the default location. Unpack the entire zip and retry, or manually locate the new CustomHeadsetOpenVR folder to be installed.</source>
-      </trans-unit>
-      <trans-unit id="6502161386443972573" datatype="html">
-        <source>Seconds From Photons to Vblank</source>
-      </trans-unit>
-      <trans-unit id="6933733092575281171" datatype="html">
-        <source>Successfully uninstalled the driver</source>
-      </trans-unit>
-      <trans-unit id="8590979780416435469" datatype="html">
-        <source>Disables an eye. This can provide more performance to the remaining eye once the game is restarted. Eyes can not be completely disabled in SteamVR so this covers the entire eye with the hidden area mesh. The hidden area mesh change does require a restart and may black out the desktop view. It can also set the FOV extremely low when disableEyeDecreaseFov is manually set in settings.json, but that can cause issues.</source>
-      </trans-unit>
-      <trans-unit id="731345165483658436" datatype="html">
-        <source>Lens Color Correction</source>
-      </trans-unit>
-      <trans-unit id="7669295652920485128" datatype="html">
-        <source>Install Failed, Make sure SteamVR is closed</source>
-      </trans-unit>
-      <trans-unit id="7763542106240292744" datatype="html">
-        <source>Set the FOV to near zero for the disabled eye. By decreasing the FOV, occlusion culling may be able to decrease the rendering load. This can cause issues with some games.</source>
-      </trans-unit>
-      <trans-unit id="7824054889084111041" datatype="html">
-        <source>FOV Zoom</source>
-      </trans-unit>
-      <trans-unit id="8002186340510323483" datatype="html">
-        <source>Disable Eye</source>
-      </trans-unit>
-      <trans-unit id="8168207416346173524" datatype="html">
-        <source>Uninstall Failed, Make sure SteamVR is closed</source>
-      </trans-unit>
-      <trans-unit id="3402973686579225537" datatype="html">
-        <source>The time it takes for the display to show the first and last line. This is to combat the same effect you see on your desktop if you follow a window while you quickly move it side to side.</source>
-      </trans-unit>
-      <trans-unit id="1057377126114488911" datatype="html">
-        <source>Custom Distortion Profiles</source>
-      </trans-unit>
-      <trans-unit id="1067866594366598865" datatype="html">
-        <source>Enable Dream Air Driver</source>
-      </trans-unit>
-      <trans-unit id="108697143877199110" datatype="html">
-        <source> Donation Links </source>
-      </trans-unit>
-      <trans-unit id="1293383617858674656" datatype="html">
-        <source>The contrast of the CAS filter. Higher values increase the sharpness of the image.</source>
-      </trans-unit>
-      <trans-unit id="1410444841710470384" datatype="html">
-        <source>Use Filter for Dashboard</source>
-      </trans-unit>
-      <trans-unit id="1418682465067354526" datatype="html">
-        <source>Use Filter for Overlays</source>
-      </trans-unit>
-      <trans-unit id="1440423095101259239" datatype="html">
-        <source>Show Incompatible Profiles</source>
-      </trans-unit>
-      <trans-unit id="1702332711364907551" datatype="html">
-        <source>Strength of the sharpening effect. Higher values produce more sharpening.</source>
-      </trans-unit>
-      <trans-unit id="187187500641108332" datatype="html">
-        <source>
-          <x id="INTERPOLATION" equiv-text="{{config().enableText}}"/>
-        </source>
-      </trans-unit>
-      <trans-unit id="1984095847256711870" datatype="html">
-        <source>Distortion Control Points</source>
-      </trans-unit>
-      <trans-unit id="2088381581994595582" datatype="html">
-        <source>MeganeX8K</source>
-      </trans-unit>
-      <trans-unit id="2102961643795704214" datatype="html">
-        <source> tab.</source>
-      </trans-unit>
-      <trans-unit id="211892709611099413" datatype="html">
-        <source>You still need to install the driver into SteamVR on the About page.</source>
-      </trans-unit>
-      <trans-unit id="2124172998294424662" datatype="html">
-        <source> Affiliate Links </source>
-      </trans-unit>
-      <trans-unit id="2185525877914813434" datatype="html">
-        <source>Adjusts the color of the image for any headset that can use the custom shader. This can also be used to decrease or increase the brightness of the scene.</source>
-      </trans-unit>
-      <trans-unit id="2217613917502349751" datatype="html">
-        <source>Flat FOV Zoom</source>
-      </trans-unit>
-      <trans-unit id="2251105634900060826" datatype="html">
-        <source>Replaces the distortion shader in SteamVR&apos;s compositor with a custom one that allows for more customization. This can work with any headset that directly uses SteamVR&apos;s compositor. Click for more information.</source>
-      </trans-unit>
-      <trans-unit id="2292160599470132016" datatype="html">
-        <source>Enables eye tracking support for the headset. Pimax headsets require the pi_server runtime. Use mbucchia/Quad-Views-Foveated for foveated rendering. This may require restarting the game if turned on after a game is started.</source>
-      </trans-unit>
-      <trans-unit id="2382586004651960438" datatype="html">
-        <source>Ko-fi</source>
-      </trans-unit>
-      <trans-unit id="2490288831053996036" datatype="html">
-        <source>FXAA2 Sharpen Strength</source>
-      </trans-unit>
-      <trans-unit id="2517258168771093272" datatype="html">
-        <source>This headset is not currently being run by this driver.</source>
-      </trans-unit>
-      <trans-unit id="2614717696232380606" datatype="html">
-        <source>Auto (based on headset)</source>
-      </trans-unit>
-      <trans-unit id="2820798961629882057" datatype="html">
-        <source>Restarting the compositor can fix some issues and allows changing various settings like refresh rate without restarting SteamVR or the game.</source>
-      </trans-unit>
-      <trans-unit id="2878875963830731582" datatype="html">
-        <source>$25 Off</source>
-      </trans-unit>
-      <trans-unit id="2886905340153306704" datatype="html">
-        <source>The inter pupillary distance of the virtual cameras in SteamVR applications. This IPD should be matched with what you set for the headset&apos;s physical IPD to get the correct world scale.</source>
-      </trans-unit>
-      <trans-unit id="3076617424804562566" datatype="html">
-        <source>Pimax</source>
-      </trans-unit>
-      <trans-unit id="32490824642298852" datatype="html">
-        <source>Strength of the FXAA 2CAS sharpening effect. Higher values produce more sharpening.</source>
-      </trans-unit>
-      <trans-unit id="3336830571393985792" datatype="html">
-        <source>Enable FOV Clamping</source>
-      </trans-unit>
-      <trans-unit id="3344714277062496986" datatype="html">
-        <source>Updates, Source Code, and Documentation</source>
-      </trans-unit>
-      <trans-unit id="3416203478018524861" datatype="html">
-        <source>FOV and Resolution Info</source>
-      </trans-unit>
-      <trans-unit id="3490519526111686072" datatype="html">
-        <source>Radius of the sampling pattern. Higher values produce a wider effect. 1.0 is best in most cases, but higher values may help some blurry content.</source>
-      </trans-unit>
-      <trans-unit id="3501090981182430993" datatype="html">
-        <source>Enables 10 bit dithering. This allows a 10 bit input to be shown on an 8 bit display. Pixels are dithered spatially and temporally to allow more colors to be represented. This works for the MeganeX and all other native headsets but will only have an effect for 10 bit VR applications. There may be some slight benefit to having this on when other color corrections are used.</source>
-      </trans-unit>
-      <trans-unit id="3650433553188506936" datatype="html">
-        <source>This corrects color uniformity issues created by the lenses. On the MeganeX this fixes the warmer colors in the center of the lenses. On the Dream Air this fixes the red tint around the edges.</source>
-      </trans-unit>
-      <trans-unit id="365798284983671240" datatype="html">
-        <source>This headset is not currently being run by this driver. None of these settings will have an effect. Enable this driver and restart SteamVR with the headset connected to change this.</source>
-      </trans-unit>
-      <trans-unit id="3862931790033488343" datatype="html">
-        <source>CAS Strength</source>
-      </trans-unit>
-      <trans-unit id="3951188764293952137" datatype="html">
-        <source>sRGB White Point Correction</source>
-      </trans-unit>
-      <trans-unit id="395732623785174359" datatype="html">
-        <source>CAS Contrast</source>
-      </trans-unit>
-      <trans-unit id="405060426819658964" datatype="html">
-        <source>Similar to FOV Zoom but keeps straight lines straight at the expense of more distortion when rotating your head. Decreasing this will allow the FOV sliders to go higher, but will introduce distortion. These zoom settings can be combined for different effects.</source>
-      </trans-unit>
-      <trans-unit id="4231987725628572123" datatype="html">
-        <source>FXAA2 Sharpen Clamp</source>
-      </trans-unit>
-      <trans-unit id="428362952849592897" datatype="html">
-        <source>A headset is currently running with a non-native driver. Many settings will not work.</source>
-      </trans-unit>
-      <trans-unit id="452020748999779962" datatype="html">
-        <source>More settings are available on the </source>
-      </trans-unit>
-      <trans-unit id="4741383493660686438" datatype="html">
-        <source>Luma Sharpen Radius</source>
-      </trans-unit>
-      <trans-unit id="48399273127175183" datatype="html">
-        <source>github.com/sboys3/CustomHeadsetOpenVR</source>
-      </trans-unit>
-      <trans-unit id="4899348330292837235" datatype="html">
-        <source>Enables the filters when the SteamVR dashboard is open. This only activates when the dashboard is actually visible, so there is no performance impact when the dashboard is closed. This does cause a lag spike when opening or closing the dashboard. The driver can not detect if the menu is open at startup, so the menu will have to be re-opened for this to take effect.</source>
-      </trans-unit>
-      <trans-unit id="4902817035128594900" datatype="html">
-        <source>Description</source>
-      </trans-unit>
-      <trans-unit id="492689708075506397" datatype="html">
-        <source>Use Vive Bluetooth</source>
-      </trans-unit>
-      <trans-unit id="4944344393444797399" datatype="html">
-        <source>The sample pattern to use for the sharpening effect. Different patterns produce slightly different results.</source>
-      </trans-unit>
-      <trans-unit id="5052404124223641771" datatype="html">
-        <source>Enables the custom shader for all other native HMDs that don&apos;t have specific toggles at the bottom. This includes all native SteamVR headsets like the Index, Vive, BSB, etc. Non-native SteamVR headsets like the Quest, Pimax, etc will not work.</source>
-      </trans-unit>
-      <trans-unit id="5057861628768897438" datatype="html">
-        <source>Luma Sharpen Strength</source>
-      </trans-unit>
-      <trans-unit id="5076719159866344759" datatype="html">
-        <source>General Headset Settings</source>
-      </trans-unit>
-      <trans-unit id="5212335462525071748" datatype="html">
-        <source>Enables the filters for the SteamVR menu and overlays. Enabling this has a noticeable performance impact. Even when the menu is closed and there are no overlays, there is some decrease in performance. The SteamVR background is also an overlay so the filters will have no effects outside of games when this is off.</source>
-      </trans-unit>
-      <trans-unit id="5233274972558690878" datatype="html">
-        <source>This custom shader has the possibility to completely break SteamVR while enabled after a future SteamVR update. Disable it if you have issues or compatibility problems.</source>
-      </trans-unit>
-      <trans-unit id="5409696716939740879" datatype="html">
-        <source>Unblock All</source>
-      </trans-unit>
-      <trans-unit id="5444145030429249111" datatype="html">
-        <source>Chromatic Aberration Correction</source>
-      </trans-unit>
-      <trans-unit id="5452742868722563179" datatype="html">
-        <source>Restart Compositor</source>
-      </trans-unit>
-      <trans-unit id="5470658539933989942" datatype="html">
-        <source>FXAA2 CAS Contrast</source>
-      </trans-unit>
-      <trans-unit id="558638418339229928" datatype="html">
-        <source>Built-in Distortion Profiles</source>
-      </trans-unit>
-      <trans-unit id="5623760081334087234" datatype="html">
-        <source>Maximum possible per eye FOV</source>
-      </trans-unit>
-      <trans-unit id="5680149591658904592" datatype="html">
-        <source>Adjusts how zoomed the FOV is. Decreasing this will allow the FOV sliders to go higher, but will introduce fish-eye distortion. These zoom settings can be combined for different effects.</source>
-      </trans-unit>
-      <trans-unit id="5943953416252309713" datatype="html">
-        <source>Luma Sharpen Clamp</source>
-      </trans-unit>
-      <trans-unit id="6046379908052840609" datatype="html">
-        <source>Makes SteamVR take compositor debug screenshots whenever a normal screenshot is taken. These screenshots are higher resolution and also include the exact output sent to the headset. The folder containing them will open when a screenshot is taken. In some cases standard screenshots do not work with the MeganeX but these are still functional. They are more performance intensive than normal screenshots.</source>
-      </trans-unit>
-      <trans-unit id="6065348048961138520" datatype="html">
-        <source>Enabling parallel projection makes the virtual cameras always point in the same direction. It increases compatibility but slightly harms performance. This only applies when rendered binocular overlap is not 100%.</source>
-      </trans-unit>
-      <trans-unit id="606988768018169130" datatype="html">
-        <source>When enabled, the Custom Headset driver will run the Pimax Dream Air.</source>
-      </trans-unit>
-      <trans-unit id="6145377464534677042" datatype="html">
-        <source>profiles</source>
-      </trans-unit>
-      <trans-unit id="6419211388774975848" datatype="html">
-        <source>Limits maximum amount of sharpening a pixel receives. Lower values reduce artifacts at the cost of some sharpness.</source>
-      </trans-unit>
-      <trans-unit id="650832422229562869" datatype="html">
-        <source>When FOV Clamping is enabled, the distortion profile FOV will clamp the image to fit entirely on the display. Disabling this allows lighting up more of the corners or providing more FOV in the desktop view for streaming, but will also cause a blue glow at the edge of the display. That is because the red channel is already touching the centers of each of the edges of the display and can not be expanded any more without cutting off.</source>
-      </trans-unit>
-      <trans-unit id="6555353275322017096" datatype="html">
-        <source>Enables the use of the original Vive&apos;s link box for any headset to control base stations directly with SteamVR.</source>
-      </trans-unit>
-      <trans-unit id="6694417376736419143" datatype="html">
-        <source>Corrects the sRGB white point in addition to the colors. This may result in a warmer image but more accurate colors to the sRGB standard.</source>
-      </trans-unit>
-      <trans-unit id="6717304138460300521" datatype="html">
-        <source>Enable for Other Native HMDs</source>
-      </trans-unit>
-      <trans-unit id="6726288189272950602" datatype="html">
-        <source>Strength of the FXAA2 sharpening effect. Higher values produce more sharpening.</source>
-      </trans-unit>
-      <trans-unit id="6743164523482590482" datatype="html">
-        <source>Contrast of the FXAA2 CAS sharpening effect. Higher values increase the sharpness of the image.</source>
-      </trans-unit>
-      <trans-unit id="6866446009305101185" datatype="html">
-        <source>Default Settings Tab</source>
-      </trans-unit>
-      <trans-unit id="6894334009784471350" datatype="html">
-        <source>Enable Eye Tracking</source>
-      </trans-unit>
-      <trans-unit id="6907320896515802256" datatype="html">
-        <source>The custom shader is not enabled for the current headset.</source>
-      </trans-unit>
-      <trans-unit id="7005186918826158340" datatype="html">
-        <source>Additional IPD</source>
-      </trans-unit>
-      <trans-unit id="7071470734400948493" datatype="html">
-        <source>Author</source>
-      </trans-unit>
-      <trans-unit id="7105237620645987051" datatype="html">
-        <source>This may cause vision problems outside of the headset.</source>
-      </trans-unit>
-      <trans-unit id="7213133553923604199" datatype="html">
-        <source>Take Compositor Screenshots</source>
-      </trans-unit>
-      <trans-unit id="7322772911204552921" datatype="html">
-        <source>Horizontal IPD Offset</source>
-      </trans-unit>
-      <trans-unit id="7459620849547189151" datatype="html">
-        <source>Launch on GUI Startup</source>
-      </trans-unit>
-      <trans-unit id="7565716024468232322" datatype="html">
-        <source>Links</source>
-      </trans-unit>
-      <trans-unit id="7582797498140593002" datatype="html">
-        <source>Dream Air</source>
-      </trans-unit>
-      <trans-unit id="758358695235230670" datatype="html">
-        <source>Target Device</source>
-      </trans-unit>
-      <trans-unit id="7674403656412985763" datatype="html">
-        <source>These settings work with any SteamVR headset.</source>
-      </trans-unit>
-      <trans-unit id="7873424066236224601" datatype="html">
-        <source>Current rendered per eye FOV</source>
-      </trans-unit>
-      <trans-unit id="794173200648103951" datatype="html">
-        <source>Max Per Eye Fov Horizontal</source>
-      </trans-unit>
-      <trans-unit id="7968144323126360768" datatype="html">
-        <source>Custom Headset&apos;s driver is disabled</source>
-      </trans-unit>
-      <trans-unit id="8099751105392814915" datatype="html">
-        <source>FXAA2 CAS Strength</source>
-      </trans-unit>
-      <trans-unit id="822068397074061211" datatype="html">
-        <source>Parallel Projection</source>
-      </trans-unit>
-      <trans-unit id="8228400188029177776" datatype="html">
-        <source>Saturation</source>
-      </trans-unit>
-      <trans-unit id="8646491615394973493" datatype="html">
-        <source> No imported distortion profiles found. </source>
-      </trans-unit>
-      <trans-unit id="8650499415827640724" datatype="html">
-        <source>Type</source>
-      </trans-unit>
-      <trans-unit id="8740052564073898510" datatype="html">
-        <source>The sampling filter to use for the custom shader. These filters are one of the best ways to increase image quality in this driver. The default is the standard linear filter, but other options may increase sharpness or reduce aliasing. However these filters increase GPU memory bandwidth usage. Click for more information.</source>
-      </trans-unit>
-      <trans-unit id="8789560629923838358" datatype="html">
-        <source>The strength of the CAS filter. Higher values produce a sharper image.</source>
-      </trans-unit>
-      <trans-unit id="8829497237648100098" datatype="html">
-        <source>Filter</source>
-      </trans-unit>
-      <trans-unit id="894113024692774525" datatype="html">
-        <source>Max Per Eye Fov Vertical</source>
-      </trans-unit>
-      <trans-unit id="8953033926734869941" datatype="html">
-        <source>Name</source>
-      </trans-unit>
-      <trans-unit id="9049291618807267906" datatype="html">
-        <source>Patreon</source>
-      </trans-unit>
-      <trans-unit id="9113006425690094381" datatype="html">
-        <source>MeganeX 8K</source>
-      </trans-unit>
-      <trans-unit id="9128435957530270398" datatype="html">
-        <source>Start SteamVR with the new driver to see new settings.</source>
-      </trans-unit>
-      <trans-unit id="9202590891036999940" datatype="html">
-        <source>Offsets both eyes to the right by the specified amount in millimeters. This can be used to accommodate hardware horizontal offsets.</source>
-      </trans-unit>
-      <trans-unit id="943448628013046188" datatype="html">
-        <source>Luma Sharpen Pattern</source>
-      </trans-unit>
-      <trans-unit id="945165561939660867" datatype="html">
-        <source>Distortion Algorithm</source>
-      </trans-unit>
-      <trans-unit id="currentCombinedHfov" datatype="html">
-        <source>Current Combined HFOV</source>
-      </trans-unit>
-      <trans-unit id="5022766051224400249" datatype="html">
-        <source>Force Tracking</source>
-      </trans-unit>
-      <trans-unit id="8561844269846608277" datatype="html">
-        <source>Forces all tracked devices to always report as valid and tracking, even if no tracking data is received. This may reduce grey screens but also has the effect of making all tracked devices snap to the origin if they completely lose tracking.</source>
-      </trans-unit>
-      <trans-unit id="1207495129854392660" datatype="html">
-        <source>270°</source>
-      </trans-unit>
-      <trans-unit id="1330320476952271815" datatype="html">
-        <source>Automatically launch the Pimax headset when the GUI is opened. This will only launch if a Pimax headset is enabled. The last used launch method will be used.</source>
-      </trans-unit>
-      <trans-unit id="1362498673283527024" datatype="html">
-        <source>Settings for Pimax SLAM tracking integration.</source>
-      </trans-unit>
-      <trans-unit id="1422053103497449239" datatype="html">
-        <source>Install Failed</source>
-      </trans-unit>
-      <trans-unit id="1442423766206199966" datatype="html">
-        <source>When enabled, the Custom Headset driver will run the Pimax Crystal Light.</source>
-      </trans-unit>
-      <trans-unit id="1444976500417579937" datatype="html">
-        <source>Crystal Light</source>
-      </trans-unit>
-      <trans-unit id="1454387073783700294" datatype="html">
-        <source>P2 Series</source>
-      </trans-unit>
-      <trans-unit id="1624519313557914555" datatype="html">
-        <source>Pimax EVO OpenPort is the most reliable way to use this driver and is required for SLAM headsets. Start Pimax OpenPort and then launch SteamVR.</source>
-      </trans-unit>
-      <trans-unit id="1643329504910854864" datatype="html">
-        <source>Use Auto Eye Rotation</source>
-      </trans-unit>
-      <trans-unit id="1646640475484759817" datatype="html">
-        <source>Legacy Lighthouse Launch is for running Lighthouse Pimax headsets on Pimax Play without OpenPort. When using OpenPort, just launch SteamVR.</source>
-      </trans-unit>
-      <trans-unit id="1880392133028815604" datatype="html">
-        <source>Proximity Sensor Type</source>
-      </trans-unit>
-      <trans-unit id="1984855300906105820" datatype="html">
-        <source>Enables the custom shader for all Pimax headsets.</source>
-      </trans-unit>
-      <trans-unit id="2076690846872156228" datatype="html">
-        <source>EVO</source>
-      </trans-unit>
-      <trans-unit id="2137118792958394325" datatype="html">
-        <source>When enabled, the Custom Headset driver will run the Pimax Crystal Super Ultrawide.</source>
-      </trans-unit>
-      <trans-unit id="2172463870875172967" datatype="html">
-        <source>Pimax Native Headset</source>
-      </trans-unit>
-      <trans-unit id="2241379331477941291" datatype="html">
-        <source>The distortion profiles are completely wrong for the Crystal Super 57PPD.</source>
-      </trans-unit>
-      <trans-unit id="2360323217778444811" datatype="html">
-        <source>Enable Crystal Super Ultrawide Driver</source>
-      </trans-unit>
-      <trans-unit id="2528634145743035780" datatype="html">
-        <source>Crystal Super Micro-OLED</source>
-      </trans-unit>
-      <trans-unit id="2545688419661675181" datatype="html">
-        <source>Enable Pimax Passthrough</source>
-      </trans-unit>
-      <trans-unit id="2687007138701064844" datatype="html">
-        <source>Force Tracking (Headset Only)</source>
-      </trans-unit>
-      <trans-unit id="2807321419979826544" datatype="html">
-        <source>Recenter Pimax Playspace</source>
-      </trans-unit>
-      <trans-unit id="2857294794581706765" datatype="html">
-        <source>Enable Pimax 5K Driver</source>
-      </trans-unit>
-      <trans-unit id="2950824333991098415" datatype="html">
-        <source>180°</source>
-      </trans-unit>
-      <trans-unit id="3047060592352311263" datatype="html">
-        <source>Rotation of the image on the physical display.</source>
-      </trans-unit>
-      <trans-unit id="3173198199484308629" datatype="html">
-        <source>When enabled, the Custom Headset driver will run the Pimax Crystal OG.</source>
-      </trans-unit>
-      <trans-unit id="3183576075501626210" datatype="html">
-        <source>Installation Method</source>
-      </trans-unit>
-      <trans-unit id="3246166520315668747" datatype="html">
-        <source>Super Micro-OLED</source>
-      </trans-unit>
-      <trans-unit id="3257819372528222612" datatype="html">
-        <source>Stationary Dimming</source>
-      </trans-unit>
-      <trans-unit id="3301086086650990787" datatype="html">
-        <source>Register</source>
-      </trans-unit>
-      <trans-unit id="3357990158664370328" datatype="html">
-        <source>Always On</source>
-      </trans-unit>
-      <trans-unit id="339984245237635207" datatype="html">
-        <source>90°</source>
-      </trans-unit>
-      <trans-unit id="3481337201638513896" datatype="html">
-        <source>The distortion profiles are somewhat wrong for the Crystal Super Ultrawide.</source>
-      </trans-unit>
-      <trans-unit id="3497297873851122076" datatype="html">
-        <source>Dream Air SE</source>
-      </trans-unit>
-      <trans-unit id="3603873143323024943" datatype="html">
-        <source>Pimax 5K Series</source>
-      </trans-unit>
-      <trans-unit id="3745576460676610887" datatype="html">
-        <source>When enabled, the Custom Headset driver will run the Pimax Crystal Super 50PPD.</source>
-      </trans-unit>
-      <trans-unit id="3784759316646499385" datatype="html">
-        <source>The distortion profiles are not perfect for the Crystal OG.</source>
-      </trans-unit>
-      <trans-unit id="3949931233251722441" datatype="html">
-        <source>Display Rotation</source>
-      </trans-unit>
-      <trans-unit id="4090407681987458354" datatype="html">
-        <source>Controls where the data for proximity is retrieved from. Hardware is only available on some devices and has the same effect as none on devices that don&apos;t have proximity available. Pimax hardware devices may be unreliable, resulting in the screen shutting off or staying on regardless of proximity. None results in the standard SteamVR movement based proximity. In the stationary dimming mode, proximity is reported as false whenever the display has dimmed to its lowest level.</source>
-      </trans-unit>
-      <trans-unit id="4267294688133259873" datatype="html">
-        <source>Pimax 8K Series</source>
-      </trans-unit>
-      <trans-unit id="4323470180912194028" datatype="html">
-        <source>Copy</source>
-      </trans-unit>
-      <trans-unit id="4335513861407598564" datatype="html">
-        <source>Failed to register driver using vrpathreg. Make sure SteamVR is installed and closed.</source>
-      </trans-unit>
-      <trans-unit id="4339149983346610289" datatype="html">
-        <source>The distortion profiles are not perfect for the Crystal Light.</source>
-      </trans-unit>
-      <trans-unit id="4406343754735407007" datatype="html">
-        <source>Pimax Artisan</source>
-      </trans-unit>
-      <trans-unit id="4439647563936057402" datatype="html">
-        <source>When enabled, the Custom Headset driver will run the Pimax Artisan.</source>
-      </trans-unit>
-      <trans-unit id="4544020458434224254" datatype="html">
-        <source>Enable Pimax Artisan Driver</source>
-      </trans-unit>
-      <trans-unit id="4639929824036002809" datatype="html">
-        <source>Enable Crystal Super 57PPD Driver</source>
-      </trans-unit>
-      <trans-unit id="4640176625701096216" datatype="html">
-        <source>Always Off</source>
-      </trans-unit>
-      <trans-unit id="4716836654433158871" datatype="html">
-        <source>Enable Crystal Super Micro-OLED Driver</source>
-      </trans-unit>
-      <trans-unit id="5136852259988842823" datatype="html">
-        <source>Enable Pimax 8K Driver</source>
-      </trans-unit>
-      <trans-unit id="5183708111290307462" datatype="html">
-        <source>Use Hardware IPD</source>
-      </trans-unit>
-      <trans-unit id="5278694125626772233" datatype="html">
-        <source>Enable Crystal Super 50PPD Driver</source>
-      </trans-unit>
-      <trans-unit id="5330712973984504832" datatype="html">
-        <source>When enabled, the Custom Headset driver will run the Pimax 5K.</source>
-      </trans-unit>
-      <trans-unit id="5333045347909572100" datatype="html">
-        <source>0°</source>
-      </trans-unit>
-      <trans-unit id="5441506954845671339" datatype="html">
-        <source>Super Ultrawide</source>
-      </trans-unit>
-      <trans-unit id="5519334799073790494" datatype="html">
-        <source>Current version: </source>
-      </trans-unit>
-      <trans-unit id="5813078469100824440" datatype="html">
-        <source>The distortion profiles are not perfect for the Crystal Super 57PPD.</source>
-      </trans-unit>
-      <trans-unit id="5831053778872717460" datatype="html">
-        <source>Enable for Pimax Headsets</source>
-      </trans-unit>
-      <trans-unit id="6032284291883038600" datatype="html">
-        <source>Crystal Series</source>
-      </trans-unit>
-      <trans-unit id="6076868542797801304" datatype="html">
-        <source>Crystal Super Ultrawide</source>
-      </trans-unit>
-      <trans-unit id="616064537937996961" datatype="html">
-        <source>Auto</source>
-      </trans-unit>
-      <trans-unit id="6437101287572442747" datatype="html">
-        <source>Forces only the headset to always report as valid and tracking, even if no tracking data is received. Controllers and trackers are unaffected. This can help prevent grey screens in certain circumstances.</source>
-      </trans-unit>
-      <trans-unit id="6726128090194891966" datatype="html">
-        <source>When enabled, the Custom Headset driver will run the Pimax Crystal Super 57PPD.</source>
-      </trans-unit>
-      <trans-unit id="7038660579569066847" datatype="html">
-        <source>When enabled, the Custom Headset driver will run the Pimax 8K.</source>
-      </trans-unit>
-      <trans-unit id="7082857922137453657" datatype="html">
-        <source>The WebView2 version is too old. Please download the Evergreen Bootstrapper and run it as administrator. </source>
-      </trans-unit>
-      <trans-unit id="7122632382112825911" datatype="html">
-        <source>It has been <x id="INTERPOLATION" equiv-text="{{ daysSinceDreamAirBlocked }}"/> days since the Lighthouse headsets could start without Pimax Play if Pimax allowed it for everyone.</source>
-      </trans-unit>
-      <trans-unit id="7349891644969529188" datatype="html">
-        <source>Enable Crystal Light Driver</source>
-      </trans-unit>
-      <trans-unit id="7650216452296204397" datatype="html">
-        <source>Super 50PPD</source>
-      </trans-unit>
-      <trans-unit id="7773941244044015825" datatype="html">
-        <source>When enabled, the Custom Headset driver will run the Pimax Dream Air SE.</source>
-      </trans-unit>
-      <trans-unit id="7947730347996710606" datatype="html">
-        <source>The distortion profiles are not perfect for the Crystal Super Ultrawide.</source>
-      </trans-unit>
-      <trans-unit id="8005471014405132800" datatype="html">
-        <source>Super 57PPD</source>
-      </trans-unit>
-      <trans-unit id="81570873458241099" datatype="html">
-        <source>Enable using the cameras on SLAM headsets for passthrough in SteamVR. Beware that there may be some bugs that cause it to hang SteamVR, and you need a new version of Pimax Evo for this to work.</source>
-      </trans-unit>
-      <trans-unit id="8239175306569984130" datatype="html">
-        <source>Crystal Super 50PPD</source>
-      </trans-unit>
-      <trans-unit id="8275926961618859272" datatype="html">
-        <source>When enabled, the Custom Headset driver will run the Pimax Crystal Super Micro-OLED.</source>
-      </trans-unit>
-      <trans-unit id="8331204292092693335" datatype="html">
-        <source>Hardware</source>
-      </trans-unit>
-      <trans-unit id="8332754168344735611" datatype="html">
-        <source>Pimax SLAM</source>
-      </trans-unit>
-      <trans-unit id="842573220217673343" datatype="html">
-        <source>Enable Crystal OG Driver</source>
-      </trans-unit>
-      <trans-unit id="8550501794809469945" datatype="html">
-        <source>The distortion profiles are not perfect for the Crystal Super 50PPD.</source>
-      </trans-unit>
-      <trans-unit id="8570801569116783676" datatype="html">
-        <source>Crystal OG</source>
-      </trans-unit>
-      <trans-unit id="8598265389217772988" datatype="html">
-        <source>This driver is locked out by the main Custom Headset driver. Enable to disable the main driver and enable this vendor driver.</source>
-      </trans-unit>
-      <trans-unit id="9039177223992915585" datatype="html">
-        <source>Recenter the Pimax SLAM playspace every time SteamVR is started. This works around the bug that Pimax Play completely forgets the origin of the playspace when restarting. If your headset is in a similar place every time you start up SteamVR, this will work well.</source>
-      </trans-unit>
-      <trans-unit id="9046269317735820443" datatype="html">
-        <source>Custom Headset</source>
-      </trans-unit>
-      <trans-unit id="946680823892645707" datatype="html">
-        <source>Enable Dream Air SE Driver</source>
-      </trans-unit>
-      <trans-unit id="7560263274597423690" datatype="html">
-        <source>Rendered IPD</source>
+      <trans-unit id="1570962995362049827" datatype="html">
+        <source>Which order the panel reads the zone array in. Row major leaves every zone value at the position the grid computed it. The panel was confirmed to read the array column major, index = col * rows + row, with the two eyes mirror-opposite: eye 0 mirrored horizontally and eye 1 not mirrored, so a left/right split in the array came out as the top half on eye 0 and the bottom half on eye 1, and the four quadrant levels came out swapped between the eyes. The run where the first half of the array was entirely bright and the second half entirely dark lit the left eye, which fixes which half of the array the panel reads as the left eye, so column major is the default. Row major is kept for a run that has to be read as the identity.</source>
       </trans-unit>
     </body>
   </file>

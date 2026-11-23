@@ -36,6 +36,10 @@
     <ClInclude Include="src\Helpers\PimaxCommon.h" />
     <ClInclude Include="src\Helpers\PimaxHandTracking.h" />
     <ClInclude Include="src\Helpers\PimaxCamera.h" />
+    <ClInclude Include="src\Helpers\LocalDimming.h" />
+    <ClInclude Include="src\Helpers\LocalDimmingRunner.h" />
+    <ClInclude Include="src\Helpers\LocalDimmingCapture.h" />
+    <ClInclude Include="src\Helpers\PimaxLocalDimming.h" />
     <ClInclude Include="src\HiddenArea\HiddenArea.h" />
     <ClInclude Include="src\Helpers\AAPVRBlocker.h" />
   </ItemGroup>
@@ -83,6 +87,10 @@
     <ClCompile Include="src\Helpers\PimaxHandTracking.cpp" />
     <ClCompile Include="src\Helpers\PimaxCamera.cpp" />
     <ClCompile Include="src\Helpers\ShaderDecode.cpp" />
+    <ClCompile Include="src\Helpers\LocalDimming.cpp" />
+    <ClCompile Include="src\Helpers\LocalDimmingRunner.cpp" />
+    <ClCompile Include="src\Helpers\LocalDimmingCapture.cpp" />
+    <ClCompile Include="src\Helpers\PimaxLocalDimming.cpp" />
     <ClCompile Include="src\HiddenArea\HiddenArea.cpp" />
   </ItemGroup>
   <ItemGroup>

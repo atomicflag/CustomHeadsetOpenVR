@@ -3,6 +3,7 @@
 #include <vector>
 #include <mutex>
 #include <tuple>
+#include "../Helpers/LocalDimming.h"
 
 #if !defined(VENDOR_PIMAX) && !defined(VENDOR_SHIFTALL)
 #define VENDOR_NEUTRAL
@@ -49,6 +50,9 @@ struct StationaryDimmingConfig{
 	double brightenSeconds = 5;
 };
 
+
+// The parsed config and the zone math use the same struct so the grid values cannot drift apart
+using LocalDimmingConfig = LocalDimming::Config;
 
 struct CustomShaderConfig{
 	// if shaders should be replaced in the compositor
@@ -282,6 +286,8 @@ public:
 		bool enablePimaxHandTracking = false;
 		// if the legacy bone transform translation should be used, for testing
 		bool pimaxLegacyHandTrackingInput = false;
+		// per zone backlight, Crystal family only
+		LocalDimmingConfig localDimming = {};
 	};
 	
 	class MeganeX8KConfig : public BaseHeadsetConfig{
