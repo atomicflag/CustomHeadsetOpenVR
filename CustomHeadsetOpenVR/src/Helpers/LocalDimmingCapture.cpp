@@ -70,14 +70,6 @@ void RegisterCapture(SharedTextureCapture* capture){
 		if(pendingTexture != nullptr){
 			pending = pendingTexture;
 			pendingTexture = nullptr;
-
-			D3D11_TEXTURE2D_DESC desc = {};
-			pending->GetDesc(&desc);
-			LocalDimmingLog(
-				"LocalDimmingCapture: a plausible desc was seen before any capture was registered, desc %dx%d, array size %d, bind flags %d, usage %d, format %d, mips %d, misc flags %d, and that texture was kept and replayed for the capture that registered, through the same record path a desc that arrives after registration uses",
-				static_cast<int>(desc.Width), static_cast<int>(desc.Height), static_cast<int>(desc.ArraySize),
-				static_cast<int>(desc.BindFlags), static_cast<int>(desc.Usage), static_cast<int>(desc.Format),
-				static_cast<int>(desc.MipLevels), static_cast<int>(desc.MiscFlags));
 		}
 	}
 
@@ -163,28 +155,24 @@ void SharedTextureCapture::ReleaseOpenedResources(){
 	}
 }
 
-uint64_t SharedTextureCapture::GrabSharedHandle(ID3D11Texture2D* texture, std::string& route){
+uint64_t SharedTextureCapture::GrabSharedHandle(ID3D11Texture2D* texture){
 	uint64_t handle = 0;
 
 	IDXGIResource1* resource1 = nullptr;
 	if(SUCCEEDED(texture->QueryInterface(__uuidof(IDXGIResource1), reinterpret_cast<void**>(&resource1)))){
 		HANDLE sharedHandle = nullptr;
-		HRESULT hr = resource1->GetSharedHandle(&sharedHandle);
-		handle = static_cast<uint64_t>(reinterpret_cast<uintptr_t>(sharedHandle));
-		route = "IDXGIResource1 answered, which is the route for feature level 11_1 and above, result " +
-			std::to_string(static_cast<unsigned int>(hr));
+		if(SUCCEEDED(resource1->GetSharedHandle(&sharedHandle))){
+			handle = static_cast<uint64_t>(reinterpret_cast<uintptr_t>(sharedHandle));
+		}
 		resource1->Release();
 	}else{
 		IDXGIResource* dxgiResource = nullptr;
 		if(SUCCEEDED(texture->QueryInterface(__uuidof(IDXGIResource), reinterpret_cast<void**>(&dxgiResource)))){
 			HANDLE sharedHandle = nullptr;
-			HRESULT hr = dxgiResource->GetSharedHandle(&sharedHandle);
-			handle = static_cast<uint64_t>(reinterpret_cast<uintptr_t>(sharedHandle));
-			route = "IDXGIResource1 did not answer, so the fallback for 11_0, IDXGIResource, was used, result " +
-				std::to_string(static_cast<unsigned int>(hr));
+			if(SUCCEEDED(dxgiResource->GetSharedHandle(&sharedHandle))){
+				handle = static_cast<uint64_t>(reinterpret_cast<uintptr_t>(sharedHandle));
+			}
 			dxgiResource->Release();
-		}else{
-			route = "neither IDXGIResource1 nor IDXGIResource answered, so there is no handle route for this resource";
 		}
 	}
 
@@ -220,45 +208,17 @@ void SharedTextureCapture::RecordTexture(ID3D11Texture2D* texture){
 
 		int width = static_cast<int>(desc.Width);
 		int height = static_cast<int>(desc.Height);
-		int arraySize = static_cast<int>(desc.ArraySize);
 
-		bool firstTexture = !grabAttempted;
-
-		if(!firstTexture && width == recorded.width && height == recorded.height){
+		if(grabAttempted && width == recorded.width && height == recorded.height){
 			return;
 		}
 
-		int oldWidth = recorded.width;
-		int oldHeight = recorded.height;
-
+		bool firstTexture = !grabAttempted;
 		grabAttempted = true;
 
 		recorded.width = width;
 		recorded.height = height;
-		recorded.arraySize = arraySize;
-		recorded.bindFlags = static_cast<int>(desc.BindFlags);
-		recorded.usage = static_cast<int>(desc.Usage);
-		recorded.format = static_cast<int>(desc.Format);
-		recorded.mips = static_cast<int>(desc.MipLevels);
-		recorded.miscFlags = static_cast<int>(desc.MiscFlags);
-
-		std::string route;
-		uint64_t handle = GrabSharedHandle(texture, route);
-
-		recorded.handle = handle;
-
-		if(firstTexture){
-			LocalDimmingLog(
-				"LocalDimmingCapture: shared handle grabbed for the first plausible texture, handle %llu, %s, desc %dx%d, array size %d, bind flags %d, usage %d, format %d, mips %d, misc flags %d, read through the unordered access view on the shared texture, adapter %p recorded for this module's own device",
-				static_cast<unsigned long long>(recorded.handle), route.c_str(), recorded.width, recorded.height,
-				recorded.arraySize, recorded.bindFlags, recorded.usage, recorded.format, recorded.mips,
-				recorded.miscFlags, static_cast<const void*>(adapter));
-		}else{
-			LocalDimmingLog(
-				"LocalDimmingCapture: the texture the capture reads changed, desc %dx%d became %dx%d, handle %llu, %s, so the opened texture and the per-eye views are released and recreated for the new resource",
-				oldWidth, oldHeight, width, height,
-				static_cast<unsigned long long>(handle), route.c_str());
-		}
+		recorded.handle = GrabSharedHandle(texture);
 
 		if(!firstTexture){
 			ReleaseOpenedResources();
@@ -275,27 +235,18 @@ bool SharedTextureCapture::EnsureDevice(){
 	}
 
 	D3D_FEATURE_LEVEL levels[2] = { D3D_FEATURE_LEVEL_11_1, D3D_FEATURE_LEVEL_11_0 };
-	D3D_FEATURE_LEVEL chosen = D3D_FEATURE_LEVEL_11_0;
 	HRESULT hr = D3D11CreateDevice(adapter, adapter != nullptr ? D3D_DRIVER_TYPE_UNKNOWN : D3D_DRIVER_TYPE_HARDWARE,
-		nullptr, 0, levels, 2, D3D11_SDK_VERSION, &device, &chosen, &context);
+		nullptr, 0, levels, 2, D3D11_SDK_VERSION, &device, nullptr, &context);
 
 	if(FAILED(hr) || device == nullptr || context == nullptr){
 		if(!loggedDevice){
 			loggedDevice = true;
 			LocalDimmingLog(
-				"LocalDimmingCapture: could not create this module's own device, adapter %s, result %08x, so nothing can be opened and nothing can be read back",
-				adapter != nullptr ? "recorded by the hook" : "the default, because the hook recorded no adapter",
+				"LocalDimmingCapture: could not create this module's own device, adapter %s, result %08x",
+				adapter != nullptr ? "the recorded adapter" : "the default",
 				static_cast<unsigned int>(hr));
 		}
 		return false;
-	}
-
-	if(!loggedDevice){
-		loggedDevice = true;
-		LocalDimmingLog(
-			"LocalDimmingCapture: this module's own device, device %p, context %p, feature level %d, created on the local dimming thread, used only on that thread, no entry on it is hooked, adapter %s",
-			static_cast<const void*>(device), static_cast<const void*>(context), static_cast<int>(chosen),
-			adapter != nullptr ? "the one the hook recorded" : "the default, because the hook recorded no adapter");
 	}
 
 	return true;
@@ -314,32 +265,13 @@ bool SharedTextureCapture::OpenSharedTexture(){
 		if(!loggedOpenFailed){
 			loggedOpenFailed = true;
 			LocalDimmingLog(
-				"LocalDimmingCapture: OpenSharedResource failed for handle %llu on this module's own device, result %08x, so nothing can be read back",
+				"LocalDimmingCapture: OpenSharedResource failed for handle %llu, result %08x",
 				static_cast<unsigned long long>(recorded.handle), static_cast<unsigned int>(hr));
 		}
 		return false;
 	}
 
 	openedTexture = opened;
-
-	D3D11_TEXTURE2D_DESC desc = {};
-	openedTexture->GetDesc(&desc);
-
-	bool matches = static_cast<int>(desc.Width) == recorded.width &&
-		static_cast<int>(desc.Height) == recorded.height &&
-		static_cast<int>(desc.ArraySize) == recorded.arraySize &&
-		static_cast<int>(desc.BindFlags) == recorded.bindFlags &&
-		static_cast<int>(desc.Format) == recorded.format &&
-		static_cast<int>(desc.MipLevels) == recorded.mips;
-
-	if(!loggedOpenDesc){
-		loggedOpenDesc = true;
-		LocalDimmingLog(
-			"LocalDimmingCapture: the shared texture opened on this module's own device, desc %dx%d, array size %d, bind flags %d, usage %d, format %d, mips %d, misc flags %d, agrees with the desc the hook recorded %s, read through the unordered access view on the shared texture",
-			static_cast<int>(desc.Width), static_cast<int>(desc.Height), static_cast<int>(desc.ArraySize),
-			static_cast<int>(desc.BindFlags), static_cast<int>(desc.Usage), static_cast<int>(desc.Format),
-			static_cast<int>(desc.MipLevels), static_cast<int>(desc.MiscFlags), matches ? "yes" : "no");
-	}
 
 	return true;
 }
@@ -364,7 +296,7 @@ bool SharedTextureCapture::EnsureResources(int eye){
 			if(!state.loggedFailure){
 				state.loggedFailure = true;
 				LocalDimmingLog(
-					"LocalDimmingCapture eye %d: CreateUnorderedAccessView on the opened texture failed, format %d, result %08x, so nothing can be read back",
+					"LocalDimmingCapture eye %d: CreateUnorderedAccessView failed, format %d, result %08x",
 					eye, LocalDimming::ViewFormat, static_cast<unsigned int>(hr));
 			}
 			return false;
@@ -383,7 +315,7 @@ bool SharedTextureCapture::EnsureResources(int eye){
 				state.loggedFailure = true;
 				std::string message = compileError != nullptr ? OneLine((const char*)compileError->GetBufferPointer()) : "no message";
 				LocalDimmingLog(
-					"LocalDimmingCapture eye %d: D3DCompile of the block reduce failed, result %08x, message %s, so nothing can be read back",
+					"LocalDimmingCapture eye %d: D3DCompile failed, result %08x, message %s",
 					eye, static_cast<unsigned int>(hr), message.c_str());
 			}
 		}else{
@@ -392,7 +324,7 @@ bool SharedTextureCapture::EnsureResources(int eye){
 				if(!state.loggedFailure){
 					state.loggedFailure = true;
 					LocalDimmingLog(
-						"LocalDimmingCapture eye %d: D3DCompile of the block reduce answered with bytecode and CreateComputeShader failed on it, result %08x, so nothing can be read back",
+						"LocalDimmingCapture eye %d: CreateComputeShader failed on the compiled bytecode, result %08x",
 						eye, static_cast<unsigned int>(shaderResult));
 				}
 			}
@@ -419,7 +351,7 @@ bool SharedTextureCapture::EnsureResources(int eye){
 		if(FAILED(device->CreateBuffer(&cbDesc, nullptr, &state.constants))){
 			if(!state.loggedFailure){
 				state.loggedFailure = true;
-				LocalDimmingLog("LocalDimmingCapture eye %d: failed to create the constant buffer, so nothing can be read back", eye);
+				LocalDimmingLog("LocalDimmingCapture eye %d: failed to create the constant buffer", eye);
 			}
 			return false;
 		}
@@ -433,7 +365,7 @@ bool SharedTextureCapture::EnsureResources(int eye){
 		if(FAILED(device->CreateBuffer(&bufferDesc, nullptr, &state.gridBuffer))){
 			if(!state.loggedFailure){
 				state.loggedFailure = true;
-				LocalDimmingLog("LocalDimmingCapture eye %d: failed to create the grid buffer, so nothing can be read back", eye);
+				LocalDimmingLog("LocalDimmingCapture eye %d: failed to create the grid buffer", eye);
 			}
 			return false;
 		}
@@ -448,7 +380,7 @@ bool SharedTextureCapture::EnsureResources(int eye){
 		if(FAILED(device->CreateUnorderedAccessView(state.gridBuffer, &uavDesc, &state.gridUav))){
 			if(!state.loggedFailure){
 				state.loggedFailure = true;
-				LocalDimmingLog("LocalDimmingCapture eye %d: failed to create the grid view, so nothing can be read back", eye);
+				LocalDimmingLog("LocalDimmingCapture eye %d: failed to create the grid view", eye);
 			}
 			return false;
 		}
@@ -463,7 +395,7 @@ bool SharedTextureCapture::EnsureResources(int eye){
 		if(FAILED(device->CreateBuffer(&stagingDesc, nullptr, &state.staging))){
 			if(!state.loggedFailure){
 				state.loggedFailure = true;
-				LocalDimmingLog("LocalDimmingCapture eye %d: failed to create the staging buffer, so nothing can be read back", eye);
+				LocalDimmingLog("LocalDimmingCapture eye %d: failed to create the staging buffer", eye);
 			}
 			return false;
 		}
@@ -529,14 +461,6 @@ bool SharedTextureCapture::SampleEye(int eye){
 		return false;
 	}
 
-	if(!state.loggedFirstRead){
-		state.loggedFirstRead = true;
-		LocalDimmingLog(
-			"LocalDimmingCapture eye %d: first read succeeded, grid %dx%d, region %dx%d at %d,%d, block %dx%d, view format %d named for the resource format %d",
-			eye, LocalDimming::GridRows, LocalDimming::GridCols, state.region.width, state.region.height, state.region.x,
-			state.region.y, state.blockWidth, state.blockHeight, LocalDimming::ViewFormat, static_cast<int>(desc.Format));
-	}
-
 	std::array<uint8_t, LocalDimming::ZonesPerEye> second;
 	if(!DispatchAndRead(eye, data, second)){
 		return false;
@@ -548,7 +472,7 @@ bool SharedTextureCapture::SampleEye(int eye){
 	}else if(!state.loggedDisagreement){
 		state.loggedDisagreement = true;
 		LocalDimmingLog(
-			"LocalDimmingCapture eye %d: two reads of the same texture disagreed, so at least one of them ran while the compositor was still drawing and read a frame only partly drawn, and the grid accepted before this sample is kept",
+			"LocalDimmingCapture eye %d: two reads disagreed, the last accepted grid is kept",
 			eye);
 	}
 

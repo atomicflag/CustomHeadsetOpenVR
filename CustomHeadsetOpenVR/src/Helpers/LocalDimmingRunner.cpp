@@ -32,7 +32,6 @@ bool Runner::RunFrame(){
 	}
 
 	int blockCount = static_cast<int>((payload.size() + DataChunk - 1) / DataChunk);
-	lastBlockCount = blockCount;
 
 	// the headset takes zone data only after the entitlement record and the level are written
 	if(!entitlementSent){

@@ -35,18 +35,15 @@ private:
 		bool SendDataReport(const std::array<uint8_t, LocalDimming::DataReportSize>& report) override;
 	private:
 		PimaxLocalDimming& owner;
-		bool loggedRecord = false;
-		bool loggedBigReport = false;
 	};
 
 	std::vector<std::string> EnumeratePimaxPaths();
 
 	std::string FindNodePathByLabel(const std::string& label);
 
-	hid_device* HandleForNodeLocked(const std::string& label, const char* purpose);
-	hid_device* HandleForNode(const std::string& label, const char* purpose);
+	hid_device* HandleForNodeLocked(const std::string& label);
 
-	bool SendToNode(const std::string& label, const char* purpose, const uint8_t* report, size_t length);
+	bool SendToNode(const std::string& label, const uint8_t* report, size_t length);
 
 	const LocalDimmingConfig& config;
 	HidTransport transport;
@@ -54,9 +51,6 @@ private:
 	LocalDimmingCapture::SharedTextureCapture capture;
 #endif
 	LocalDimming::Runner runner;
-
-	bool loggedFirstFrame = false;
-	bool loggedFirstSend = false;
 
 	std::map<std::string, hid_device*> nodeHandles;
 	std::set<std::string> loggedNodeFailure;

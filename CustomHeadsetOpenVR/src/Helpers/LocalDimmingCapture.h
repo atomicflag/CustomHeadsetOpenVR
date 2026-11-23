@@ -15,17 +15,11 @@ void LocalDimmingLog(const char* format, ...);
 
 namespace LocalDimmingCapture{
 
-// plain ints and one 64 bit handle, so no D3D11 type crosses between the hook thread and the local dimming thread
+// a handle and the size, so no D3D11 type crosses between the hook thread and the local dimming thread
 struct RecordedTexture{
 	uint64_t handle = 0;
 	int width = 0;
 	int height = 0;
-	int arraySize = 0;
-	int bindFlags = 0;
-	int usage = 0;
-	int format = 0;
-	int mips = 0;
-	int miscFlags = 0;
 };
 
 // everything that touches a device lives here, on the local dimming thread; RecordTexture is the only call made on the hook thread
@@ -59,7 +53,6 @@ private:
 		int blockHeight = 0;
 		LocalDimming::CaptureRegion region = {};
 		bool loggedFailure = false;
-		bool loggedFirstRead = false;
 		bool loggedDisagreement = false;
 	};
 
@@ -76,9 +69,8 @@ private:
 	bool grabAttempted = false;
 	bool loggedDevice = false;
 	bool loggedOpenFailed = false;
-	bool loggedOpenDesc = false;
 
-	uint64_t GrabSharedHandle(ID3D11Texture2D* texture, std::string& route);
+	uint64_t GrabSharedHandle(ID3D11Texture2D* texture);
 
 	void ReleaseOpenedResources();
 

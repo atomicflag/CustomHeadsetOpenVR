@@ -27,8 +27,6 @@ public:
 	// called once per send interval
 	bool RunFrame();
 
-	int LastBlockCount() const { return lastBlockCount; }
-
 private:
 	const Config& config;
 	Transport& transport;
@@ -36,7 +34,6 @@ private:
 	std::array<uint8_t, ZonesPerEye> lastZones[EyeCount];
 	std::array<uint8_t, ZonesPerEye * EyeCount> payload;   // the whole grid, in ZoneIndex order
 	std::array<uint8_t, DataReportSize> report;
-	int lastBlockCount = 0;
 	// -1 means a zone has nothing accepted yet
 	bool firstForEye[EyeCount] = { true, true };
 	bool entitlementSent = false;

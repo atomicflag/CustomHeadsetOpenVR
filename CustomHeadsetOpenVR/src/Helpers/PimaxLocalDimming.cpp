@@ -94,7 +94,7 @@ std::string PimaxLocalDimming::FindNodePathByLabel(const std::string& label){
 	return "";
 }
 
-hid_device* PimaxLocalDimming::HandleForNodeLocked(const std::string& label, const char* purpose){
+hid_device* PimaxLocalDimming::HandleForNodeLocked(const std::string& label){
 	auto found = nodeHandles.find(label);
 	if(found != nodeHandles.end()){
 		return found->second;
@@ -115,25 +115,18 @@ hid_device* PimaxLocalDimming::HandleForNodeLocked(const std::string& label, con
 	hid_device* handle = hid_open_path(path.c_str());
 	if(!handle){
 		if(loggedNodeFailure.insert(label).second){
-			LocalDimmingLog("LocalDimming: failed to open Pimax HID node %s, Pimax software may be holding it exclusively",
-				label.c_str());
+			LocalDimmingLog("LocalDimming: failed to open Pimax HID node %s", label.c_str());
 		}
 		return nullptr;
 	}
 	hid_set_nonblocking(handle, 1);
-	LocalDimmingLog("LocalDimming: opened HID node %s for %s", label.c_str(), purpose);
 	nodeHandles[label] = handle;
 	return handle;
 }
 
-hid_device* PimaxLocalDimming::HandleForNode(const std::string& label, const char* purpose){
+bool PimaxLocalDimming::SendToNode(const std::string& label, const uint8_t* report, size_t length){
 	std::lock_guard<std::mutex> lock(hidLock);
-	return HandleForNodeLocked(label, purpose);
-}
-
-bool PimaxLocalDimming::SendToNode(const std::string& label, const char* purpose, const uint8_t* report, size_t length){
-	std::lock_guard<std::mutex> lock(hidLock);
-	hid_device* node = HandleForNodeLocked(label, purpose);
+	hid_device* node = HandleForNodeLocked(label);
 	if(node == nullptr){
 		return false;
 	}
@@ -143,28 +136,11 @@ bool PimaxLocalDimming::SendToNode(const std::string& label, const char* purpose
 }
 
 bool PimaxLocalDimming::HidTransport::SendCommand(const std::array<uint8_t, LocalDimming::CommandReportSize>& report){
-	bool sent = owner.SendToNode(LocalDimming::CommandNodeLabel, "command frames", report.data(), LocalDimming::CommandReportSize);
-
-	if(sent && !loggedRecord && report[3] == LocalDimming::CmdControl){
-		loggedRecord = true;
-		LocalDimmingLog("LocalDimming: entitlement record %08x sent on node %s", static_cast<unsigned int>(report[5]) |
-			(static_cast<unsigned int>(report[6]) << 8) | (static_cast<unsigned int>(report[7]) << 16) |
-			(static_cast<unsigned int>(report[8]) << 24), LocalDimming::CommandNodeLabel);
-	}
-
-	return sent;
+	return owner.SendToNode(LocalDimming::CommandNodeLabel, report.data(), LocalDimming::CommandReportSize);
 }
 
 bool PimaxLocalDimming::HidTransport::SendDataReport(const std::array<uint8_t, LocalDimming::DataReportSize>& report){
-	bool sent = owner.SendToNode(LocalDimming::DataNodeLabel, "zone frames", report.data(), LocalDimming::DataReportSize);
-
-	if(sent && !loggedBigReport){
-		loggedBigReport = true;
-		LocalDimmingLog("LocalDimming: first data report, %d bytes, flags %d, length field %d, node %s",
-			static_cast<int>(LocalDimming::DataReportSize), report[1], report[2] | (report[3] << 8), LocalDimming::DataNodeLabel);
-	}
-
-	return sent;
+	return owner.SendToNode(LocalDimming::DataNodeLabel, report.data(), LocalDimming::DataReportSize);
 }
 
 bool PimaxLocalDimming::RunFrame(){
@@ -172,19 +148,5 @@ bool PimaxLocalDimming::RunFrame(){
 		return false;
 	}
 
-	if(!loggedFirstFrame){
-		loggedFirstFrame = true;
-		LocalDimmingLog("LocalDimming: first frame, grid %dx%d, data node %s, command node %s",
-			LocalDimming::GridRows, LocalDimming::GridCols, LocalDimming::DataNodeLabel, LocalDimming::CommandNodeLabel);
-	}
-
-	bool sent = runner.RunFrame();
-
-	if(sent && !loggedFirstSend){
-		loggedFirstSend = true;
-		LocalDimmingLog("LocalDimming: first zone frame sent, %d zones per eye, %d blocks",
-			LocalDimming::ZonesPerEye, runner.LastBlockCount());
-	}
-
-	return sent;
+	return runner.RunFrame();
 }

@@ -18,7 +18,7 @@ constexpr int LuminanceWeightG = 54;
 constexpr int LuminanceWeightB = 19;
 constexpr int LuminanceShift = 8;
 
-constexpr int ZoneSmoothWeight = 3;
+constexpr int ZoneSmoothWeight = 1;
 constexpr int ZoneSmoothDeadband = 4;
 int ZoneValue(uint8_t blockLuminance, int previous);
 

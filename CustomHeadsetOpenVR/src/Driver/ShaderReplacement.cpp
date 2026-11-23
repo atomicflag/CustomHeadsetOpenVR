@@ -9,7 +9,6 @@
 #include <unordered_map>
 #include <list>
 #include <algorithm>
-#include <atomic>
 #include <cstring>
 #include <vector>
 #include <locale>
@@ -67,10 +66,9 @@ static int ResolveHookOffset(const char* name, void* object, const void* memberP
 	int resolved = vtablehook_member_slot(memberPointerBytes, memberPointerSize);
 	int offset = scanned >= 0 ? scanned : (resolved >= 0 ? resolved : constantOffset);
 
-	LocalDimmingLog("vtablehook %s: scan %s, dispatch slot %d, constant %d, agreement %s, hooked at %d, entry there is %p",
-		name,
-		scanned >= 0 ? (scanned == constantOffset ? "matched, and agrees with the constant" : "matched at a different offset") : "found no entry equal to the member pointer",
-		resolved, constantOffset, (resolved == constantOffset) ? "yes" : "no", offset, vtablehook_entry(object, offset));
+	if(offset < 0){
+		LocalDimmingLog("vtablehook %s: nothing resolved an offset, hook not installed", name);
+	}
 
 	return offset;
 }
@@ -294,16 +292,8 @@ void LogShaderIdentifier(std::string identifierString, size_t length){
 
 int dumpId = 0;
 
-static std::atomic<bool> createPixelShaderFirstCallLogged{ false };
-static std::atomic<bool> copySubresourceRegionFirstCallLogged{ false };
-static std::atomic<bool> copyResourceFirstCallLogged{ false };
-
 // function that hooks the CreatePixelShader function of the ID3D11Device interface
 static void DetourCreatePixelShader(ID3D11Device* _this, const void* pShaderBytecode, SIZE_T BytecodeLength, ID3D11ClassLinkage* pClassLinkage, ID3D11PixelShader** ppPixelShader){
-	if(!createPixelShaderFirstCallLogged.exchange(true)){
-		LocalDimmingLog("ID3D11Device::CreatePixelShader detour first call, hooked at vtable offset %d, bytecode length %zu",
-			CreatePixelShaderHook.originalVTableOffset, BytecodeLength);
-	}
  	// DriverLog("DetourCreatePixelShader Called");
 	if(pShaderBytecode == nullptr || BytecodeLength < 32){
 		CreatePixelShaderHook.originalFunc(_this, pShaderBytecode, BytecodeLength, pClassLinkage, ppPixelShader);
@@ -342,38 +332,12 @@ typedef HRESULT(*CreateTexture2DFunction)(ID3D11Device*, const D3D11_TEXTURE2D_D
 static Hook<CreateTexture2DFunction>
 	CreateTexture2DHook("ID3D11Device::CreateTexture2D");
 
-static bool IsHookedInstance(const void* hookedObject, const void* firingObject){
-	return hookedObject != nullptr && firingObject == hookedObject;
-}
-
-static std::atomic<bool> createTexture2DFirstPlausibleDescLogged{ false };
-
-static int ResolveLookupHookOffset(const char* name, void* object, const void* memberPointerBytes, size_t memberPointerSize){
-	intptr_t memberPointerValue = 0;
-	if(memberPointerSize == sizeof(intptr_t)){
-		memcpy(&memberPointerValue, memberPointerBytes, sizeof(memberPointerValue));
-	}
-
-	int scanned = memberPointerValue ? vtablehook_find_offset(object, (void*)memberPointerValue, 64) : -1;
-	int resolved = vtablehook_member_slot(memberPointerBytes, memberPointerSize);
-	int offset = scanned >= 0 ? scanned : resolved;
-
-	LocalDimmingLog("vtablehook %s: scan %s, dispatch slot %d, no constant to compare with, %s, entry there is %p",
-		name,
-		scanned >= 0 ? (scanned == resolved ? "matched the dispatch slot" : "matched at a different offset") : "found no entry equal to the member pointer",
-		resolved,
-		offset >= 0 ? "installing at that offset" : "nothing resolved, not installed",
-		offset >= 0 ? vtablehook_entry(object, offset) : nullptr);
-
-	return offset;
-}
-
 template<class FuncType, class MemberPointerType>
 static void InstallLookupHook(Hook<FuncType>& hook, void* object, MemberPointerType memberPointer, FuncType detour){
 	unsigned char memberPointerBytes[sizeof(memberPointer)];
 	memcpy(memberPointerBytes, &memberPointer, sizeof(memberPointerBytes));
 
-	int offset = ResolveLookupHookOffset(hook.name.c_str(), object, memberPointerBytes, sizeof(memberPointerBytes));
+	int offset = ResolveHookOffset(hook.name.c_str(), object, memberPointerBytes, sizeof(memberPointerBytes), -1);
 	if(offset < 0){
 		return;
 	}
@@ -390,14 +354,6 @@ static HRESULT DetourCreateTexture2D(ID3D11Device* _this, const D3D11_TEXTURE2D_
 	bool plausibleDesc = pDesc != nullptr &&
 		LocalDimming::LooksLikeEyeTexture(static_cast<int>(pDesc->Width), static_cast<int>(pDesc->Height),
 			static_cast<int>(pDesc->MipLevels), static_cast<int>(pDesc->Format), static_cast<int>(pDesc->MiscFlags));
-
-	if(plausibleDesc && !createTexture2DFirstPlausibleDescLogged.exchange(true)){
-		LocalDimmingLog("ID3D11Device::CreateTexture2D detour first plausible desc, hooked at vtable offset %d, %dx%d, array size %d, bind flags %d, usage %d, format %d, mips %d, misc flags %d, device this %p, is the instance Initialize() hooked %s",
-			CreateTexture2DHook.originalVTableOffset, static_cast<int>(pDesc->Width), static_cast<int>(pDesc->Height),
-			static_cast<int>(pDesc->ArraySize), static_cast<int>(pDesc->BindFlags), static_cast<int>(pDesc->Usage),
-			static_cast<int>(pDesc->Format), static_cast<int>(pDesc->MipLevels), static_cast<int>(pDesc->MiscFlags),
-			static_cast<const void*>(_this), IsHookedInstance(CreateTexture2DHook.originalObject, _this) ? "yes" : "no");
-	}
 
 	HRESULT hr = CreateTexture2DHook.originalFunc(_this, pDesc, pInitialData, ppTexture2D);
 
@@ -932,8 +888,6 @@ void ShaderReplacement::Initialize(){
 	if(IsLocalDimmingEnabled()){
 		InstallLookupHook<CreateTexture2DFunction>(CreateTexture2DHook, device, &ID3D11Device::CreateTexture2D, &DetourCreateTexture2D);
 	}
-
-	DriverLog("ShaderReplacement::Initialize context %p is not hooked; the local dimming capture creates its own device and context on the local dimming thread", static_cast<const void*>(context));
 	
 	// DriverLog("ShaderReplacement::Initialize CopySubresourceRegion function pointer %p %p", (void (ID3D11DeviceContext::*)())&ID3D11DeviceContext::CopySubresourceRegion, CopySubresourceRegionHook.originalFunc);
 	
