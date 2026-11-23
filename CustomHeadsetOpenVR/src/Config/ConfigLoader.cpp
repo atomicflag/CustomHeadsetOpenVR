@@ -206,27 +206,6 @@ void parseBaseHeadsetConfig(json headsetData, Config::BaseHeadsetConfig& headset
 		if(json& localDimmingJson = headsetData["localDimming"]; localDimmingJson.is_object()){
 			auto& newLocalDimming = pimaxConfig->localDimming;
 			if(localDimmingJson["enable"].is_boolean()){ newLocalDimming.enable = localDimmingJson["enable"].get<bool>(); }
-			if(localDimmingJson["gridWidth"].is_number()){ newLocalDimming.gridWidth = localDimmingJson["gridWidth"].get<int>(); }
-			if(localDimmingJson["gridHeight"].is_number()){ newLocalDimming.gridHeight = localDimmingJson["gridHeight"].get<int>(); }
-			if(localDimmingJson["zoneOrder"].is_string()){ newLocalDimming.zoneOrder = localDimmingJson["zoneOrder"].get<std::string>(); }
-			if(localDimmingJson["gamma"].is_number()){ newLocalDimming.gamma = localDimmingJson["gamma"].get<double>(); }
-			if(localDimmingJson["blackLevel"].is_number()){ newLocalDimming.blackLevel = localDimmingJson["blackLevel"].get<double>(); }
-			if(localDimmingJson["maxZoneValue"].is_number()){ newLocalDimming.maxZoneValue = localDimmingJson["maxZoneValue"].get<int>(); }
-			if(localDimmingJson["sendIntervalMs"].is_number()){ newLocalDimming.sendIntervalMs = localDimmingJson["sendIntervalMs"].get<double>(); }
-			if(localDimmingJson["dimmingLevel"].is_number()){ newLocalDimming.dimmingLevel = localDimmingJson["dimmingLevel"].get<int>(); }
-			if(localDimmingJson["useTestPattern"].is_boolean()){ newLocalDimming.useTestPattern = localDimmingJson["useTestPattern"].get<bool>(); }
-			if(localDimmingJson["testPatternGrey"].is_number()){ newLocalDimming.testPatternGrey = localDimmingJson["testPatternGrey"].get<int>(); }
-			if(localDimmingJson["testPatternRamp"].is_boolean()){ newLocalDimming.testPatternRamp = localDimmingJson["testPatternRamp"].get<bool>(); }
-			if(localDimmingJson["testPatternMode"].is_string()){ newLocalDimming.testPatternMode = localDimmingJson["testPatternMode"].get<std::string>(); }
-			if(localDimmingJson["hidInterface"].is_number()){ newLocalDimming.hidInterface = localDimmingJson["hidInterface"].get<int>(); }
-			if(localDimmingJson["hidNode"].is_string()){ newLocalDimming.hidNode = localDimmingJson["hidNode"].get<std::string>(); }
-			if(localDimmingJson["entitlementRecord"].is_number()){ newLocalDimming.entitlementRecord = localDimmingJson["entitlementRecord"].get<uint32_t>(); }
-			if(localDimmingJson["sendEntitlement"].is_boolean()){ newLocalDimming.sendEntitlement = localDimmingJson["sendEntitlement"].get<bool>(); }
-			if(localDimmingJson["probeNodes"].is_boolean()){ newLocalDimming.probeNodes = localDimmingJson["probeNodes"].get<bool>(); }
-			if(localDimmingJson["useDataHeader"].is_boolean()){ newLocalDimming.useDataHeader = localDimmingJson["useDataHeader"].get<bool>(); }
-			if(localDimmingJson["dataKind"].is_number()){ newLocalDimming.dataKind = localDimmingJson["dataKind"].get<int>(); }
-			if(localDimmingJson["useBigReport"].is_boolean()){ newLocalDimming.useBigReport = localDimmingJson["useBigReport"].get<bool>(); }
-			if(localDimmingJson["dataFlags"].is_number()){ newLocalDimming.dataFlags = localDimmingJson["dataFlags"].get<int>(); }
 		}
 	}
 }
@@ -626,30 +605,7 @@ ordered_json baseHeadsetInfo(Config::BaseHeadsetConfig& headsetConfig){
 		result["forcePimaxPassthrough"] = pimaxConfig->forcePimaxPassthrough;
 		result["enablePimaxHandTracking"] = pimaxConfig->enablePimaxHandTracking;
 		result["pimaxLegacyHandTrackingInput"] = pimaxConfig->pimaxLegacyHandTrackingInput;
-		result["localDimming"] = {
-			{"enable", pimaxConfig->localDimming.enable},
-			{"gridWidth", pimaxConfig->localDimming.gridWidth},
-			{"gridHeight", pimaxConfig->localDimming.gridHeight},
-			{"zoneOrder", pimaxConfig->localDimming.zoneOrder},
-			{"gamma", pimaxConfig->localDimming.gamma},
-			{"blackLevel", pimaxConfig->localDimming.blackLevel},
-			{"maxZoneValue", pimaxConfig->localDimming.maxZoneValue},
-			{"sendIntervalMs", pimaxConfig->localDimming.sendIntervalMs},
-			{"dimmingLevel", pimaxConfig->localDimming.dimmingLevel},
-			{"useTestPattern", pimaxConfig->localDimming.useTestPattern},
-			{"testPatternGrey", pimaxConfig->localDimming.testPatternGrey},
-			{"testPatternRamp", pimaxConfig->localDimming.testPatternRamp},
-			{"testPatternMode", pimaxConfig->localDimming.testPatternMode},
-			{"hidInterface", pimaxConfig->localDimming.hidInterface},
-			{"hidNode", pimaxConfig->localDimming.hidNode},
-			{"entitlementRecord", pimaxConfig->localDimming.entitlementRecord},
-			{"sendEntitlement", pimaxConfig->localDimming.sendEntitlement},
-			{"probeNodes", pimaxConfig->localDimming.probeNodes},
-			{"useDataHeader", pimaxConfig->localDimming.useDataHeader},
-			{"dataKind", pimaxConfig->localDimming.dataKind},
-			{"useBigReport", pimaxConfig->localDimming.useBigReport},
-			{"dataFlags", pimaxConfig->localDimming.dataFlags},
-		};
+		result["localDimming"] = { {"enable", pimaxConfig->localDimming.enable} };
 	}
 	return result;
 }

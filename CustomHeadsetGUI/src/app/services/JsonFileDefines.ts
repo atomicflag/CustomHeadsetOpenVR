@@ -42,28 +42,7 @@ export type StationaryDimmingConfig = {
   brightenSeconds: number
 }
 export type LocalDimmingConfig = {
-  enable: boolean,
-  gridWidth: number,
-  gridHeight: number,
-  zoneOrder: string,
-  gamma: number,
-  blackLevel: number,
-  maxZoneValue: number,
-  sendIntervalMs: number,
-  dimmingLevel: number,
-  useTestPattern: boolean,
-  testPatternGrey: number,
-  testPatternRamp: boolean,
-  testPatternMode: string,
-  hidInterface: number,
-  hidNode: string,
-  entitlementRecord: number,
-  sendEntitlement: boolean,
-  probeNodes: boolean,
-  useDataHeader: boolean,
-  dataKind: number,
-  useBigReport: boolean,
-  dataFlags: number
+  enable: boolean
 }
 export type HiddenAreaMeshConfig = {
   enable: boolean;

@@ -373,8 +373,7 @@ static void DetourCreatePixelShader(ID3D11Device* _this, const void* pShaderByte
  * CreatePixelShader stays for the custom shader feature, and CreateTexture2D stays for the desc observation and
  * for the handle grab. Both are installed only when local dimming is on and both check the same setting at call
  * time, so a hook that is present but not wanted does nothing but pass the call on. The first call flag is an
- * atomic, the grab is done once for the first plausible desc, and every LocalDimmingLog call happens with no
- * lock held, which is the rule the log file has.
+ * atomic and the grab is done once for the first plausible desc.
  */
 typedef HRESULT(*CreateTexture2DFunction)(ID3D11Device*, const D3D11_TEXTURE2D_DESC* pDesc, const D3D11_SUBRESOURCE_DATA* pInitialData, ID3D11Texture2D** ppTexture2D);
 static Hook<CreateTexture2DFunction>
@@ -421,9 +420,8 @@ static int ResolveLookupHookOffset(const char* name, void* object, const void* m
 /*
  * The install, with no per interface version step. Run 15 showed all four context versions answering to the same
  * object and the same array, so a call through any of them dispatches through the entry that is already hooked,
- * and there is nothing left to scan. LocalDimming::VersionArrayScanLimit and VersionArrayOffset are unchanged as
- * the tested decisions the earlier runs were read against; they are simply no longer reached, because there is no
- * second array to choose an offset in.
+ * and there is nothing left to scan. The earlier runs were read against a per interface scan limit and an offset,
+ * which are no longer decisions to make because there is no second array to choose an offset in.
  */
 template<class FuncType, class MemberPointerType>
 static void InstallLookupHook(Hook<FuncType>& hook, void* object, MemberPointerType memberPointer, FuncType detour){
@@ -449,10 +447,10 @@ static void InstallLookupHook(Hook<FuncType>& hook, void* object, MemberPointerT
  * once per texture and not per frame work on the hook thread. The capture records the handle, the desc and the
  * adapter, and it does not create anything or sample here; on a change it releases what it had open and opens the
  * new resource on its own device, which is one device call for one texture. QueryInterface and GetDesc are not
- * entries this module detours, so nothing in the grab comes back into the hook, and the log call is made with no
- * lock held, which is the rule the log file has. When no capture is registered yet the texture is not dropped: the
- * capture keeps it with a reference and records it when the capture registers, so the order between this hook
- * being installed and the plugin object being created does not decide which texture a run reads.
+ * entries this module detours, so nothing in the grab comes back into the hook. When no capture is registered yet
+ * the texture is not dropped: the capture keeps it with a reference and records it when the capture registers, so
+ * the order between this hook being installed and the plugin object being created does not decide which texture a
+ * run reads.
  */
 static HRESULT DetourCreateTexture2D(ID3D11Device* _this, const D3D11_TEXTURE2D_DESC* pDesc, const D3D11_SUBRESOURCE_DATA* pInitialData, ID3D11Texture2D** ppTexture2D){
 	if(!IsLocalDimmingEnabled()){
@@ -460,12 +458,13 @@ static HRESULT DetourCreateTexture2D(ID3D11Device* _this, const D3D11_TEXTURE2D_
 	}
 
 	// The flag is only set for a desc the helper accepts, so the line is the first plausible eye texture rather
-	// than the first texture of any size. This module's own textures are grid sized, so they cannot be the desc
-	// that trips this, and the first line a run sees is a texture the compositor made. The helper also requires
-	// one mip level, so the run that logged a mipmapped texture is not reported as a plausible eye image here.
+	// than the first texture of any size. The helper takes the format the runs observed, one mip level, and the
+	// bounds the layout needs, so neither a mipmapped resource nor a texture smaller than one pixel per zone
+	// reports as a plausible eye image. This module creates buffers and views, not textures, so the first line a
+	// run sees is a texture the compositor made.
 	bool plausibleDesc = pDesc != nullptr &&
 		LocalDimming::LooksLikeEyeTexture(static_cast<int>(pDesc->Width), static_cast<int>(pDesc->Height),
-			static_cast<int>(pDesc->ArraySize), static_cast<int>(pDesc->MipLevels));
+			static_cast<int>(pDesc->MipLevels), static_cast<int>(pDesc->Format));
 
 	if(plausibleDesc && !createTexture2DFirstPlausibleDescLogged.exchange(true)){
 		// MiscFlags is the field that decides whether the route this design uses is open at all. A composited
