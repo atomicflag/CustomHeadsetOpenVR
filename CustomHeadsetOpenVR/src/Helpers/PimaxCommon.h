@@ -51,9 +51,6 @@ public:
 	static Config::PimaxHeadsetConfig& GetHeadsetConfig();
 	static Config::PimaxHeadsetConfig& GetHeadsetConfigOld();
 	static Config::PimaxHeadsetConfig& GetHeadsetConfigDefault();
-	// Local dimming is not run from here and does not use this class. It runs in the process the DLL is
-	// injected into, on its own thread and with its own hidapi handles, so nothing on the per frame path
-	// drives it: see PimaxLocalDimming.
 	static std::shared_mutex pvrLock;
 protected:
 #ifdef PVR_EXISTS

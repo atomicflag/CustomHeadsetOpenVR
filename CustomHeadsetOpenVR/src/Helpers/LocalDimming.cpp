@@ -9,8 +9,6 @@ size_t ZoneIndex(int eye, int row, int col){
 	return static_cast<size_t>(eye) * ZonesPerEye + static_cast<size_t>(row) * GridCols + static_cast<size_t>(col);
 }
 
-// Only the response. The input is a grid byte, so there is nothing to clamp here: the clamp is pi_server's, on
-// its own input, on its side. A negative previous is a zone with nothing accepted yet, so the byte is the value.
 int ZoneValue(uint8_t blockLuminance, int previous){
 	int value = static_cast<int>(blockLuminance);
 
@@ -29,7 +27,7 @@ CaptureRegion CaptureRegionForEye(int width, int height, int eye){
 	int half = width / 2;
 	region.height = height;
 	if(eye == 1){
-		// the column an odd width leaves over goes to eye 1, so the two halves cover the texture exactly once
+		// the odd column left over by an odd width goes to eye 1, so the two halves cover the texture exactly once
 		region.x = half;
 		region.width = width - half;
 	}else{
@@ -50,15 +48,6 @@ static std::string BlockReduceDefines(){
 	return defines;
 }
 
-/*
- One thread per zone, one value per zone, written at the position ZoneIndex gives. HLSL has no single byte
- store on a raw buffer, so each zone gets a four byte slot and the CPU reads the low byte of it. The buffer is
- the whole grid, so the slots one eye's dispatch does not write are the other eye's half.
-
- On this host's shader compiler, against a texture of two slices with different values per slice, Load takes the
- array slice as its third component, so the coordinate is an int3 and the fourth component has to be left out.
- The confirmed texture has one slice, so the slice is 0.
-*/
 static const char* blockReduceBody = R"hlsl(
 
 RWTexture2DArray<uint4> source : register(u1);
@@ -72,7 +61,7 @@ cbuffer SampleData : register(b0){
 	int4 swizzle;  // channel index of R, G and B in the source's byte order
 };
 
-// the mirror of LocalDimming::ZoneIndex, fed by the defines the pure core generates
+// the same mapping as LocalDimming::ZoneIndex
 int ZoneIndex(int eye, int row, int col){
 	return eye * ZONES_PER_EYE + row * GRID_COLS + col;
 }
@@ -96,7 +85,7 @@ void main(uint3 id : SV_DispatchThreadID){
 		}
 	}
 
-	// the average the tested luminance weights give, in integer form
+	// the average of the luminance weights, in integer form
 	grid[ZoneIndex(eye, row, col)] = sum / (block.x * block.y);
 }
 )hlsl";
@@ -105,9 +94,6 @@ std::string BlockReduceSource(){
 	return BlockReduceDefines() + blockReduceBody;
 }
 
-// The report is always 1025 bytes, so the tail of a block shorter than the cap is the zero padding. The flags
-// are the two bits the confirmed path sets: 0x40 on the block that carries the whole remaining array, which is
-// the first, and 0x80 on the block that was not capped, which for the grid is the second.
 void BuildDataReport(std::array<uint8_t, DataReportSize>& report, const uint8_t* data, size_t length, int blockIndex, int blockCount){
 	report.fill(0);
 
@@ -138,7 +124,6 @@ std::array<uint8_t, CommandReportSize> BuildCommandReport(uint8_t cmd, uint8_t o
 	return report;
 }
 
-// little endian, which is the `cmd 86 opt 5 datalen 4` line the headset logs
 std::array<uint8_t, EntitlementPayloadSize> EntitlementPayload(uint32_t record){
 	return {
 		static_cast<uint8_t>(record & 0xFF),
@@ -148,7 +133,6 @@ std::array<uint8_t, EntitlementPayloadSize> EntitlementPayload(uint32_t record){
 	};
 }
 
-// the name, then the type byte 1 and the value, as 0x1402b8d20 builds it for ld_level
 std::array<uint8_t, LevelPayloadSize> LevelPayload(uint8_t value){
 	std::array<uint8_t, LevelPayloadSize> payload = {};
 	for(size_t i = 0; i < LevelPayloadSize - 2; i++){

@@ -128,9 +128,6 @@ public:
 		return std::nullopt;
 	}
 
-	// The local dimming HID path is not here. It runs in the process the DLL is injected into and owns its
-	// own handles, so the command handle below is not a fallback for it: see PimaxLocalDimming.
-
 	std::string GetSerial(uint8_t id){
 		std::vector<uint8_t> cmd = { 0x58, 0x04, 0x16, id, 0x20 };
 		auto data = SendCommandWithResult(cmd);

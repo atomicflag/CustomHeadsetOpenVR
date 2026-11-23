@@ -24,8 +24,6 @@
 
 #ifdef _WIN32
 #include "d3d11.h"
-// The interface versions the context can be called through. Each one is declared in its own header, and the
-// version's object comes from QueryInterface, so these are needed to read a version's own array.
 #include "d3d11_1.h"
 #include "d3d11_2.h"
 #include "d3d11_3.h"
@@ -59,22 +57,6 @@ _COM_Outptr_opt_  ID3D11PixelShader **ppPixelShader) = 0;
 static Hook<void(*)(ID3D11Device*, const void* pShaderBytecode, SIZE_T BytecodeLength, ID3D11ClassLinkage* pClassLinkage, ID3D11PixelShader** ppPixelShader)> 
 	CreatePixelShaderHook("ID3D11Device::CreatePixelShader");
 
-/*
- * Resolves the vtable offset a detour should be installed at instead of assuming the constant the original
- * scaffold recorded, and logs what the lookup answered. Two lookups are made because they answer different
- * questions:
- *
- *   - the scan compares the object's entries with the member pointer. For a COM interface method that can
- *     never match, because a pointer to a member is not an address: MSVC stores the address of the dispatch
- *     thunk it generates, so the scan answers -1 even when the offset is right.
- *   - the thunk itself says which slot a call through the member pointer dispatches through, which is the
- *     lookup that can actually confirm a constant. It is compiler specific, so it is a lookup rather than a
- *     proof.
- *
- * When nothing matches, the code says so plainly. It still installs the detour at the constant, because an
- * entry nothing is known about is not a wrong entry, and a hook that is not installed can never show a
- * call, which is the question the run is read against.
- */
 static int ResolveHookOffset(const char* name, void* object, const void* memberPointerBytes, size_t memberPointerSize, int constantOffset){
 	intptr_t memberPointerValue = 0;
 	if(memberPointerSize == sizeof(intptr_t)){
@@ -312,10 +294,6 @@ void LogShaderIdentifier(std::string identifierString, size_t length){
 
 int dumpId = 0;
 
-// The first call through each detour is logged once per process. Without these lines a run that produced
-// nothing cannot tell a function that is never called from a hook installed at the wrong vtable offset,
-// which is the whole question the next run is read against. The exchange is the guard, so no lock is taken
-// and every log call happens with nothing held.
 static std::atomic<bool> createPixelShaderFirstCallLogged{ false };
 static std::atomic<bool> copySubresourceRegionFirstCallLogged{ false };
 static std::atomic<bool> copyResourceFirstCallLogged{ false };
@@ -360,43 +338,16 @@ static void DetourCreatePixelShader(ID3D11Device* _this, const void* pShaderByte
 	CreatePixelShaderHook.originalFunc(_this, pShaderBytecode, BytecodeLength, pClassLinkage, ppPixelShader);
 }
 
-/*
- * The local dimming hook that is left. Runs 14 and 15 closed the render thread route: no draw detour and no
- * Flush detour ever fired, and the per interface version lookup showed all four versions answering to the same
- * object and the same array, so there is one cumulative array and nothing left to hook per version, and the
- * compositor's context is not the object that was hooked. A render target read cannot be reached from a draw
- * detour, so nothing is installed on the context any more: the four draw detours, the Flush detour and the two
- * copy detours are removed, because a hook that fires on every draw costs per frame even when it only decides
- * and returns, and the capture no longer depends on any of them. It reads the shared texture on the device its
- * own module created, on the local dimming thread.
- *
- * CreatePixelShader stays for the custom shader feature, and CreateTexture2D stays for the desc observation and
- * for the handle grab. Both are installed only when local dimming is on and both check the same setting at call
- * time, so a hook that is present but not wanted does nothing but pass the call on. The first call flag is an
- * atomic and the grab is done once for the first plausible desc.
- */
 typedef HRESULT(*CreateTexture2DFunction)(ID3D11Device*, const D3D11_TEXTURE2D_DESC* pDesc, const D3D11_SUBRESOURCE_DATA* pInitialData, ID3D11Texture2D** ppTexture2D);
 static Hook<CreateTexture2DFunction>
 	CreateTexture2DHook("ID3D11Device::CreateTexture2D");
 
-// Whether the object a detour fired on is the instance Initialize() hooked. The hook is installed on one object,
-// so a call that fires on a different object is a call on an instance this module has no hook on, which is a
-// different outcome than the hook not firing at all and is the other half of what a first call line answers. The
-// handle is grabbed for the resource the call that fired returned, so the same fact has to be readable on the
-// line that reports the grab: a first call from an unhooked instance names a device this module did not record.
 static bool IsHookedInstance(const void* hookedObject, const void* firingObject){
 	return hookedObject != nullptr && firingObject == hookedObject;
 }
 
 static std::atomic<bool> createTexture2DFirstPlausibleDescLogged{ false };
 
-/*
- * Resolves the offset for a detour that has no recorded constant, which is the hook added here. The dispatch
- * slot from the pointer-to-member is the only source. When it does not resolve, nothing is installed: an offset
- * nobody is sure of would make a first call line name a function that call is not a call to, which is worse than
- * no line at all. The scan is kept alongside the slot because it is the other half of the lookup the last run
- * used, and it is logged even though it cannot match a pointer-to-member.
- */
 static int ResolveLookupHookOffset(const char* name, void* object, const void* memberPointerBytes, size_t memberPointerSize){
 	intptr_t memberPointerValue = 0;
 	if(memberPointerSize == sizeof(intptr_t)){
@@ -417,12 +368,6 @@ static int ResolveLookupHookOffset(const char* name, void* object, const void* m
 	return offset;
 }
 
-/*
- * The install, with no per interface version step. Run 15 showed all four context versions answering to the same
- * object and the same array, so a call through any of them dispatches through the entry that is already hooked,
- * and there is nothing left to scan. The earlier runs were read against a per interface scan limit and an offset,
- * which are no longer decisions to make because there is no second array to choose an offset in.
- */
 template<class FuncType, class MemberPointerType>
 static void InstallLookupHook(Hook<FuncType>& hook, void* object, MemberPointerType memberPointer, FuncType detour){
 	unsigned char memberPointerBytes[sizeof(memberPointer)];
@@ -437,40 +382,16 @@ static void InstallLookupHook(Hook<FuncType>& hook, void* object, MemberPointerT
 	IHook::Register(&hook);
 }
 
-/*
- * The desc observation and the handle grab, which is the whole of the local dimming hook now. The desc line is the
- * one the runs already read, with the instance it fired on added, because the capture opens the handle on a device
- * of its own and a run has to be able to tell which device the desc came from.
- *
- * The grab is after the call that made the resource, once for the first plausible texture and once for a later
- * desc that names a different texture, which is the render resolution case: a texture is created once, so this is
- * once per texture and not per frame work on the hook thread. The capture records the handle, the desc and the
- * adapter, and it does not create anything or sample here; on a change it releases what it had open and opens the
- * new resource on its own device, which is one device call for one texture. QueryInterface and GetDesc are not
- * entries this module detours, so nothing in the grab comes back into the hook. When no capture is registered yet
- * the texture is not dropped: the capture keeps it with a reference and records it when the capture registers, so
- * the order between this hook being installed and the plugin object being created does not decide which texture a
- * run reads.
- */
 static HRESULT DetourCreateTexture2D(ID3D11Device* _this, const D3D11_TEXTURE2D_DESC* pDesc, const D3D11_SUBRESOURCE_DATA* pInitialData, ID3D11Texture2D** ppTexture2D){
 	if(!IsLocalDimmingEnabled()){
 		return CreateTexture2DHook.originalFunc(_this, pDesc, pInitialData, ppTexture2D);
 	}
 
-	// The flag is only set for a desc the helper accepts, so the line is the first plausible eye texture rather
-	// than the first texture of any size. The helper takes the format the runs observed, one mip level, and the
-	// bounds the layout needs, so neither a mipmapped resource nor a texture smaller than one pixel per zone
-	// reports as a plausible eye image. This module creates buffers and views, not textures, so the first line a
-	// run sees is a texture the compositor made.
 	bool plausibleDesc = pDesc != nullptr &&
 		LocalDimming::LooksLikeEyeTexture(static_cast<int>(pDesc->Width), static_cast<int>(pDesc->Height),
 			static_cast<int>(pDesc->MipLevels), static_cast<int>(pDesc->Format));
 
 	if(plausibleDesc && !createTexture2DFirstPlausibleDescLogged.exchange(true)){
-		// MiscFlags is the field that decides whether the route this design uses is open at all. A composited
-		// texture created shareable (D3D11_RESOURCE_MISC_SHARED 0x2, or the NT handle form 0x800) can be opened
-		// on another device, which is what the local dimming module does on its own thread. A desc without those
-		// flags cannot be opened anywhere else, and that is the outcome the grab line reports as a failure.
 		LocalDimmingLog("ID3D11Device::CreateTexture2D detour first plausible desc, hooked at vtable offset %d, %dx%d, array size %d, bind flags %d, usage %d, format %d, mips %d, misc flags %d, device this %p, is the instance Initialize() hooked %s",
 			CreateTexture2DHook.originalVTableOffset, static_cast<int>(pDesc->Width), static_cast<int>(pDesc->Height),
 			static_cast<int>(pDesc->ArraySize), static_cast<int>(pDesc->BindFlags), static_cast<int>(pDesc->Usage),
@@ -480,10 +401,6 @@ static HRESULT DetourCreateTexture2D(ID3D11Device* _this, const D3D11_TEXTURE2D_
 
 	HRESULT hr = CreateTexture2DHook.originalFunc(_this, pDesc, pInitialData, ppTexture2D);
 
-	// The record is not gated on the first plausible desc the way the line is: the render resolution option can
-	// change during a run, which makes the compositor create a new composited texture at a different size, so
-	// every plausible desc is passed to the capture. The capture does nothing for a desc it has already recorded,
-	// so this stays one event per texture rather than per frame work on the hook thread.
 	if(plausibleDesc && ppTexture2D != nullptr && *ppTexture2D != nullptr){
 		LocalDimmingCapture::RecordSharedTextureFromHook(*ppTexture2D);
 	}
@@ -1001,9 +918,7 @@ void ShaderReplacement::Initialize(){
 	}else{
 		DriverLog("ShaderReplacement::Initialize Successfully created D3D11 device and context");
 	}
-	// device->CreatePixelShader. This is the control: the hook is known to work in practice, so the line the
-	// lookup writes for it says whether the lookup and the hook mechanism are sound, separately from the
-	// capture hook.
+	// device->CreatePixelShader
 	auto createPixelShaderPmf = &ID3D11Device::CreatePixelShader;
 	unsigned char createPixelShaderBytes[sizeof(createPixelShaderPmf)];
 	memcpy(createPixelShaderBytes, &createPixelShaderPmf, sizeof(createPixelShaderBytes));
@@ -1014,27 +929,10 @@ void ShaderReplacement::Initialize(){
 	}
 	// }
 	
-	// Nothing is installed on the context any more, and this is the reason the capture moved off it. Runs 14 and
-	// 15 showed that the compositor's context is not the object this module hooked: the draw and Flush detours
-	// stayed silent while the device detours fired, and every interface version answered to the same array. The
-	// capture reads the shared texture on the device its own module created, on the local dimming thread, so the
-	// two copy detours, the four draw detours and the Flush detour are gone with this line. They are named here
-	// because their silence is what the earlier runs were read against, and a run that does start routing the eye
-	// image through a copy will show that in the desc line's bind flags, not in a first call line.
-
-	// The local dimming hook that is left, installed only when local dimming is on, so a user who has the feature
-	// off is not affected. The offset comes from the member pointer: for this one there is no recorded constant to
-	// check an offset against, so the dispatch slot is the only source and an unresolved lookup means the hook is
-	// not installed. There is no per interface version install, because run 15 showed one cumulative array.
 	if(IsLocalDimmingEnabled()){
-		// the template argument is written out because the hook's FuncType and the type of &Detour* deduce
-		// separately, and MSVC will not pick between them
 		InstallLookupHook<CreateTexture2DFunction>(CreateTexture2DHook, device, &ID3D11Device::CreateTexture2D, &DetourCreateTexture2D);
 	}
 
-	// The context this module created is not hooked and the capture does not use it, because it has its own device
-	// on the same adapter, created on the local dimming thread. The line is here so a run can tell this object
-	// from the one the capture creates, which is the difference the two sets of lines are read against.
 	DriverLog("ShaderReplacement::Initialize context %p is not hooked; the local dimming capture creates its own device and context on the local dimming thread", static_cast<const void*>(context));
 	
 	// DriverLog("ShaderReplacement::Initialize CopySubresourceRegion function pointer %p %p", (void (ID3D11DeviceContext::*)())&ID3D11DeviceContext::CopySubresourceRegion, CopySubresourceRegionHook.originalFunc);

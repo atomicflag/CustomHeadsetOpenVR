@@ -243,9 +243,7 @@ void CustomHeadsetDeviceProvider::RunFrame(){
 		}
 	}
 	if(!compositorPluginInjected && LocalDimming::ShouldInjectCompositorPlugin(IsCustomShaderEnabled(), IsLocalDimmingEnabled())){
-		// try to inject when either feature is first seen on. Local dimming needs the injected process even
-		// when the shader feature is off, because the capture hook that reads the compositor image runs in
-		// that process and not in vrserver.
+		// try to inject when it is first enabled
 		InjectCompositorPlugin();
 		compositorPluginInjected = true;
 	}

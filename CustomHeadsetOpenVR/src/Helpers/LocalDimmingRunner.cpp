@@ -15,15 +15,10 @@ bool Runner::RunFrame(){
 
 	std::array<uint8_t, ZonesPerEye> grid;
 	for(int eye = 0; eye < EyeCount; eye++){
-		// A frame with nothing to read is the source-less runner, which is the Linux case, or an eye whose last
-		// pair of reads did not agree.
 		if(gridSource == nullptr || !gridSource->ReadGrid(eye, grid)){
 			return false;
 		}
 
-		// The source gives one byte per zone in array order, and the GPU already has the block average, so the
-		// only work left here is the response, against the value this eye's last accepted frame had for that
-		// same zone.
 		for(int row = 0; row < GridRows; row++){
 			for(int col = 0; col < GridCols; col++){
 				size_t zone = static_cast<size_t>(row) * GridCols + col;
@@ -36,11 +31,10 @@ bool Runner::RunFrame(){
 		firstForEye[eye] = false;
 	}
 
-	int blockCount = static_cast<int>((payload.size() + DataChunk - 1) / DataChunk);   // 2 for the grid
+	int blockCount = static_cast<int>((payload.size() + DataChunk - 1) / DataChunk);
 	lastBlockCount = blockCount;
 
-	// The headset takes zone data only after the entitlement record and the level have been written, so both
-	// are retried until the write succeeds.
+	// the headset takes zone data only after the entitlement record and the level are written
 	if(!entitlementSent){
 		auto record = EntitlementPayload(EntitlementRecord);
 		entitlementSent = transport.SendCommand(BuildCommandReport(CmdControl, OptWrite, record.data(), record.size()));

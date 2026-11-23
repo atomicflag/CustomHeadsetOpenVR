@@ -51,7 +51,6 @@ struct StationaryDimmingConfig{
 };
 
 
-// The parsed config and the zone math use the same struct so the grid values cannot drift apart
 using LocalDimmingConfig = LocalDimming::Config;
 
 struct CustomShaderConfig{

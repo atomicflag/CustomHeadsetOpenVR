@@ -108,10 +108,7 @@ inline void* vtablehook_entry(void* instance, int offset) {
 
 /*
  * instance: pointer to an instance of a class
- * return: the array that instance dispatches through, which is the only thing that identifies which version
- * of an interface a call was made through. A COM object that implements several interface versions has one
- * array per version, so two objects answering to the same class can dispatch through different arrays.
- * Returns nullptr when the object has no vtable.
+ * return: the array that instance dispatches through, or nullptr when the object has no vtable
  */
 inline void* vtablehook_array(const void* instance){
 	if(!instance){
@@ -122,9 +119,7 @@ inline void* vtablehook_array(const void* instance){
 
 /*
  * instance: pointer to an instance of a class
- * expected: the entry to look for. This has to be a plain function pointer: a pointer to a member
- * function is not an address, so the bytes of &ID3D11DeviceContext::CopySubresourceRegion are never equal
- * to the entry that call dispatches through. Use vtablehook_member_slot for that case.
+ * expected: a plain function pointer, since a pointer to a member function is not an address
  * limit: how many entries to scan
  * return: the vtable offset holding expected, or -1 when nothing matches
  */
@@ -141,11 +136,9 @@ inline int vtablehook_find_offset(void* instance, void* expected, int limit) {
 }
 
 /*
- * memberPointer: the bytes of a pointer to a member function, copied into a buffer because a pointer to a
- * member has no type that can be compared with a vtable entry
+ * memberPointer: the bytes of a pointer to a member function
  * size: the size of those bytes
- * return: the vtable offset a call through that member pointer dispatches through, or -1 when the bytes are
- * not the shape this expects
+ * return: the vtable offset a call through that member pointer dispatches through, or -1 when the bytes are not the shape this expects
  */
 inline int vtablehook_member_slot(const void* memberPointer, size_t size) {
 	if(!memberPointer || size != sizeof(intptr_t)){
@@ -158,8 +151,7 @@ inline int vtablehook_member_slot(const void* memberPointer, size_t size) {
 	}
 
 #ifdef _MSC_VER
-	// MSVC x64 stores the address of the dispatch thunk it generates, not the entry. The thunk is
-	// `mov rax, [rcx]` followed by `jmp qword ptr [rax + disp]`, and disp / 8 is the slot.
+	// MSVC x64 stores the address of the dispatch thunk, and disp / 8 of it is the slot.
 	const unsigned char* code = (const unsigned char*)value;
 	if(code[0] != 0x48 || code[1] != 0x8b || code[2] != 0x01 || code[3] != 0xff){
 		return -1;

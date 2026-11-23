@@ -9,8 +9,6 @@
 bool initialized = false;
 std::mutex initMutex;
 ShaderReplacement shaderReplacement;
-// The only owner of local dimming. It has to be created in this process, because the image it reads only
-// exists here: the hook that sees the compositor's per eye copy is installed in this copy of the DLL.
 std::unique_ptr<PimaxLocalDimming> localDimming;
 
 // initialize the shader replacement
@@ -29,10 +27,6 @@ void Initialize(){
 	// beware this blocks for a while to ensure shaders get reloaded
 	shaderReplacement.Initialize();
 
-	// Local dimming runs here rather than on the headset's per frame path. The gate is its own setting, so a
-	// run with custom shaders off still gets the capture: the copy hook is installed by ShaderReplacement
-	// either way, and the runner needs its own thread because the plugin interface has no per frame
-	// callback and HID writes do not belong on the render thread.
 	if(IsLocalDimmingEnabled()){
 		Config::PimaxHeadsetConfig* headset = LocalDimmingConfigForConnectedHeadset();
 		if(headset == nullptr){
