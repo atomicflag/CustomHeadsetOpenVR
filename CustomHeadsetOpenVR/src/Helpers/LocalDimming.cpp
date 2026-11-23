@@ -15,10 +15,23 @@ int ZoneValue(uint8_t blockLuminance, int previous){
 	if(previous < 0){
 		return value;
 	}
-	if(std::abs(value - previous) <= ZoneSmoothDeadband){
+
+	int error = value - previous;
+
+	if(std::abs(error) <= ZoneSmoothDeadband && value != 0 && value != 255){
 		return previous;
 	}
-	return (ZoneSmoothWeight * previous + value) / (ZoneSmoothWeight + 1);
+	if(error == 0){
+		return previous;
+	}
+
+	// a zone that is not at its target always moves, one half of the error or one step
+	int step = error / 2;
+	if(step == 0){
+		step = (error > 0) ? 1 : -1;
+	}
+
+	return previous + step;
 }
 
 CaptureRegion CaptureRegionForEye(int width, int height, int eye){
