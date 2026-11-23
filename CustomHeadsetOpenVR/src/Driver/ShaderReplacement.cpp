@@ -389,7 +389,7 @@ static HRESULT DetourCreateTexture2D(ID3D11Device* _this, const D3D11_TEXTURE2D_
 
 	bool plausibleDesc = pDesc != nullptr &&
 		LocalDimming::LooksLikeEyeTexture(static_cast<int>(pDesc->Width), static_cast<int>(pDesc->Height),
-			static_cast<int>(pDesc->MipLevels), static_cast<int>(pDesc->Format));
+			static_cast<int>(pDesc->MipLevels), static_cast<int>(pDesc->Format), static_cast<int>(pDesc->MiscFlags));
 
 	if(plausibleDesc && !createTexture2DFirstPlausibleDescLogged.exchange(true)){
 		LocalDimmingLog("ID3D11Device::CreateTexture2D detour first plausible desc, hooked at vtable offset %d, %dx%d, array size %d, bind flags %d, usage %d, format %d, mips %d, misc flags %d, device this %p, is the instance Initialize() hooked %s",

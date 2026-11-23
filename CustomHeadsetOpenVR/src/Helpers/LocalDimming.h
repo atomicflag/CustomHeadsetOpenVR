@@ -85,7 +85,9 @@ bool MatchesNodeLabel(const std::string& path, const std::string& label);
 constexpr int MinEyeImageWidth = 2 * GridCols;
 constexpr int MinEyeImageHeight = GridRows;
 constexpr int EyeTextureMipLevels = 1;
-bool LooksLikeEyeTexture(int width, int height, int mips, int format);
+constexpr int MiscFlagsShared = 2;
+// a desc is the eye texture when it is the shared one image that holds both eyes side by side
+bool LooksLikeEyeTexture(int width, int height, int mips, int format, int miscFlags);
 
 bool ShouldInjectCompositorPlugin(bool customShaderEnabled, bool localDimmingEnabled);
 

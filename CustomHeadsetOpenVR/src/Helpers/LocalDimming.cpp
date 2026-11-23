@@ -152,11 +152,11 @@ bool MatchesNodeLabel(const std::string& path, const std::string& label){
 	return lower.find(label) != std::string::npos;
 }
 
-bool LooksLikeEyeTexture(int width, int height, int mips, int format){
-	if(format != TextureFormat || mips != EyeTextureMipLevels){
+bool LooksLikeEyeTexture(int width, int height, int mips, int format, int miscFlags){
+	if(format != TextureFormat || mips != EyeTextureMipLevels || (miscFlags & MiscFlagsShared) == 0){
 		return false;
 	}
-	return width >= MinEyeImageWidth && height >= MinEyeImageHeight;
+	return width >= MinEyeImageWidth && height >= MinEyeImageHeight && width >= 2 * height;
 }
 
 bool ShouldInjectCompositorPlugin(bool customShaderEnabled, bool localDimmingEnabled){

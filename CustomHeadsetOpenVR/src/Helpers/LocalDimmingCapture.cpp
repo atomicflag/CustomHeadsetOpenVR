@@ -246,20 +246,13 @@ void SharedTextureCapture::RecordTexture(ID3D11Texture2D* texture){
 		uint64_t handle = GrabSharedHandle(texture, route);
 
 		recorded.handle = handle;
-		recorded.haveHandle = handle != 0;
 
 		if(firstTexture){
-			if(recorded.haveHandle){
-				LocalDimmingLog(
-					"LocalDimmingCapture: shared handle grabbed for the first plausible texture, handle %llu, %s, desc %dx%d, array size %d, bind flags %d, usage %d, format %d, mips %d, misc flags %d, read through the unordered access view on the shared texture, adapter %p recorded for this module's own device",
-					static_cast<unsigned long long>(recorded.handle), route.c_str(), recorded.width, recorded.height,
-					recorded.arraySize, recorded.bindFlags, recorded.usage, recorded.format, recorded.mips,
-					recorded.miscFlags, static_cast<const void*>(adapter));
-			}else{
-				LocalDimmingLog(
-					"LocalDimmingCapture: shared handle grab failed, %s, handle 0, desc %dx%d, array size %d, bind flags %d, misc flags %d, so the capture has nothing to open on its own device and nothing can be read back",
-					route.c_str(), recorded.width, recorded.height, recorded.arraySize, recorded.bindFlags, recorded.miscFlags);
-			}
+			LocalDimmingLog(
+				"LocalDimmingCapture: shared handle grabbed for the first plausible texture, handle %llu, %s, desc %dx%d, array size %d, bind flags %d, usage %d, format %d, mips %d, misc flags %d, read through the unordered access view on the shared texture, adapter %p recorded for this module's own device",
+				static_cast<unsigned long long>(recorded.handle), route.c_str(), recorded.width, recorded.height,
+				recorded.arraySize, recorded.bindFlags, recorded.usage, recorded.format, recorded.mips,
+				recorded.miscFlags, static_cast<const void*>(adapter));
 		}else{
 			LocalDimmingLog(
 				"LocalDimmingCapture: the texture the capture reads changed, desc %dx%d became %dx%d, handle %llu, %s, so the opened texture and the per-eye views are released and recreated for the new resource",
@@ -269,7 +262,7 @@ void SharedTextureCapture::RecordTexture(ID3D11Texture2D* texture){
 
 		if(!firstTexture){
 			ReleaseOpenedResources();
-			if(recorded.haveHandle && device != nullptr){
+			if(device != nullptr){
 				OpenSharedTexture();
 			}
 		}
@@ -311,10 +304,6 @@ bool SharedTextureCapture::EnsureDevice(){
 bool SharedTextureCapture::OpenSharedTexture(){
 	if(openedTexture != nullptr){
 		return true;
-	}
-
-	if(!recorded.haveHandle){
-		return false;
 	}
 
 	ID3D11Texture2D* opened = nullptr;
@@ -498,16 +487,6 @@ bool SharedTextureCapture::ReadGrid(int eye, std::array<uint8_t, LocalDimming::Z
 
 bool SharedTextureCapture::SampleEye(int eye){
 	EyeState& state = eyes[eye];
-
-	if(!recorded.haveHandle){
-		if(!state.loggedFailure){
-			state.loggedFailure = true;
-			LocalDimmingLog(
-				"LocalDimmingCapture eye %d: read attempted with no shared handle recorded, so the hook has not grabbed a handle for the texture the compositor made",
-				eye);
-		}
-		return false;
-	}
 
 	if(!EnsureDevice()){
 		return false;

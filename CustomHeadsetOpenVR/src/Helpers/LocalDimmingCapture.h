@@ -18,7 +18,6 @@ namespace LocalDimmingCapture{
 // plain ints and one 64 bit handle, so no D3D11 type crosses between the hook thread and the local dimming thread
 struct RecordedTexture{
 	uint64_t handle = 0;
-	bool haveHandle = false;
 	int width = 0;
 	int height = 0;
 	int arraySize = 0;
